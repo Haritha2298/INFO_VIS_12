@@ -1,4 +1,5 @@
 
+
 //MAPBOX.JS
 mapboxgl.accessToken = 'pk.eyJ1Ijoibmlsc2xlaCIsImEiOiJjazczNHVscGwwOG12M3BqdDZieHJhMW82In0.c-i1H2T6u3vjmj4WY_D2mA'
     
@@ -6,84 +7,102 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoibmlsc2xlaCIsImEiOiJjazczNHVscGwwOG12M3BqdDZie
 var map = new mapboxgl.Map({
   container: 'map', // container id
   style: 'mapbox://styles/mapbox/streets-v11',
-  center: [-0.1,51.5119112],
+  center: [4.89, 52.366],
+    //-0.1,51.5119112],
   zoom: 13.5,   
 });
+
+var Draw = new MapboxDraw();
+
+map.addControl(Draw, 'top-left');
+
+//try the addLayer method from mapbox
+map.on('load', function() {
+  map.addSource('points', {
+    'type': 'geojson',
+    'data': '/static/solarPanels.json',
+  })
+map.addLayer({
+  'id': 'points',
+  'type': 'circle',
+  'source': 'points'
+  })
+});
+
 
 map.addControl(new mapboxgl.NavigationControl());
 map.scrollZoom.disable();
 
-// Setup our svg layer that we can manipulate with d3
-var container = map.getCanvasContainer()
-var svg = d3.select(container).append("svg").attr("width", 700).attr("height", 600)
+/////// Load data from csv file /////
+// // Setup our svg layer that we can manipulate with d3
+// var container = map.getCanvasContainer()
+// var svg = d3.select(container).append("svg").attr("width", 700).attr("height", 600)
 
-function project(d) {
-  console.log("project function is called");
-  return map.project(getLL(d));
-}
-function getLL(d) {
-  return new mapboxgl.LngLat(+d.lon, +d.lat);
-}
+// function project(d) {
+//   console.log("project function is called");
+//   return map.project(getLL(d));
+// }
+// function getLL(d) {
+//   return new mapboxgl.LngLat(+d.lon, +d.lat);
+// }
 
-var csv_test = URL.createObjectURL(new Blob([
-  `foo,bar,baz
-12,43,21
-45,54,21
-87,13,17
-98,69,17`
-]));
 
-// 522, 353
-// var single_dot = svg.selectAll("circle").attr("r", 20).attr("cx", 522).attr("cy", 353).style({
-//   fill: "#0082a3"
-//   });
+// // 522, 353
+// // var single_dot = svg.selectAll("circle").attr("r", 20).attr("cx", 522).attr("cy", 353).style({
+// //   fill: "#0082a3"
+// //   });
 
-// "/static/testDots.csv"
-d3.csv("/static/testDots.csv").then(function(data) {
-  console.log("File is found")
-  console.log(data)
-  console.log("File should have been found")
-  var dots = svg.selectAll("circle");
+// // "/static/testDots.csv"
+// d3.csv("/static/testDots.csv").then(function(data) {
+//   console.log("File is found")
+//   console.log(data)
+//   console.log("File should have been found")
+//   var dots = svg.selectAll("circle");
 
-  dots = dots.data(data).enter().append("circle").attr("class", "dot")
-  dots
-  .attr("r", 10)
-  .style({
-    fill: "#0082a3"
-    });
+//   dots = dots.data(data).enter().append("circle").attr("class", "dot")
+//   dots
+//   .attr("r", 10)
+//   .style({
+//     fill: "#0082a3"
+//     });
 
-    function render() {
-      console.log("Render function is called");
-      dots
-      .attr("cx", function(d) {
-        var x = project(d).x;
-        console.log(x)
-        return x
-      })
-      .attr("cy", function(d) {
-        var y = project(d).y;
-        console.log(y)
-        return y
-      })
-    }
+//     function render() {
+//       console.log("Render function is called");
+//       dots
+//       .attr("cx", function(d) {
+//         var x = project(d).x;
+//         console.log(x)
+//         return x
+//       })
+//       .attr("cy", function(d) {
+//         var y = project(d).y;
+//         console.log(y)
+//         return y
+//       })
+//     }
 
-    // re-render viz when view changes
-    map.on("viewreset", function() {
-      render()
-    })
-    map.on("move", function() {
-      render()
-    })
+//     // re-render viz when view changes
+//     map.on("viewreset", function() {
+//       render()
+//     })
+//     map.on("move", function() {
+//       render()
+//     })
 
-    // render initial viz
-    render()
-  })
-  .catch(function(error){
-    // handle error if it is caught
-    if (error){
-      console.log(error)  
-    }  
-  })
+//     // render initial viz
+//     render()
+//   })
+//   .catch(function(error){
+//     // handle error if it is caught
+//     if (error){
+//       console.log(error)  
+//     }  
+//   })
+
+
+
+
+
   // if(data.length === 0){
   //   console.log("File empty")
   // }
