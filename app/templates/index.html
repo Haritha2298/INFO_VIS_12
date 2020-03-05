@@ -7,7 +7,7 @@
   
   <!-- Build your select: -->
   <select id='dropdown-menu' class='selectpicker' multiple data-live-search="true">
-    <option value="bridge.json">Bridges</option>
+    <!-- <option value="bridge.json">Bridges</option>
     <option value="building.json">Buildings</option>
     <option value="bus_stop.json">Bus Stops</option>
     <option value="high_voltage_pylon.json">High Voltage Pylons</option>
@@ -22,14 +22,29 @@
     <option value="tram_stop.json">Tram Stops</option>
     <option value="trash.json">Trash</option>
     <option value="tree.json">Trees</option>
-    <option value="wind_turbine.json">Wind Turbines</option>
+    <option value="wind_turbine.json">Wind Turbines</option> -->
+    <option value="metroStops">Metro Stops</option>
+    <option value="solarPoints">Solar Panels</option>
+    <option value="turf_points">Turf Points</option>
   </select>
+  
+  <!-- <input type="button" id='submit' value="Submit" onclick="getSelectValues()"/> -->
+  <!-- <button value="Submit" onclick="
+      var el = document.getElementByTagName('select')[0];
+      console.log(getSelectValues(el))";>
+  </button> -->
+  <input type="button" value="submit" onclick="
+      var el = document.getElementById('dropdown-menu');
+      var datasets = getSelectValues(el);
+      displayLayers(datasets);"/>
   <!-- Initialize the plugin: -->
   <script type="text/javascript">
   $('select').selectpicker();
   </script>
 
+
   <pre id='cordInfo'></pre>
+  <nav id="menu"></nav>
   <div id='map'></div>
   <script type="text/javascript" src="../static/js/amsterdam.js"></script>
     

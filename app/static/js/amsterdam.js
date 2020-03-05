@@ -12,26 +12,194 @@ var map = new mapboxgl.Map({
   zoom: 13.5,   
 });
 
-var Draw = new MapboxDraw();
+var draw = new MapboxDraw({ 
+  displayControlsDefault: false,
+  controls: {
+    polygon: true,
+    trash: true
+  }
+});
 
-map.addControl(Draw, 'top-left');
+map.addControl(draw, 'top-left');
+
+var turf_points = turf.points([
+  [4.887, 52.3726],
+  [4.892, 52.3722],
+  [4.891, 52.3726],
+  [4.889, 52.3722],
+  [4.89, 52.3726]
+]);
 
 //try the addLayer method from mapbox
 map.on('load', function() {
-  map.addSource('points', {
+
+  // solar panels
+  map.addSource('solarPoints', {
     'type': 'geojson',
-    'data': '/static/solarPanels.json',
-  })
-map.addLayer({
-  'id': 'points',
+    'data': 'static/data/solarPanels.json',
+  });
+  map.addLayer({
+  'id': 'solarPoints',
+  'type': 'symbol',
+  'source': 'solarPoints',
+  'layout': {
+    'visibility': 'none',
+    'icon-image': 'rocket-15',
+    'icon-allow-overlap': true
+  },
+  });
+
+  //Metro Stops
+  map.addSource('metroStops', {
+    'type': 'geojson',
+    'data': 'static/data/metro_stops.json',
+  });
+  map.addLayer({
+  'id': 'metroStops',
   'type': 'circle',
-  'source': 'points'
-  })
+  'source': 'metroStops',
+  'layout': {
+    'visibility': 'none',
+    //'icon-image': 'marker-15',
+    //'icon-allow-overlap': true
+  },
+  'paint': {
+    'circle-radius': 5,
+    'circle-color': 'red',
+    'circle-opacity': 1
+  }
+  });
+
+
+
+  // Draw all points 
+  map.addLayer({
+    'id': 'turf_points',
+    'type': 'symbol',
+    'source': {
+      'type': 'geojson',
+      'data': turf_points
+    },
+    'layout': {
+      //'icon-image': 'monument-15',
+      'visibility': 'none',
+      'icon-image': 'bicycle-15',
+      'icon-allow-overlap': true
+    }
+    // ,
+    // 'paint': {
+    //   'circle-radius': 5,
+    //   'circle-color': 'red',
+    //   'circle-opacity': 1
+    // }
+  });
+
 });
+
 
 
 map.addControl(new mapboxgl.NavigationControl());
 map.scrollZoom.disable();
+
+// gget draw features to find the coordinates of the drawn polygon
+map.on('draw.create', find_coordinates);
+
+function find_coordinates() {
+  var data = draw.getAll();
+  console.log("Coordinates of drawn box are")
+  console.log(data.features[0].geometry.coordinates[0]);
+  var polygonCoord = data.features[0].geometry.coordinates[0];
+  var polygon = turf.polygon(
+    [polygonCoord]
+  );
+  d3.json('/static/data/solarPanels.json').then(function(data) {
+    var solarCoord = data;
+  
+  console.log(solarCoord);
+  var markerWithin = turf.pointsWithinPolygon(solarCoord, polygon);
+
+  console.log("Found: " + markerWithin.features.length + " points");
+  });
+}
+
+// gets the values from the dropdown menu
+console.log("Before select vlaue function");
+function getSelectValues(select) {
+  console.log("Select Function called");
+  console.log(select);
+  var result = [];
+  var options = select && select.options;
+  console.log(options);
+  var opt;
+  for (var i=0, iLen=options.length; i<iLen; i++ ) {
+    opt = options[i];
+    if ( opt.selected ) {
+      result.push(opt.value || opt.text);
+    }
+  }
+  return result;
+};
+
+// adjusts the layers specified in the dropdown
+const availableOptions = ["turf_points", "solarPoints", "metroStops"];
+
+function displayLayers (datasetList){
+  let difference = availableOptions.filter(x => !datasetList.includes(x));
+
+  console.log(datasetList)
+
+  // visibility for selected Layers
+  for (var i=0; i < datasetList.length; i++)
+  {
+    selected_visible = datasetList[i];
+    //var visibility = map.getLayoutProperty(selected_visible, 'visibility');
+    map.setLayoutProperty(selected_visible, 'visibility', 'visible');
+    // if(visibility === 'visible') {
+    //   map.setLayoutProperty(selected_id, 'visibility', 'none');
+    // }
+    //  else {
+    //   map.setLayoutProperty(selected_id, 'visibility', 'visible')
+    // }
+  };
+
+  // all nont selected layers are set to none
+  for (var j=0; j < difference.length; j++)
+  {
+    selected_not_visible = difference[j];
+    map.setLayoutProperty(selected_not_visible, 'visibility', 'none');
+  }
+  console.log("Finished Display Layers");
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Display coordinates with mouse hover
+map.on('mousemove', function(e) {
+  document.getElementById('cordInfo').innerHTML =
+    JSON.stringify(e.point) + 
+    '<br />' +
+    JSON.stringify(e.lngLat.wrap());
+});
+
+
+
+
+
+
+
+
+
+
 
 /////// Load data from csv file /////
 // // Setup our svg layer that we can manipulate with d3
@@ -109,14 +277,6 @@ map.scrollZoom.disable();
   //console.log("error:", error)
   
 //var marker = new mapboxgl.Marker().setLngLat([4.8950, 52.37]).addTo(map);
-
-// Display coordinates with mouse hover
-map.on('mousemove', function(e) {
-  document.getElementById('cordInfo').innerHTML =
-    JSON.stringify(e.point) + 
-    '<br />' +
-    JSON.stringify(e.lngLat.wrap());
-});
 
 // // add svg element to leaflet overlay pane
 // var svg = d3.select(map.getPanes().overlayPane).append("svg");
