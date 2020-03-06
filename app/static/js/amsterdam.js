@@ -22,15 +22,9 @@ var draw = new MapboxDraw({
 
 map.addControl(draw, 'top-left');
 
-var turf_points = turf.points([
-  [4.887, 52.3726],
-  [4.892, 52.3722],
-  [4.891, 52.3726],
-  [4.889, 52.3722],
-  [4.89, 52.3726]
-]);
 
-//try the addLayer method from mapbox
+
+// when map loads add layers
 map.on('load', function() {
 
    // add polygon neighborhoods outlines
@@ -59,6 +53,7 @@ map.on('load', function() {
     'clusterRadius': 50,
   });
 
+  // clusters for solar points 
   map.addLayer({
     id: 'cluster-solar',
     type: 'circle',
@@ -84,6 +79,7 @@ map.on('load', function() {
     }
   });
 
+  // cluster count number solar points
   map.addLayer({
     id: 'cluster-count-solar',
     type: 'symbol',
@@ -96,6 +92,7 @@ map.on('load', function() {
     }
   });
 
+  // solar panels symbol itself
   map.addLayer({
   'id': 'solarPanels',
   'type': 'symbol',
@@ -138,6 +135,16 @@ map.addControl(new mapboxgl.NavigationControl());
 map.doubleClickZoom.disable();
 map.scrollZoom.disable();
 
+// change cursor when hovering over amsterdam neighborhoods
+map.on('mouseenter', 'amsterdam-layer', function() {
+  map.getCanvas().style.cursor = 'pointer';
+});
+
+// change cursor back to normal when not hovering over amsterdam neighborhoods
+map.on('mouseleave', 'amsterdam-layer', function() {
+  map.getCanvas().style.cursor = '';
+}) ;
+
 // Display coordinates with mouse hover
 map.on('mousemove', function(e) {
   document.getElementById('cordInfo').innerHTML =
@@ -146,9 +153,8 @@ map.on('mousemove', function(e) {
     JSON.stringify(e.lngLat.wrap());
 });
 
-// gget draw features to find the coordinates of the drawn polygon
-//map.on('draw.create', find_coordinates);
 
+// when dropdown selection is made, this function creates an object which contains counts per selection from dropdown
 function createDrawnPolygon(dropdownSelection) {
   var data = draw.getAll();
   var complete_count = {};
@@ -164,6 +170,7 @@ function createDrawnPolygon(dropdownSelection) {
   return complete_count;
 };
 
+// when neighborhood is clicked, this function creates and object containing the count for the neighborhood
 function neighborhoodPolygon(coordinates, dropdownSelection, neighborhoodName) {
   console.log("Coordinates in neighborhood polygon");
   console.log(coordinates[0]);
@@ -175,23 +182,7 @@ function neighborhoodPolygon(coordinates, dropdownSelection, neighborhoodName) {
   return complete_count;
 };
 
-// function find_coordinates(dropdownSelection) {
-//   // var data = draw.getAll();
-//   // var complete_count = {};
-//   // for (m=0; m<data.features.length; m++) {
-//   //   var polygonCoord = data.features[m].geometry.coordinates[0];
-//   //   var polygon = turf.polygon(
-//   //     [polygonCoord]
-//   //   );
-//   //   var num_features = countFeatures(polygon, dropdownSelection);
-//   //   console.log('Polygon'+ m.toString());
-//   //   complete_count['Polygon' + m.toString()] = num_features;
-//   // };
-//   console.log("Complete Result");
-//   console.log(complete_count);
-//   return complete_count
-// }
-
+// function to do the actual counting for neighborhoods and self drawn polygons
 function countFeatures(polygon, selectedFeatures) {
   var key = selectedFeatures;
   var counts_array = [];
@@ -207,7 +198,6 @@ function countFeatures(polygon, selectedFeatures) {
   });
   return counts_object
 };
-
 
 // gets the values from the dropdown menu
 function getSelectValues(select) {
@@ -236,12 +226,6 @@ function displayLayers (datasetList){
     selected_visible = datasetList[n];
     //var visibility = map.getLayoutProperty(selected_visible, 'visibility');
     map.setLayoutProperty(selected_visible, 'visibility', 'visible');
-    // if(visibility === 'visible') {
-    //   map.setLayoutProperty(selected_id, 'visibility', 'none');
-    // }
-    //  else {
-    //   map.setLayoutProperty(selected_id, 'visibility', 'visible')
-    // }
   };
 
   // all nont selected layers are set to none
@@ -257,15 +241,7 @@ function displayLayers (datasetList){
 ////// POPUP FOR THE NEIGHBORHOOD WITH MODAL///////
 
 map.on('dblclick', 'amsterdam-layer', function(e) {
-  // new mapboxgl.Popup()
-  //   .setLngLat(e.lngLat)
-  //   .setMaxWidth('200')
-  //   //.setHTML(e.features[0].properties.name)
-  //   .setHTML("<svg width='50' height='50'> <circle cx='25' cy='25' r='25' fill='purple' /></svg>")
-  //   .addTo(map);
 
-  // get coordinates from clicked neighborhood and create polygon to count features
-  // within that polygon
   var coordinates = e.features[0].geometry.coordinates;
   var neighborhoodName = e.features[0].properties.name;
   
@@ -301,15 +277,6 @@ map.on('dblclick', 'amsterdam-layer', function(e) {
   console.log("Modal should appear")
 });
 
-// change cursor when hovering over amsterdam neighborhoods
-map.on('mouseenter', 'amsterdam-layer', function() {
-  map.getCanvas().style.cursor = 'pointer';
-});
-
-// change cursor back to normal when not hovering over amsterdam neighborhoods
-map.on('mouseleave', 'amsterdam-layer', function() {
-  map.getCanvas().style.cursor = '';
-}) ;
 
 ////// POPUP FOR THE NEIGHBORHOOD WITH MODAL///////
 
