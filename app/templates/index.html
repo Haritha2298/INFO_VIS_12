@@ -23,9 +23,8 @@
     <option value="trash.json">Trash</option>
     <option value="tree.json">Trees</option>
     <option value="wind_turbine.json">Wind Turbines</option> -->
-    <option value="metroStops">Metro Stops</option>
-    <option value="solarPoints">Solar Panels</option>
-    <option value="turf_points">Turf Points</option>
+    <option value="metro_stops">Metro Stops</option>
+    <option value="solarPanels">Solar Panels</option>
   </select>
   
   <!-- <input type="button" id='submit' value="Submit" onclick="getSelectValues()"/> -->
@@ -33,10 +32,34 @@
       var el = document.getElementByTagName('select')[0];
       console.log(getSelectValues(el))";>
   </button> -->
-  <input type="button" value="submit" onclick="
+  <input type="button" value="Submit" onclick="
       var el = document.getElementById('dropdown-menu');
       var datasets = getSelectValues(el);
       displayLayers(datasets);"/>
+
+  <input type="button" value="Finished Drawing Polygons" onclick="
+      openPolygonModal();"/>
+
+  <!-- The Neighborhood Modal -->
+  <div id="neighborhood-modal" class="modal">
+    <div class="modal-content">
+      <span id="neighborhoodX" class="close">&times;</span>
+      <div class="modal-body" id="neighborhood-body">
+        <p> Neighborhood Data</p>  
+      </div>
+    </div>
+  </div>
+
+  <!-- The Polygon Draw Modal -->
+  <div id="polygon-modal" class="modal">
+    <div class="modal-content">
+      <span id="polygonX" class="close">&times;</span>
+      <div class="modal-body" id="polygon-body">
+        
+      </div>
+    </div>
+  </div>
+
   <!-- Initialize the plugin: -->
   <script type="text/javascript">
   $('select').selectpicker();

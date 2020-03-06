@@ -9,7 +9,7 @@ var map = new mapboxgl.Map({
   style: 'mapbox://styles/mapbox/streets-v11',
   center: [4.89, 52.366],
     //-0.1,51.5119112],
-  zoom: 13.5,   
+  zoom: 12,   
 });
 
 var draw = new MapboxDraw({ 
@@ -33,15 +33,74 @@ var turf_points = turf.points([
 //try the addLayer method from mapbox
 map.on('load', function() {
 
+   // add polygon neighborhoods outlines
+   map.addSource('amsterdam-layer', {
+    'type': 'geojson',
+    'data': 'static/data/amsterdam.json',
+  });
+  map.addLayer({
+    'id': 'amsterdam-layer',
+    'type': 'fill',
+    'source': 'amsterdam-layer',
+    'layout': {
+      'visibility': 'visible'
+    },
+    'paint': {
+      'fill-color': 'rgba(3, 157, 252, 0.2)',
+      'fill-outline-color': 'rgba(0, 0, 0, 1)'
+    }
+  });
+
   // solar panels
   map.addSource('solarPoints', {
     'type': 'geojson',
     'data': 'static/data/solarPanels.json',
+    'cluster': true,
+    'clusterRadius': 50,
   });
+
   map.addLayer({
-  'id': 'solarPoints',
+    id: 'cluster-solar',
+    type: 'circle',
+    source: 'solarPoints',
+    filter: ['has', 'point_count'],
+    paint:{
+      'circle-color': [
+        'step',
+        ['get', 'point_count'],
+        '#51bbd6',
+        10,
+        '#f1f075',
+        50,
+        '#f28cb1'
+      ],
+      'circle-radius': [
+        'step',
+        ['get', 'point_count'],
+        20,10,
+        30,50,
+        40
+      ]
+    }
+  });
+
+  map.addLayer({
+    id: 'cluster-count-solar',
+    type: 'symbol',
+    source: 'solarPoints',
+    filter: ['has', 'point_count'],
+    layout: {
+      'text-field': '{point_count_abbreviated}',
+      'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+      'text-size': 12
+    }
+  });
+
+  map.addLayer({
+  'id': 'solarPanels',
   'type': 'symbol',
   'source': 'solarPoints',
+  'filter': ['!', ['has', 'point_count']],
   'layout': {
     'visibility': 'none',
     'icon-image': 'rocket-15',
@@ -55,7 +114,7 @@ map.on('load', function() {
     'data': 'static/data/metro_stops.json',
   });
   map.addLayer({
-  'id': 'metroStops',
+  'id': 'metro_stops',
   'type': 'circle',
   'source': 'metroStops',
   'layout': {
@@ -71,67 +130,92 @@ map.on('load', function() {
   });
 
 
-
-  // Draw all points 
-  map.addLayer({
-    'id': 'turf_points',
-    'type': 'symbol',
-    'source': {
-      'type': 'geojson',
-      'data': turf_points
-    },
-    'layout': {
-      //'icon-image': 'monument-15',
-      'visibility': 'none',
-      'icon-image': 'bicycle-15',
-      'icon-allow-overlap': true
-    }
-    // ,
-    // 'paint': {
-    //   'circle-radius': 5,
-    //   'circle-color': 'red',
-    //   'circle-opacity': 1
-    // }
-  });
-
 });
 
 
 
 map.addControl(new mapboxgl.NavigationControl());
+map.doubleClickZoom.disable();
 map.scrollZoom.disable();
 
+// Display coordinates with mouse hover
+map.on('mousemove', function(e) {
+  document.getElementById('cordInfo').innerHTML =
+    JSON.stringify(e.point) + 
+    '<br />' +
+    JSON.stringify(e.lngLat.wrap());
+});
+
 // gget draw features to find the coordinates of the drawn polygon
-map.on('draw.create', find_coordinates);
+//map.on('draw.create', find_coordinates);
 
-function find_coordinates() {
+function createDrawnPolygon(dropdownSelection) {
   var data = draw.getAll();
-  console.log("Coordinates of drawn box are")
-  console.log(data.features[0].geometry.coordinates[0]);
-  var polygonCoord = data.features[0].geometry.coordinates[0];
-  var polygon = turf.polygon(
-    [polygonCoord]
-  );
-  d3.json('/static/data/solarPanels.json').then(function(data) {
-    var solarCoord = data;
-  
-  console.log(solarCoord);
-  var markerWithin = turf.pointsWithinPolygon(solarCoord, polygon);
+  var complete_count = {};
+  for (m=0; m<data.features.length; m++) {
+    var polygonCoord = data.features[m].geometry.coordinates[0];
+    var polygon = turf.polygon(
+      [polygonCoord]
+    );
+    console.log('Polygon'+ m.toString());
+    complete_count['Polygon' + m.toString()] = countFeatures(polygon, dropdownSelection);
+  };
+  console.log(complete_count);
+  return complete_count;
+};
 
-  console.log("Found: " + markerWithin.features.length + " points");
+function neighborhoodPolygon(coordinates, dropdownSelection, neighborhoodName) {
+  console.log("Coordinates in neighborhood polygon");
+  console.log(coordinates[0]);
+  var complete_count = {};
+  var hoodPolygon = turf.polygon(
+    [coordinates[0]]
+  );
+  complete_count[neighborhoodName] = countFeatures(hoodPolygon, dropdownSelection);
+  return complete_count;
+};
+
+// function find_coordinates(dropdownSelection) {
+//   // var data = draw.getAll();
+//   // var complete_count = {};
+//   // for (m=0; m<data.features.length; m++) {
+//   //   var polygonCoord = data.features[m].geometry.coordinates[0];
+//   //   var polygon = turf.polygon(
+//   //     [polygonCoord]
+//   //   );
+//   //   var num_features = countFeatures(polygon, dropdownSelection);
+//   //   console.log('Polygon'+ m.toString());
+//   //   complete_count['Polygon' + m.toString()] = num_features;
+//   // };
+//   console.log("Complete Result");
+//   console.log(complete_count);
+//   return complete_count
+// }
+
+function countFeatures(polygon, selectedFeatures) {
+  var key = selectedFeatures;
+  var counts_array = [];
+  var counts_object = {};
+  selectedFeatures.forEach(function(listItem){
+    d3.json("/static/data/" + listItem + ".json").then(function(data) {
+      var markerWithin = turf.pointsWithinPolygon(data, polygon);
+      //var item = {};
+      counts_object[listItem] = markerWithin.features.length;
+      //counts_array.push(markerWithin.features.length);
+      //counts_array.push(item);  
+    });
   });
-}
+  return counts_object
+};
+
 
 // gets the values from the dropdown menu
-console.log("Before select vlaue function");
 function getSelectValues(select) {
-  console.log("Select Function called");
-  console.log(select);
   var result = [];
   var options = select && select.options;
   console.log(options);
   var opt;
-  for (var i=0, iLen=options.length; i<iLen; i++ ) {
+  for (var i=0; i<options.length; i++ ) {
     opt = options[i];
     if ( opt.selected ) {
       result.push(opt.value || opt.text);
@@ -141,17 +225,15 @@ function getSelectValues(select) {
 };
 
 // adjusts the layers specified in the dropdown
-const availableOptions = ["turf_points", "solarPoints", "metroStops"];
+const availableOptions = ["solarPanels", "metro_stops"];
 
 function displayLayers (datasetList){
   let difference = availableOptions.filter(x => !datasetList.includes(x));
 
-  console.log(datasetList)
-
   // visibility for selected Layers
-  for (var i=0; i < datasetList.length; i++)
+  for (var n=0; n < datasetList.length; n++)
   {
-    selected_visible = datasetList[i];
+    selected_visible = datasetList[n];
     //var visibility = map.getLayoutProperty(selected_visible, 'visibility');
     map.setLayoutProperty(selected_visible, 'visibility', 'visible');
     // if(visibility === 'visible') {
@@ -168,28 +250,104 @@ function displayLayers (datasetList){
     selected_not_visible = difference[j];
     map.setLayoutProperty(selected_not_visible, 'visibility', 'none');
   }
-  console.log("Finished Display Layers");
 };
 
 
 
+////// POPUP FOR THE NEIGHBORHOOD WITH MODAL///////
 
+map.on('dblclick', 'amsterdam-layer', function(e) {
+  // new mapboxgl.Popup()
+  //   .setLngLat(e.lngLat)
+  //   .setMaxWidth('200')
+  //   //.setHTML(e.features[0].properties.name)
+  //   .setHTML("<svg width='50' height='50'> <circle cx='25' cy='25' r='25' fill='purple' /></svg>")
+  //   .addTo(map);
 
+  // get coordinates from clicked neighborhood and create polygon to count features
+  // within that polygon
+  var coordinates = e.features[0].geometry.coordinates;
+  var neighborhoodName = e.features[0].properties.name;
+  
+  var hoodModal = document.getElementById("neighborhood-modal");
+  var hoodSpan = document.getElementById("neighborhoodX");
 
+  var el = document.getElementById('dropdown-menu');
+  var datasets = getSelectValues(el);
+  var neighborhoodData = neighborhoodPolygon(coordinates, datasets, neighborhoodName);
+  console.log(neighborhoodName);
+  console.log(neighborhoodData);
+  var dataObject = neighborhoodData[0];
+  console.log("neighborhood[0]");
+  console.log(JSON.stringify(dataObject));
+  console.log("neighborhood[name][0]");
+  var modal_output = JSON.stringify(dataObject[0]);
+  console.log(modal_output);
+  //open the modal
+  hoodModal.style.display = "block";
+  document.getElementById("neighborhood-body").innerHTML = "<p>" + modal_output + "</p>";
 
-
-
-
-
-
-
-// Display coordinates with mouse hover
-map.on('mousemove', function(e) {
-  document.getElementById('cordInfo').innerHTML =
-    JSON.stringify(e.point) + 
-    '<br />' +
-    JSON.stringify(e.lngLat.wrap());
+  // when user clicks X close the modal
+  hoodSpan.onclick = function() {
+    hoodModal.style.display = "none";
+  };
+  
+  // when user clicks outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == hoodModal) {
+      hoodModal.style.display = "none";
+    }
+  };
+  console.log("Modal should appear")
 });
+
+// change cursor when hovering over amsterdam neighborhoods
+map.on('mouseenter', 'amsterdam-layer', function() {
+  map.getCanvas().style.cursor = 'pointer';
+});
+
+// change cursor back to normal when not hovering over amsterdam neighborhoods
+map.on('mouseleave', 'amsterdam-layer', function() {
+  map.getCanvas().style.cursor = '';
+}) ;
+
+////// POPUP FOR THE NEIGHBORHOOD WITH MODAL///////
+
+function openPolygonModal() {
+  var polyModal = document.getElementById("polygon-modal");
+  var polySpan = document.getElementById("polygonX");
+  
+  var el = document.getElementById('dropdown-menu');
+  var datasets = getSelectValues(el);
+  var drawPolygonData = createDrawnPolygon(datasets);
+  var modal_output = JSON.stringify(drawPolygonData.Polygon0);
+
+  //open the modal
+  polyModal.style.display = "block";
+  document.getElementById("polygon-body").innerHTML = "<p></p>";
+
+
+  // when user clicks X close the modal
+  polySpan.onclick = function() {
+    polyModal.style.display = "none";
+  };
+  
+  // when user clicks outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == polyModal) {
+      polyModal.style.display = "none";
+    }
+  };  
+}
+
+
+
+
+
+
+
+
+
 
 
 
