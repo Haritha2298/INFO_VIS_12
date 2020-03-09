@@ -77,8 +77,11 @@
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
-  border: 1px solid #888;
+  height: 600px;
+  max-height: 100%;
   width: 80%;
+  max-width: 100%;
+  border: 1px solid #888;
   display: flex;
 }
 

@@ -15,7 +15,6 @@
     <option value="metro_stop.json">Metro Stops</option>
     <option value="park.json">Parks</option>
     <option value="playground.json">Playgrounds</option>
-    <option value="sports_field.json">Sports Field</option>
     <option value="toilets.json">Toilets</option>
     <option value="trafic_light.json">Traffic Lights</option>
     <option value="train_stations.json">Train Stations</option>
@@ -23,6 +22,8 @@
     <option value="trash.json">Trash</option>
     <option value="tree.json">Trees</option>
     <option value="wind_turbine.json">Wind Turbines</option> -->
+    <option value="trash">Trash Disposale</option>
+    <option value="sports_field">Sports Field</option>
     <option value="metro_stops">Metro Stops</option>
     <option value="solarPanels">Solar Panels</option>
   </select>
@@ -54,11 +55,14 @@
   <div id="polygon-modal" class="modal">
     <div class="modal-content">
       <span id="polygonX" class="close">&times;</span>
-      <div class="modal-body" id="polygon-body">
-        
+      <div class="modal-body" id="polygonBody">
+        <button onclick="update(dataset1)">Polygon 1</button>
+        <button onclick="update(dataset2)">Polygon 2</button>
       </div>
+      <script type="text/javascript" src="../static/js/polygonModal.js"></script>
     </div>
   </div>
+
 
   <!-- Initialize the plugin: -->
   <script type="text/javascript">

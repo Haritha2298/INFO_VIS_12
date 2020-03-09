@@ -45,7 +45,7 @@ map.on('load', function() {
     }
   });
 
-  // solar panels
+  ///// Solar Panels //
   map.addSource('solarPoints', {
     'type': 'geojson',
     'data': 'static/data/solarPanels.json',
@@ -55,19 +55,22 @@ map.on('load', function() {
 
   // clusters for solar points 
   map.addLayer({
-    id: 'cluster-solar',
+    id: 'cluster-solarPanels',
     type: 'circle',
     source: 'solarPoints',
     filter: ['has', 'point_count'],
+    layout: {
+      'visibility': 'none',
+    },
     paint:{
       'circle-color': [
         'step',
         ['get', 'point_count'],
-        '#51bbd6',
+        '#6C96F9',
         10,
-        '#f1f075',
+        '#6C96F9',
         50,
-        '#f28cb1'
+        '#6C96F9'
       ],
       'circle-radius': [
         'step',
@@ -81,11 +84,12 @@ map.on('load', function() {
 
   // cluster count number solar points
   map.addLayer({
-    id: 'cluster-count-solar',
+    id: 'cluster-count-solarPanels',
     type: 'symbol',
     source: 'solarPoints',
     filter: ['has', 'point_count'],
     layout: {
+      'visibility': 'none',
       'text-field': '{point_count_abbreviated}',
       'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
       'text-size': 12
@@ -105,7 +109,7 @@ map.on('load', function() {
   },
   });
 
-  //Metro Stops
+  ///// Metro Stops /////
   map.addSource('metroStops', {
     'type': 'geojson',
     'data': 'static/data/metro_stops.json',
@@ -126,6 +130,37 @@ map.on('load', function() {
   }
   });
 
+  ///// Sports Fields //////
+  map.addSource('sports_field', {
+    'type': 'geojson',
+    'data': 'static/data/sports_field.json',
+  });
+  map.addLayer({
+    'id': 'sports_field',
+    'type': 'symbol',
+    'source': 'sports_field',
+    'layout': {
+      'visibility': 'none',
+      'icon-image': 'basketball-15',
+      'icon-allow-overlap': true
+    },
+  });
+
+  ///// Trash Cans /////
+  map.addSource('trash', {
+    'type': 'geojson',
+    'data': 'static/data/trash.json',
+  });
+  map.addLayer({
+    'id': 'trash',
+    'type': 'symbol',
+    'source': 'trash',
+    'layout': {
+      'visibility': 'none',
+      'icon-image': 'bicycle-15',
+      'icon-allow-overlap': true
+    },
+  });
 
 });
 
@@ -158,16 +193,18 @@ map.on('mousemove', function(e) {
 function createDrawnPolygon(dropdownSelection) {
   var data = draw.getAll();
   var complete_count = {};
+  var complete_polygon_data = [];
   for (m=0; m<data.features.length; m++) {
     var polygonCoord = data.features[m].geometry.coordinates[0];
     var polygon = turf.polygon(
       [polygonCoord]
     );
     console.log('Polygon'+ m.toString());
-    complete_count['Polygon' + m.toString()] = countFeatures(polygon, dropdownSelection);
+    //complete_count['Polygon' + m.toString()] = countFeatures(polygon, dropdownSelection);
+    complete_polygon_data.push(countFeatures(polygon, dropdownSelection));
   };
-  console.log(complete_count);
-  return complete_count;
+  console.log(complete_polygon_data);
+  return complete_polygon_data;
 };
 
 // when neighborhood is clicked, this function creates and object containing the count for the neighborhood
@@ -191,13 +228,17 @@ function countFeatures(polygon, selectedFeatures) {
     d3.json("/static/data/" + listItem + ".json").then(function(data) {
       var markerWithin = turf.pointsWithinPolygon(data, polygon);
       //var item = {};
-      counts_object[listItem] = markerWithin.features.length;
+      var single_marker_count = {}
+      single_marker_count['marker'] = listItem;
+      single_marker_count['count'] = markerWithin.features.length;
+      //counts_object[listItem] = markerWithin.features.length;
       //counts_array.push(markerWithin.features.length);
-      //counts_array.push(item);  
+      counts_array.push(single_marker_count);  
     });
   });
-  return counts_object
+  return counts_array
 };
+
 
 // gets the values from the dropdown menu
 function getSelectValues(select) {
@@ -215,7 +256,7 @@ function getSelectValues(select) {
 };
 
 // adjusts the layers specified in the dropdown
-const availableOptions = ["solarPanels", "metro_stops"];
+const availableOptions = ["solarPanels", "metro_stops", "sports_field", "trash"];
 
 function displayLayers (datasetList){
   let difference = availableOptions.filter(x => !datasetList.includes(x));
@@ -225,14 +266,30 @@ function displayLayers (datasetList){
   {
     selected_visible = datasetList[n];
     //var visibility = map.getLayoutProperty(selected_visible, 'visibility');
+
+    // set the markers themselves to visible
     map.setLayoutProperty(selected_visible, 'visibility', 'visible');
+
+    // set the cluster layers to visible
+    var cluster_count_visible = "cluster-count-" + selected_visible;
+    var cluster_visible = "cluster-" + selected_visible;
+    map.setLayoutProperty(cluster_count_visible, 'visibility', 'visible');
+    map.setLayoutProperty(cluster_visible, 'visibility', 'visible');
   };
 
   // all nont selected layers are set to none
   for (var j=0; j < difference.length; j++)
   {
     selected_not_visible = difference[j];
+
+    // set the markers themselves to not visible
     map.setLayoutProperty(selected_not_visible, 'visibility', 'none');
+
+    // set the cluster layers to not visible
+    var cluster_count_not_visible = "cluster-count-" + selected_not_visible;
+    var cluster_not_visible = "cluster-" + selected_not_visible;
+    map.setLayoutProperty(cluster_count_not_visible, 'visibility', 'none');
+    map.setLayoutProperty(cluster_not_visible, 'visibility', 'none');
   }
 };
 
@@ -274,11 +331,12 @@ map.on('dblclick', 'amsterdam-layer', function(e) {
       hoodModal.style.display = "none";
     }
   };
-  console.log("Modal should appear")
+  
+  // 
 });
 
 
-////// POPUP FOR THE NEIGHBORHOOD WITH MODAL///////
+////// POPUP FOR THE POLYGON WITH MODAL///////
 
 function openPolygonModal() {
   var polyModal = document.getElementById("polygon-modal");
@@ -304,174 +362,13 @@ function openPolygonModal() {
     if (event.target == polyModal) {
       polyModal.style.display = "none";
     }
-  };  
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/////// Load data from csv file /////
-// // Setup our svg layer that we can manipulate with d3
-// var container = map.getCanvasContainer()
-// var svg = d3.select(container).append("svg").attr("width", 700).attr("height", 600)
-
-// function project(d) {
-//   console.log("project function is called");
-//   return map.project(getLL(d));
-// }
-// function getLL(d) {
-//   return new mapboxgl.LngLat(+d.lon, +d.lat);
-// }
-
-
-// // 522, 353
-// // var single_dot = svg.selectAll("circle").attr("r", 20).attr("cx", 522).attr("cy", 353).style({
-// //   fill: "#0082a3"
-// //   });
-
-// // "/static/testDots.csv"
-// d3.csv("/static/testDots.csv").then(function(data) {
-//   console.log("File is found")
-//   console.log(data)
-//   console.log("File should have been found")
-//   var dots = svg.selectAll("circle");
-
-//   dots = dots.data(data).enter().append("circle").attr("class", "dot")
-//   dots
-//   .attr("r", 10)
-//   .style({
-//     fill: "#0082a3"
-//     });
-
-//     function render() {
-//       console.log("Render function is called");
-//       dots
-//       .attr("cx", function(d) {
-//         var x = project(d).x;
-//         console.log(x)
-//         return x
-//       })
-//       .attr("cy", function(d) {
-//         var y = project(d).y;
-//         console.log(y)
-//         return y
-//       })
-//     }
-
-//     // re-render viz when view changes
-//     map.on("viewreset", function() {
-//       render()
-//     })
-//     map.on("move", function() {
-//       render()
-//     })
-
-//     // render initial viz
-//     render()
-//   })
-//   .catch(function(error){
-//     // handle error if it is caught
-//     if (error){
-//       console.log(error)  
-//     }  
-//   })
-
-
-
-
-
-  // if(data.length === 0){
-  //   console.log("File empty")
-  // }
-  //console.log("error:", error)
+  };
   
-//var marker = new mapboxgl.Marker().setLngLat([4.8950, 52.37]).addTo(map);
-
-// // add svg element to leaflet overlay pane
-// var svg = d3.select(map.getPanes().overlayPane).append("svg");
-
-// var g = svg.append("g").attr("class", "leaflet-zoom-hide");
-
-// // attempt to put a layer on the map with amsterdam geo json file
-// // // put geoJson of Amsterdam over it
-// // d3.json("amsterdam.json", function(error, collection) {
-// //     if (error) throw error;
-// // })
-
-// // // function to render d3 polygon to leaflet polygon
-// // function projectPoint(x, y) {
-// //     var point = map.latLngToLayerPoint(new L.LatLng(y, x));
-// //     this.stream.point(point.x, point.y);
-// // }
-
-// // // convert geoJSON to svg
-// // var transform = d3.geo.transform({point, projectPoint}),
-// //     path = d3.geo.path().projection(transform);
-
-// // var feature = g.selectAll("path")
-// //     .data(collection.features)
-// //     .enter().append("path");
-
-// // feature.attr("d", path);
-
-// // var bounds = path.bounds(collection),
-// //     topLeft = bounds[0],
-// //     bottomRight = bounds[1];
-
-// // // set dimension of svg
-// // svg.attr("width", bottomRight[0] - topLeft[0])
-// //    .attr("height", bottomRight[1] - topLeft[1])
-// //    .style("left", topLeft[0] + "px")
-// //    .style("top", topLeft[1] + "px");
-
-// // g.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
-
-// // create a fisheye distortion as magnifying glass
-// var fisheye = d3.fisheye.circular()
-//     .radius(100)
-//     .distortion(5);
-
-// var lens = svg.append('circle')
-//     .attr('class', 'lens')
-//     .attr('fill-opacity', 0.1)
-//     .attr('r', fisheye.radius());
-
-// // set bounds of svg
-// svg .attr("width", 1300)
-//     .attr("height", 650)
-//     //.style("left", topLeft[0] + "px")
-//     //.style("top", topLeft[1] + "px");
-
-// g   .attr("transform", "translate(" + 650 + "," + 1108 + ")");
-
-
-
-// // on mousemove move the fisheye over map
-// svg.on('mousemove', function() {
-//     fisheye.focus(d3.mouse(this));
-
-//     const mouseX = d3.mouse(this)[0];
-//     const mouseY = d3.mouse(this)[1];
-//     const r = fisheye.radius();
-
-//     lens.attr('cx', mouseX)
-//         .attr('cy', mouseY)
-// });
+  // call to function to send data to polygonModal.js
+  //export {drawPolygonData};
+  //var dataset_for_module = localStorage.setItem("polygonData", drawPolygonData);
+  //window.completePolygonData = drawPolygonData;
+  localStorage.setItem("completePolygonData", drawPolygonData);
+}
 
 
