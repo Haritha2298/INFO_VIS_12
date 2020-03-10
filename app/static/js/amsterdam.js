@@ -144,11 +144,57 @@ map.on('load', function() {
   map.addSource('sports_field', {
     'type': 'geojson',
     'data': 'static/data/sports_field.json',
+    'cluster': true,
+    'clusterMaxZoom': 14,
+    'clusterRadius': 100,
   });
+
+  // clusters for sports fields
+  map.addLayer({
+    id: 'cluster-sports_field',
+    type: 'circle',
+    source: 'sports_field',
+    layout: {
+      'visibility': 'none',
+    },
+    paint: {
+      'circle-color': [
+        'step',
+        ['get', 'point_count'],
+        '#F99736',10,
+        '#F99736',50,
+        '#F99736'
+      ],
+      'circle-radius': [
+        'step',
+        ['get', 'point_count'],
+        5,10,
+        10,50,
+        20
+      ]
+    }
+  });
+
+  // cluster count number on sports fields
+  map.addLayer({
+    id: 'cluster-count-sports_field',
+    type: 'symbol',
+    source: 'sports_field',
+    filter: ['has', 'point_count'],
+    layout: {
+      'visibility': 'none',
+      'text-field': '{point_count_abbreviated}',
+      'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+      'text-size': 10
+    }
+  })
+
+  // sports_field marker itself
   map.addLayer({
     'id': 'sports_field',
     'type': 'symbol',
     'source': 'sports_field',
+    'filter': ['!', ['has', 'point_count']],
     'layout': {
       'visibility': 'none',
       'icon-image': 'basketball-11',
@@ -156,15 +202,61 @@ map.on('load', function() {
     },
   });
 
-  ///// Trash Cans /////
+  ///// Trash Disposal /////
   map.addSource('trash', {
     'type': 'geojson',
     'data': 'static/data/trash.json',
+    'cluster': true,
+    'clusterMaxZoom': 14,
+    'clusterRadius': 75,
   });
+
+   // clusters for trash disposal
+   map.addLayer({
+    id: 'cluster-trash',
+    type: 'circle',
+    source: 'trash',
+    layout: {
+      'visibility': 'none',
+    },
+    paint: {
+      'circle-color': [
+        'step',
+        ['get', 'point_count'],
+        '#A4A7AA',10,
+        '#A4A7AA',50,
+        '#A4A7AA'
+      ],
+      'circle-radius': [
+        'step',
+        ['get', 'point_count'],
+        5,10,
+        10,50,
+        20
+      ]
+    }
+  });
+
+  // cluster count number on trash
+  map.addLayer({
+    id: 'cluster-count-trash',
+    type: 'symbol',
+    source: 'trash',
+    filter: ['has', 'point_count'],
+    layout: {
+      'visibility': 'none',
+      'text-field': '{point_count_abbreviated}',
+      'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+      'text-size': 10
+    }
+  })
+
+  // trash marker itself
   map.addLayer({
     'id': 'trash',
     'type': 'symbol',
     'source': 'trash',
+    'filter': ['!', ['has', 'point_count']],
     'layout': {
       'visibility': 'none',
       'icon-image': 'trash-11',
@@ -176,11 +268,57 @@ map.on('load', function() {
   map.addSource('tree', {
     'type': 'geojson',
     'data': 'static/data/tree.json',
+    'cluster': true,
+    'clusterMaxZoom': 14,
+    'clusterRadius': 50,
   });
+
+   // clusters for tree disposal
+   map.addLayer({
+    id: 'cluster-tree',
+    type: 'circle',
+    source: 'tree',
+    layout: {
+      'visibility': 'none',
+    },
+    paint: {
+      'circle-color': [
+        'step',
+        ['get', 'point_count'],
+        '#0CA21D',10,
+        '#0CA21D',50,
+        '#0CA21D'
+      ],
+      'circle-radius': [
+        'step',
+        ['get', 'point_count'],
+        5,10,
+        10,50,
+        20
+      ]
+    }
+  });
+
+  // cluster count number on tree
+  map.addLayer({
+    id: 'cluster-count-tree',
+    type: 'symbol',
+    source: 'tree',
+    filter: ['has', 'point_count'],
+    layout: {
+      'visibility': 'none',
+      'text-field': '{point_count_abbreviated}',
+      'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+      'text-size': 10
+    }
+  })
+
+  // tree marker itself
   map.addLayer({
     'id': 'tree',
     'type': 'symbol',
     'source': 'tree',
+    'filter': ['!', ['has', 'point_count']],
     'layout': {
       'visibility': 'none',
       'icon-image': 'park-11',
@@ -207,7 +345,7 @@ map.on('load', function() {
 });
 
 
-
+// add zooming controls
 map.addControl(new mapboxgl.NavigationControl());
 map.doubleClickZoom.disable();
 map.scrollZoom.disable();
@@ -299,6 +437,7 @@ function getSelectValues(select) {
 
 // adjusts the layers specified in the dropdown
 const availableOptions = ["solarPanels", "metro_stops", "sports_field", "trash", "tree", "tram_stop"];
+const markersWithLayers = ["solarPanels","sports_field", "trash", "tree"]
 
 function displayLayers (datasetList){
   let difference = availableOptions.filter(x => !datasetList.includes(x));
@@ -312,11 +451,14 @@ function displayLayers (datasetList){
     // set the markers themselves to visible
     map.setLayoutProperty(selected_visible, 'visibility', 'visible');
 
-    // set the cluster layers to visible
-    var cluster_count_visible = "cluster-count-" + selected_visible;
-    var cluster_visible = "cluster-" + selected_visible;
-    map.setLayoutProperty(cluster_count_visible, 'visibility', 'visible');
-    map.setLayoutProperty(cluster_visible, 'visibility', 'visible');
+    // set the cluster layers to visible for markers that have layers
+    if (markersWithLayers.includes(selected_visible)){
+      var cluster_count_visible = "cluster-count-" + selected_visible;
+      var cluster_visible = "cluster-" + selected_visible;
+      map.setLayoutProperty(cluster_count_visible, 'visibility', 'visible');
+      map.setLayoutProperty(cluster_visible, 'visibility', 'visible');
+    };
+    
   };
 
   // all nont selected layers are set to none
@@ -328,10 +470,13 @@ function displayLayers (datasetList){
     map.setLayoutProperty(selected_not_visible, 'visibility', 'none');
 
     // set the cluster layers to not visible
-    var cluster_count_not_visible = "cluster-count-" + selected_not_visible;
-    var cluster_not_visible = "cluster-" + selected_not_visible;
-    map.setLayoutProperty(cluster_count_not_visible, 'visibility', 'none');
-    map.setLayoutProperty(cluster_not_visible, 'visibility', 'none');
+    if (markersWithLayers.includes(selected_not_visible)){
+      var cluster_count_not_visible = "cluster-count-" + selected_not_visible;
+      var cluster_not_visible = "cluster-" + selected_not_visible;
+      map.setLayoutProperty(cluster_count_not_visible, 'visibility', 'none');
+      map.setLayoutProperty(cluster_not_visible, 'visibility', 'none');
+    };
+
   }
 };
 
@@ -369,10 +514,13 @@ function showHideLayers (datasetList, addOrRemove){
     map.setLayoutProperty(selected_visible, 'visibility', visibility);
 
     // set the cluster layers to visible
-    var cluster_count_visible = "cluster-count-" + selected_visible;
-    var cluster_visible = "cluster-" + selected_visible;
-    map.setLayoutProperty(cluster_count_visible, 'visibility', visibility);
-    map.setLayoutProperty(cluster_visible, 'visibility', visibility);
+    if (markersWithLayers.includes(selected_visible)){
+      var cluster_count_visible = "cluster-count-" + selected_visible;
+      var cluster_visible = "cluster-" + selected_visible;
+      map.setLayoutProperty(cluster_count_visible, 'visibility', visibility);
+      map.setLayoutProperty(cluster_visible, 'visibility', visibility);
+    };
+
   };
 
 }
@@ -429,12 +577,10 @@ function openPolygonModal() {
   var el = document.getElementById('dropdown-menu');
   var datasets = getSelectValues(el);
   var drawPolygonData = createDrawnPolygon(datasets);
-  var modal_output = JSON.stringify(drawPolygonData.Polygon0);
+  //var modal_output = JSON.stringify(drawPolygonData.Polygon0);
 
   //open the modal
   polyModal.style.display = "block";
-  document.getElementById("polygon-body").innerHTML = "<p></p>";
-
 
   // when user clicks X close the modal
   polySpan.onclick = function() {
