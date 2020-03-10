@@ -540,14 +540,8 @@ map.on('dblclick', 'amsterdam-layer', function(e) {
   var el = document.getElementById('dropdown-menu');
   var datasets = getSelectValues(el);
   var neighborhoodData = neighborhoodPolygon(coordinates, datasets, neighborhoodName);
-  console.log(neighborhoodName);
-  console.log(neighborhoodData);
   var dataObject = neighborhoodData[0];
-  console.log("neighborhood[0]");
-  console.log(JSON.stringify(dataObject));
-  console.log("neighborhood[name][0]");
   var modal_output = JSON.stringify(dataObject[0]);
-  console.log(modal_output);
   //open the modal
   hoodModal.style.display = "block";
   document.getElementById("neighborhood-body").innerHTML = "<p>" + modal_output + "</p>";

@@ -17,19 +17,6 @@
 //     width = 460 - margin.left - margin.right,
 //     height = 400 - margin.top - margin.bottom;
 
-var margin = {top: 60, right: 10, bottom: 60, left: 25},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
-
-
-var svg1 = d3.select("#polygonBody")
-        .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform",
-                "translate(" + margin.left + "," + margin.top + ")");
-
 // datasets for lollipop chart
 var dataset1 = [
     {"marker": "solar", "count": 80},
@@ -45,6 +32,73 @@ var dataset2 = [
     {"marker": "train", "count": 80},
 ];
 
+var dataset3 = [
+    {"marker": "solar", "count": 55},
+    {"marker": "metro", "count": 20},
+    {"marker": "tree", "count": 75},
+    {"marker": "train", "count": 20},
+];
+
+
+// datasets for barChart
+var barData1 = [
+    {"marker": "solar", "value": 30},
+    {"marker": "metro", "value": 50},
+    {"marker": "tree", "value": 80},
+    {"marker": "train", "value": 17},
+];
+
+var barData2 = [
+    {"marker": "solar", "value": 80},
+    {"marker": "metro", "value": 60},
+    {"marker": "tree", "value": 40},
+    {"marker": "train", "value": 60},
+];
+
+var barData3 = [
+    {"marker": "solar", "value": 75},
+    {"marker": "metro", "value": 80},
+    {"marker": "tree", "value": 55},
+    {"marker": "train", "value": 30},
+];
+
+
+
+var completeLolliDatasets = [dataset1, dataset2, dataset3];
+var completeBarDatasets = [barData1, barData2, barData3];
+var completeData = [completeLolliDatasets, completeBarDatasets];
+
+// function to dynamically create buttons for each dataset
+function datasetButtons(num) {
+    for(i=0; i<num; i++){
+        // create a button
+        var iButton = document.createElement('input');
+        iButton.setAttribute( "onClick", "javascript: updateCharts(completeData, " + i + ")");
+        iButton.setAttribute( "value", "Polygon " + (i+1).toString());
+        iButton.type = "button";
+        iButton.style.height = 40;
+        iButton.style.width = 100;
+        iButton.className = "polyonButtons";
+
+        //append to the modal
+        document.getElementById("button-polygon").appendChild(iButton);
+    }
+};
+
+datasetButtons(completeData[0].length);
+
+var margin = {top: 60, right: 10, bottom: 60, left: 25},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+
+var svg1 = d3.select("#polygonBody")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+                "translate(" + margin.left + "," + margin.top + ")");
 
 
 // Lollipop chart with update
@@ -116,7 +170,7 @@ function updateLollipopChart(data) {
 };
 
 // initialize plot
-updateLollipopChart(dataset1)
+//updateLollipopChart(completeData[0], 0);
 
 
 ///// Horizontal Bar Chart /////
@@ -124,20 +178,6 @@ updateLollipopChart(dataset1)
 var margin2 = {top: 40, right: 30, bottom: 70, left: 60},
     width2 = 460 - margin2.left - margin2.right,
     height2 = 400 - margin2.top - margin2.bottom;
-
-var barData1 = [
-    {"marker": "solar", "value": 30},
-    {"marker": "metro", "value": 50},
-    {"marker": "tree", "value": 80},
-    {"marker": "train", "value": 17},
-];
-
-var barData2 = [
-    {"marker": "solar", "value": 80},
-    {"marker": "metro", "value": 60},
-    {"marker": "tree", "value": 40},
-    {"marker": "train", "value": 60},
-];
 
 
 // Setup SVG
@@ -199,12 +239,15 @@ function updateBarChart(barData) {
 };
 
 //Initally display first bar chart
-updateBarChart(barData1);
+//updateBarChart(completeData, 0);
+
+// Initialize both charts 
+updateCharts(completeData, 0);
 
 // function to update all charts
-function updateCharts(lolliData, barData) {
-    updateLollipopChart(lolliData);
-    updateBarChart(barData);
+function updateCharts(completeData, tracker) {
+    updateLollipopChart(completeData[0][tracker]);
+    updateBarChart(completeData[1][tracker]);
 }
 
 
