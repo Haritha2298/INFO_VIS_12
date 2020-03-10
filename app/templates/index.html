@@ -18,10 +18,10 @@
     <option value="toilets.json">Toilets</option>
     <option value="trafic_light.json">Traffic Lights</option>
     <option value="train_stations.json">Train Stations</option>
-    <option value="tram_stop.json">Tram Stops</option>
     <option value="trash.json">Trash</option>
-    <option value="tree.json">Trees</option>
     <option value="wind_turbine.json">Wind Turbines</option> -->
+    <option value="tram_stop">Tram Stops</option>
+    <option value="tree">Trees</option>
     <option value="trash">Trash Disposale</option>
     <option value="sports_field">Sports Field</option>
     <option value="metro_stops">Metro Stops</option>
@@ -40,7 +40,9 @@
 
   <input type="button" value="Finished Drawing Polygons" onclick="
       openPolygonModal();"/>
-
+    
+  <!-- <input type="button" id="showHideMarkers" data-text-swap="Show Markers" value="Remove Markers"/> -->
+  <button id= "showHideMarkers" data-text-swap="Show Markers">Remove Markers</button>
   <!-- The Neighborhood Modal -->
   <div id="neighborhood-modal" class="modal">
     <div class="modal-content">
@@ -56,10 +58,12 @@
     <div class="modal-content">
       <span id="polygonX" class="close">&times;</span>
       <div class="modal-body" id="polygonBody">
-        <button onclick="update(dataset1)">Polygon 1</button>
-        <button onclick="update(dataset2)">Polygon 2</button>
+        <button onclick="updateCharts(dataset1, barData1)">Polygon 1</button>
+        <button onclick="updateCharts(dataset2, barData2)">Polygon 2</button>
+        <div id="lollipopChart"></div>
+        <div id="barChart"></div>
+        <script type="text/javascript" src="../static/js/polygonModal.js"></script>
       </div>
-      <script type="text/javascript" src="../static/js/polygonModal.js"></script>
     </div>
   </div>
 

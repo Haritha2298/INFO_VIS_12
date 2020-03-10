@@ -22,13 +22,27 @@ var draw = new MapboxDraw({
 
 map.addControl(draw, 'top-left');
 
-
+// function to add all the markers images
+function loadIcons() {
+  var icon_list = ['rail-11.png', 'metro-11.png', 'solar-11.png', 'trash-11.png'];
+  icon_list.forEach(function(listItem){
+    map.loadImage("/static/icons/" + listItem, function(error, image){
+      if (error) throw error;
+      var tag = listItem.replace('.png', '');
+      map.addImage(tag, image);
+    }
+    );
+  });
+};
 
 // when map loads add layers
 map.on('load', function() {
 
-   // add polygon neighborhoods outlines
-   map.addSource('amsterdam-layer', {
+  // Load missing marker images
+  loadIcons();
+
+  // add polygon neighborhoods outlines
+  map.addSource('amsterdam-layer', {
     'type': 'geojson',
     'data': 'static/data/amsterdam.json',
   });
@@ -50,6 +64,7 @@ map.on('load', function() {
     'type': 'geojson',
     'data': 'static/data/solarPanels.json',
     'cluster': true,
+    'clusterMaxZoom': 14,
     'clusterRadius': 50,
   });
 
@@ -75,9 +90,9 @@ map.on('load', function() {
       'circle-radius': [
         'step',
         ['get', 'point_count'],
-        20,10,
-        30,50,
-        40
+        5,10,
+        10,50,
+        20
       ]
     }
   });
@@ -92,7 +107,7 @@ map.on('load', function() {
       'visibility': 'none',
       'text-field': '{point_count_abbreviated}',
       'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-      'text-size': 12
+      'text-size': 10
     }
   });
 
@@ -104,7 +119,7 @@ map.on('load', function() {
   'filter': ['!', ['has', 'point_count']],
   'layout': {
     'visibility': 'none',
-    'icon-image': 'rocket-15',
+    'icon-image': 'solar-11',
     'icon-allow-overlap': true
   },
   });
@@ -116,18 +131,13 @@ map.on('load', function() {
   });
   map.addLayer({
   'id': 'metro_stops',
-  'type': 'circle',
+  'type': 'symbol',
   'source': 'metroStops',
   'layout': {
     'visibility': 'none',
-    //'icon-image': 'marker-15',
-    //'icon-allow-overlap': true
+    'icon-image': 'metro-11',
+    'icon-allow-overlap': true
   },
-  'paint': {
-    'circle-radius': 5,
-    'circle-color': 'red',
-    'circle-opacity': 1
-  }
   });
 
   ///// Sports Fields //////
@@ -141,7 +151,7 @@ map.on('load', function() {
     'source': 'sports_field',
     'layout': {
       'visibility': 'none',
-      'icon-image': 'basketball-15',
+      'icon-image': 'basketball-11',
       'icon-allow-overlap': true
     },
   });
@@ -157,7 +167,39 @@ map.on('load', function() {
     'source': 'trash',
     'layout': {
       'visibility': 'none',
-      'icon-image': 'bicycle-15',
+      'icon-image': 'trash-11',
+      'icon-allow-overlap': true
+    },
+  });
+
+  ///// Trees /////
+  map.addSource('tree', {
+    'type': 'geojson',
+    'data': 'static/data/tree.json',
+  });
+  map.addLayer({
+    'id': 'tree',
+    'type': 'symbol',
+    'source': 'tree',
+    'layout': {
+      'visibility': 'none',
+      'icon-image': 'park-11',
+      'icon-allow-overlap': true
+    },
+  });
+
+  ///// Tram Stops /////
+  map.addSource('tram_stop', {
+    'type': 'geojson',
+    'data': 'static/data/tram_stop.json',
+  });
+  map.addLayer({
+    'id': 'tram_stop',
+    'type': 'symbol',
+    'source': 'tram_stop',
+    'layout': {
+      'visibility': 'none',
+      'icon-image': 'rail-11',
       'icon-allow-overlap': true
     },
   });
@@ -256,7 +298,7 @@ function getSelectValues(select) {
 };
 
 // adjusts the layers specified in the dropdown
-const availableOptions = ["solarPanels", "metro_stops", "sports_field", "trash"];
+const availableOptions = ["solarPanels", "metro_stops", "sports_field", "trash", "tree", "tram_stop"];
 
 function displayLayers (datasetList){
   let difference = availableOptions.filter(x => !datasetList.includes(x));
@@ -292,6 +334,48 @@ function displayLayers (datasetList){
     map.setLayoutProperty(cluster_not_visible, 'visibility', 'none');
   }
 };
+
+/// function to remove all markers on click ///
+// and function to change the text
+var showHideButton = document.getElementById("showHideMarkers")
+showHideButton.addEventListener('click', function() {
+  var dropdownValues = document.getElementById('dropdown-menu');
+  var dropdownDatasets = getSelectValues(dropdownValues);
+
+  if (showHideButton.getAttribute("data-text-swap") == showHideButton.innerHTML){
+    showHideButton.innerHTML = showHideButton.getAttribute("data-text-original");
+    showHideLayers(dropdownDatasets, true);
+  } else {
+    showHideButton.setAttribute("data-text-original", showHideButton.innerHTML);
+    showHideButton.innerHTML = showHideButton.getAttribute("data-text-swap");
+    showHideLayers(dropdownDatasets, false);
+  }
+}, false);
+
+function showHideLayers (datasetList, addOrRemove){
+
+  if (addOrRemove === true){
+    var visibility = 'visible';
+  } else {
+    var visibility = 'none';
+  }
+
+  for (var n=0; n < datasetList.length; n++)
+  {
+    selected_visible = datasetList[n];
+    //var visibility = map.getLayoutProperty(selected_visible, 'visibility');
+
+    // set the markers themselves to visible
+    map.setLayoutProperty(selected_visible, 'visibility', visibility);
+
+    // set the cluster layers to visible
+    var cluster_count_visible = "cluster-count-" + selected_visible;
+    var cluster_visible = "cluster-" + selected_visible;
+    map.setLayoutProperty(cluster_count_visible, 'visibility', visibility);
+    map.setLayoutProperty(cluster_visible, 'visibility', visibility);
+  };
+
+}
 
 
 
@@ -368,7 +452,7 @@ function openPolygonModal() {
   //export {drawPolygonData};
   //var dataset_for_module = localStorage.setItem("polygonData", drawPolygonData);
   //window.completePolygonData = drawPolygonData;
-  localStorage.setItem("completePolygonData", drawPolygonData);
+  //localStorage.setItem("completePolygonData", drawPolygonData);
 }
 
 
