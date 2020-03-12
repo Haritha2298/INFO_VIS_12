@@ -39,10 +39,17 @@
       displayLayers(datasets);"/>
 
   <input type="button" value="Finished Drawing Polygons" onclick="
-      openPolygonModal();"/>
+      openPolygonModal();
+      loadData();"/>
     
   <!-- <input type="button" id="showHideMarkers" data-text-swap="Show Markers" value="Remove Markers"/> -->
   <button id= "showHideMarkers" data-text-swap="Make Markers Visible">Make Markers Invisible</button>
+
+  <!-- Button to try Modal -->
+  <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal2">
+    Right Sidebar Modal
+  </button>
+
   <!-- The Neighborhood Modal -->
   <div id="neighborhood-modal" class="modal">
     <div class="modal-content">
@@ -58,17 +65,18 @@
     <div class="modal-content">
       <span id="polygonX" class="close">&times;</span>
       <div class="modal-body" id="polygonBody">
-        <!-- <button onclick="updateCharts(completeData, 0)">Polygon 1</button>
-        <button onclick="updateCharts(completeData, 1)">Polygon 2</button> -->
+        <button onclick="updateCharts(completeData, 0)">Polygon 1</button>
+        <button onclick="updateCharts(completeData, 1)">Polygon 2</button>
         <div id="button-polygon"></div>
         <div id="lollipopChart"></div>
-        <div id="barChart"></div>
-        <script type="text/javascript" src="../static/js/polygonModal.js"></script>
+        <div id="barChart"></div> 
       </div>
     </div>
   </div>
+  
 
 
+  
   <!-- Initialize the plugin: -->
   <script type="text/javascript">
   $('select').selectpicker();
@@ -77,8 +85,31 @@
 
   <pre id='cordInfo'></pre>
   <nav id="menu"></nav>
-  <div id='map'></div>
+
+  <div class="container" id='map-container'>
+    <div id='map'></div>
+    <!-- Modal -->
+    <div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel2">Right Sidebar</h4>
+          </div>
+
+          <div class="modal-body">
+            <p>Hello</p>
+          </div>
+
+        </div><!-- modal-content -->
+      </div><!-- modal-dialog -->
+    </div><!-- modal -->
+    </div>
+  
   <script type="text/javascript" src="../static/js/amsterdam.js"></script>
+  <script type="text/javascript" src="../static/js/polygonModal.js"></script>
+
     
 
 {% endblock %}

@@ -368,23 +368,26 @@ map.on('mousemove', function(e) {
     JSON.stringify(e.lngLat.wrap());
 });
 
-
+var complete_polygon_data = [];
 // when dropdown selection is made, this function creates an object which contains counts per selection from dropdown
 function createDrawnPolygon(dropdownSelection) {
   var data = draw.getAll();
   var complete_count = {};
-  var complete_polygon_data = [];
+  //var complete_polygon_data = [];
+  complete_polygon_data.length = 0;
   for (m=0; m<data.features.length; m++) {
     var polygonCoord = data.features[m].geometry.coordinates[0];
     var polygon = turf.polygon(
       [polygonCoord]
     );
-    console.log('Polygon'+ m.toString());
-    //complete_count['Polygon' + m.toString()] = countFeatures(polygon, dropdownSelection);
+    // console.log('Polygon'+ m.toString());
+    // complete_count['Polygon' + m.toString()] = countFeatures(polygon, dropdownSelection);
     complete_polygon_data.push(countFeatures(polygon, dropdownSelection));
+    console.log(complete_polygon_data);
   };
   console.log(complete_polygon_data);
-  return complete_polygon_data;
+  //return complete_polygon_data;
+  return 0;
 };
 
 // when neighborhood is clicked, this function creates and object containing the count for the neighborhood
@@ -408,9 +411,11 @@ function countFeatures(polygon, selectedFeatures) {
     d3.json("/static/data/" + listItem + ".json").then(function(data) {
       var markerWithin = turf.pointsWithinPolygon(data, polygon);
       //var item = {};
-      var single_marker_count = {}
+      var single_marker_count = {};
       single_marker_count['marker'] = listItem;
       single_marker_count['count'] = markerWithin.features.length;
+      //single_marker_count.push(listItem);
+      //single_marker_count.push(markerWithin.features.length);
       //counts_object[listItem] = markerWithin.features.length;
       //counts_array.push(markerWithin.features.length);
       counts_array.push(single_marker_count);  
@@ -592,7 +597,47 @@ function openPolygonModal() {
   //export {drawPolygonData};
   //var dataset_for_module = localStorage.setItem("polygonData", drawPolygonData);
   //window.completePolygonData = drawPolygonData;
-  //localStorage.setItem("completePolygonData", drawPolygonData);
-}
+  // turn array into string to send it
+  // console.log(drawPolygonData);
+  // const arr4 = [[["m", 2,], ["s", 4]], [["m", 6], ["s", 8]]];
+  const obj4 = [
+    [
+    {"marker": "solar", "count": 80},
+    {"marker": "metro", "count": 840},
+    {"marker": "tree", "count": 60,}
+  ],
+  [
+    {"marker": "solar", "count": 60},
+    {"marker": "metro", "count": 80},
+    {"marker": "tree", "count": 50,}
+  ]
+];
+  console.log("Own Created Data");
+  console.log(obj4);
+  console.log(obj4[0]);
+  console.log(obj4[0][0]);
+  // var otherString = obj4.map(function(item) {
+  //   return item['marker'] + " " + item["count"].toString();
+  // });
+  // console.log("Other String");
+  // console.log(otherString);
+  // var dataString = obj4.flat(Infinity);
+  // //[].concat.apply([], drawPolygonData);
+  // //drawPolygonData + "";
+  // //drawPolygonData.toString();
+  // console.log("Sending this Data now");
+  // console.log(drawPolygonData);
+  // console.log(otherString.toString());
+  // //localStorage.setItem("completePolygonData", JSON.stringify(drawPolygonData));
+  // localStorage.setItem("completePolygonData", otherString.toString());
+  // var polyData = drawPolygonData;
+  // amsterdam.exports = {
+  //   polyData
+  // };
+  console.log("Data being sent");
+  console.log(drawPolygonData);
+  return drawPolygonData;
+};
+
 
 

@@ -17,6 +17,27 @@
 //     width = 460 - margin.left - margin.right,
 //     height = 400 - margin.top - margin.bottom;
 
+// function getData (){
+//     return requestAnimationFrame('./amsterdam').polyData
+// }
+
+//import { drawPolygonData } from './js/amsterdam.js';
+function loadData(){
+    console.log("PolygonData in modal");
+    console.log(complete_polygon_data);
+    console.log(complete_polygon_data[0]);
+    console.log(complete_polygon_data[0][0])
+};
+
+
+// function loadData (polyData) {
+//     console.log("Data received");
+//     console.log(polyData); 
+//     console.log(polyData[0])
+//     console.log(polyData[0][0]) 
+// };
+
+
 // datasets for lollipop chart
 var dataset1 = [
     {"marker": "solar", "count": 80},
