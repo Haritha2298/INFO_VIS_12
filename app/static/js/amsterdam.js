@@ -12,15 +12,15 @@ var map = new mapboxgl.Map({
   zoom: 12,   
 });
 
-var draw = new MapboxDraw({ 
-  displayControlsDefault: false,
-  controls: {
-    polygon: true,
-    trash: true
-  }
-});
+// var draw = new MapboxDraw({ 
+//   displayControlsDefault: false,
+//   controls: {
+//     polygon: true,
+//     trash: true
+//   }
+// });
 
-map.addControl(draw, 'top-left');
+//map.addControl(draw, 'top-right');
 
 // function to add all the markers images
 function loadIcons() {
@@ -346,9 +346,9 @@ map.on('load', function() {
 
 
 // add zooming controls
-map.addControl(new mapboxgl.NavigationControl());
-map.doubleClickZoom.disable();
-map.scrollZoom.disable();
+// map.addControl(new mapboxgl.NavigationControl());
+// map.doubleClickZoom.disable();
+// map.scrollZoom.disable();
 
 // change cursor when hovering over amsterdam neighborhoods
 map.on('mouseenter', 'amsterdam-layer', function() {
@@ -361,12 +361,12 @@ map.on('mouseleave', 'amsterdam-layer', function() {
 }) ;
 
 // Display coordinates with mouse hover
-map.on('mousemove', function(e) {
-  document.getElementById('cordInfo').innerHTML =
-    JSON.stringify(e.point) + 
-    '<br />' +
-    JSON.stringify(e.lngLat.wrap());
-});
+// map.on('mousemove', function(e) {
+//   document.getElementById('cordInfo').innerHTML =
+//     JSON.stringify(e.point) + 
+//     '<br />' +
+//     JSON.stringify(e.lngLat.wrap());
+// });
 
 var complete_polygon_data = [];
 // when dropdown selection is made, this function creates an object which contains counts per selection from dropdown
@@ -600,18 +600,20 @@ function openPolygonModal() {
   // turn array into string to send it
   // console.log(drawPolygonData);
   // const arr4 = [[["m", 2,], ["s", 4]], [["m", 6], ["s", 8]]];
-  const obj4 = [
+  var obj4 = [];
+  var first = 
     [
     {"marker": "solar", "count": 80},
     {"marker": "metro", "count": 840},
     {"marker": "tree", "count": 60,}
-  ],
+  ];
+  var second = 
   [
     {"marker": "solar", "count": 60},
     {"marker": "metro", "count": 80},
     {"marker": "tree", "count": 50,}
-  ]
-];
+  ];
+  obj4.push(first, second);
   console.log("Own Created Data");
   console.log(obj4);
   console.log(obj4[0]);

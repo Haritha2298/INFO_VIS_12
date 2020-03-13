@@ -33,21 +33,26 @@
       var el = document.getElementByTagName('select')[0];
       console.log(getSelectValues(el))";>
   </button> -->
-  <input type="button" value="Submit Data Selection" onclick="
+  <button type="button" class="btn btn-demo" onclick="
       var el = document.getElementById('dropdown-menu');
       var datasets = getSelectValues(el);
-      displayLayers(datasets);"/>
+      displayLayers(datasets);">Submit Data Selection</button>
 
-  <input type="button" value="Finished Drawing Polygons" onclick="
+  <button type="button" class="btn btn-demo" onclick="
       openPolygonModal();
-      loadData();"/>
+      loadData();">Finished Polygons</button>
     
   <!-- <input type="button" id="showHideMarkers" data-text-swap="Show Markers" value="Remove Markers"/> -->
-  <button id= "showHideMarkers" data-text-swap="Make Markers Visible">Make Markers Invisible</button>
+  <button id= "showHideMarkers" class="btn btn-demo" data-text-swap="Make Markers Visible">Make Markers Invisible</button>
 
-  <!-- Button to try Modal -->
-  <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal2">
-    Right Sidebar Modal
+  <!-- Button to open Polygon Panel -->
+  <button type="button" class="btn btn-demo" onclick="openPolygonPanel();">
+    Polygon Panel
+  </button>
+
+  <!-- Button to open Neighborhood Panel -->
+  <button type="button" class="btn btn-demo" onclick="openNeighborhoodPanel();">
+    Neighborhood Panel
   </button>
 
   <!-- The Neighborhood Modal -->
@@ -65,17 +70,14 @@
     <div class="modal-content">
       <span id="polygonX" class="close">&times;</span>
       <div class="modal-body" id="polygonBody">
-        <button onclick="updateCharts(completeData, 0)">Polygon 1</button>
-        <button onclick="updateCharts(completeData, 1)">Polygon 2</button>
-        <div id="button-polygon"></div>
-        <div id="lollipopChart"></div>
-        <div id="barChart"></div> 
+        <!-- <button onclick="updateCharts(completeData, 0)">Polygon 1</button>
+        <button onclick="updateCharts(completeData, 1)">Polygon 2</button> -->
+        <!-- <div id="button-polygon"></div> -->
+        <!-- <div id="lollipopChart"></div>
+        <div id="barChart"></div>  -->
       </div>
     </div>
   </div>
-  
-
-
   
   <!-- Initialize the plugin: -->
   <script type="text/javascript">
@@ -83,32 +85,34 @@
   </script>
 
 
-  <pre id='cordInfo'></pre>
+  <!-- <pre id='cordInfo'></pre> -->
   <nav id="menu"></nav>
 
   <div class="container" id='map-container'>
     <div id='map'></div>
-    <!-- Modal -->
-    <div class="modal right fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel2">Right Sidebar</h4>
-          </div>
-
-          <div class="modal-body">
-            <p>Hello</p>
-          </div>
-
-        </div><!-- modal-content -->
-      </div><!-- modal-dialog -->
-    </div><!-- modal -->
+    
+    <!-- Polygon Sidepanel -->
+    <div id="polygonPanel" class="sidebar">
+      <div class="closebtn" onclick="closePolygonPanel();">&times;</div>
+      <H4>Polygon Data</H4>
+      <div id="button-polygon"></div>
+      <div id="lollipopChart"></div>
+      <div id="barChart"></div>
     </div>
+
+    <!-- Neighborhood Sidepanel -->
+    <div id="neighborhoodPanel" class="sidebar">
+      <div class="closebtn" onclick="closeNeighborhoodPanel();">&times;</div>
+      <H4>Neighborhood Data</H4>
+      <div id="lollipopChart-hood"></div>
+      <div id="barChart-hood"></div>
+    </div>
+
+  </div><!-- map-container -->
   
   <script type="text/javascript" src="../static/js/amsterdam.js"></script>
   <script type="text/javascript" src="../static/js/polygonModal.js"></script>
+  <script type="text/javascript" src="../static/js/neighborhoodModal.js"></script>
 
     
 

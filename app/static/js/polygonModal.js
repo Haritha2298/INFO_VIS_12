@@ -21,6 +21,27 @@
 //     return requestAnimationFrame('./amsterdam').polyData
 // }
 
+var draw = new MapboxDraw({ 
+    displayControlsDefault: false,
+    controls: {
+      polygon: true,
+      trash: true
+    }
+  });
+
+map.addControl(draw, 'top-right');
+
+function openPolygonPanel() {
+    document.getElementById("polygonPanel").style.width = "300px";
+    //close neighborhood Panel
+    document.getElementById("neighborhoodPanel").style.width = "0";
+  }
+  
+  /* Set the width of the sidebar to 0 (hide it) */
+function closePolygonPanel() {
+    document.getElementById("polygonPanel").style.width = "0";
+}
+
 //import { drawPolygonData } from './js/amsterdam.js';
 function loadData(){
     console.log("PolygonData in modal");
@@ -29,13 +50,6 @@ function loadData(){
     console.log(complete_polygon_data[0][0])
 };
 
-
-// function loadData (polyData) {
-//     console.log("Data received");
-//     console.log(polyData); 
-//     console.log(polyData[0])
-//     console.log(polyData[0][0]) 
-// };
 
 
 // datasets for lollipop chart
@@ -94,12 +108,12 @@ function datasetButtons(num) {
     for(i=0; i<num; i++){
         // create a button
         var iButton = document.createElement('input');
-        iButton.setAttribute( "onClick", "javascript: updateCharts(completeData, " + i + ")");
+        iButton.setAttribute( "onClick", "javascript: updateCharts(completeData, " + i + ");");
         iButton.setAttribute( "value", "Polygon " + (i+1).toString());
         iButton.type = "button";
         iButton.style.height = 40;
         iButton.style.width = 100;
-        iButton.className = "polyonButtons";
+        iButton.className = "polygonButtons";
 
         //append to the modal
         document.getElementById("button-polygon").appendChild(iButton);
@@ -109,11 +123,11 @@ function datasetButtons(num) {
 datasetButtons(completeData[0].length);
 
 var margin = {top: 60, right: 10, bottom: 60, left: 25},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    width = 280 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
 
 
-var svg1 = d3.select("#polygonBody")
+var lolliSVG = d3.select("#lollipopChart")
         .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
@@ -129,18 +143,18 @@ var x = d3.scaleBand()
     .range([0, width])
     .padding(1);
 
-var x_axis = svg1.append("g")
+var x_axis = lolliSVG.append("g")
     .attr("transform", "translate(0," + height + ")");
 
 // Initialize y_axis
 var y = d3.scaleLinear()
     .range([height, 0]);
 
-var y_axis = svg1.append("g")
+var y_axis = lolliSVG.append("g")
     .attr("class", "myYaxis");
 
 // Add Title
-svg1.append("text")
+lolliSVG.append("text")
         .attr("x", (width / 2))             
         .attr("y", 0 - (margin.top / 2))
         .attr("text-anchor", "middle")  
@@ -159,7 +173,7 @@ function updateLollipopChart(data) {
     y_axis.transition().duration(1000).call(d3.axisLeft(y));
 
     // variable j to update the lines
-    var j = svg1.selectAll(".myLine")
+    var j = lolliSVG.selectAll(".myLine")
         .data(data)
 
     j.enter()
@@ -175,7 +189,7 @@ function updateLollipopChart(data) {
             .attr("stroke", "grey")
 
     // variabl u to update the circles
-    var u = svg1.selectAll("circle")
+    var u = lolliSVG.selectAll("circle")
         .data(data)
 
     u.enter()
@@ -197,8 +211,8 @@ function updateLollipopChart(data) {
 ///// Horizontal Bar Chart /////
 
 var margin2 = {top: 40, right: 30, bottom: 70, left: 60},
-    width2 = 460 - margin2.left - margin2.right,
-    height2 = 400 - margin2.top - margin2.bottom;
+    width2 = 280 - margin2.left - margin2.right,
+    height2 = 300 - margin2.top - margin2.bottom;
 
 
 // Setup SVG
@@ -206,8 +220,8 @@ var barSVG = d3.select("#barChart").append("svg")
     .attr("width", width2 + margin2.left + margin2.right)
     .attr("height", height2 + margin2.top + margin2.bottom)
     .append("g")
-    .attr("transform", "translate(500, 30)")
-    //.attr("transform", "translate(" + margin.right + "," + margin.top + ")");
+    //.attr("transform", "translate(500, 30)")
+    .attr("transform", "translate(" + margin.right + "," + margin.top + ")");
 
 // Initialize X Axis
 var barX = d3.scaleLinear()
@@ -235,6 +249,7 @@ barSVG.append("text")
     
 
 function updateBarChart(barData) {
+    console.log("Inside BarChart Update")
     barData = barData.sort(function(a, b) {
         return d3.descending(a.value, b.value);
     });
@@ -252,7 +267,7 @@ function updateBarChart(barData) {
         .merge(b)
         .transition()
         .duration(1000)
-        .attr("width", function(d) {return barX(d.value); })
+        .attr("width", function(d) { return barX(d.value); })
         .attr("y", function(d) {return barY(d.marker); })
         .attr("height", barY.bandwidth())
         .attr("fill", "#69b3a2");
@@ -263,7 +278,7 @@ function updateBarChart(barData) {
 //updateBarChart(completeData, 0);
 
 // Initialize both charts 
-updateCharts(completeData, 0);
+updateCharts(completeData, 2);
 
 // function to update all charts
 function updateCharts(completeData, tracker) {
