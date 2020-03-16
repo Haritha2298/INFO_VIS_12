@@ -31,24 +31,119 @@ var draw = new MapboxDraw({
 
 map.addControl(draw, 'top-right');
 
+var polygonCollection_absolute = [];
+var polygonCollection_relative = [];
+
 function openPolygonPanel() {
     document.getElementById("polygonPanel").style.width = "300px";
     //close neighborhood Panel
     document.getElementById("neighborhoodPanel").style.width = "0";
-  }
+    //polygonCounting();
+    
+    //Collect the total amount of stuff inside the polygon
+    var dropdownMenu = document.getElementById('dropdown-menu');
+    var selectedDropdownFeatures = getSelectValues(dropdownMenu);
+
+
+    var dataArrayPoly = [];
+    dataArrayPoly.length = 0;
+    var figLabelsPoly = [];
+    selectedDropdownFeatures.forEach(function(listItem) {
+        dataArrayPoly.push(dataMapping[listItem]);
+        figLabelsPoly.push(labels[listItem]);
+    });
+    
+
+    //var polygonCollection = [];
+
+    var drawnPolygons = draw.getAll();
+    
+    polygonCollection_absolute.length = 0;
+    polygonCollection_relative.length = 0;
+    
+
+    for(m=0; m<drawnPolygons.features.length; m++){
+        var polygonCoord = drawnPolygons.features[m].geometry.coordinates[0];
+        var polygon = turf.polygon(
+            [polygonCoord]
+        );
+        
+        
+        // reset polygon count array
+        var singlePolygonCount = [];
+        var singlePolyRelative = [];
+        //singlePolygonCount.length = 0;
+
+        for(k=0; k<dataArrayPoly.length ; k++){
+        //dataArrayPoly.forEach(function(listItem, index){
+            
+            var polygonMarkers = turf.pointsWithinPolygon(dataArrayPoly[k], polygon);
+            var single_marker = {};
+            
+            single_marker['marker'] = figLabelsPoly[k];
+            single_marker['count'] = polygonMarkers.features.length;
+        
+            singlePolygonCount.push(single_marker);
+            
+            var single_marker_relative = {};
+            single_marker_relative['marker'] = figLabelsPoly[k];
+            single_marker_relative['value'] = (polygonMarkers.features.length / absolute_counts[figLabelsPoly[k]]);
+            singlePolyRelative.push(single_marker_relative);
+            
+
+          
+        };
+
+        console.log("Single Polygon Count");
+        console.log(singlePolygonCount); 
+
+        polygonCollection_absolute.push(singlePolygonCount);
+        console.log("Final Polygon Collection");
+        console.log(polygonCollection_absolute);
+
+        polygonCollection_relative.push(singlePolyRelative);
+        //polygonCollection.push(singlePolygonCount);
+
+    };
+    datasetButtons(polygonCollection_absolute.length);
+    updateLollipopChart(polygonCollection_absolute[0]);
+    updateBarChart(polygonCollection_relative[0]);
+};
   
   /* Set the width of the sidebar to 0 (hide it) */
 function closePolygonPanel() {
     document.getElementById("polygonPanel").style.width = "0";
 }
 
-//import { drawPolygonData } from './js/amsterdam.js';
-function loadData(){
-    console.log("PolygonData in modal");
-    console.log(complete_polygon_data);
-    console.log(complete_polygon_data[0]);
-    console.log(complete_polygon_data[0][0])
-};
+
+
+
+// function polygonCounting(){
+// var drawnPolygons = draw.getAll();
+// for(m=0; m<drawnPolygons.features.length; m++){
+//     var polygonCoord = drawnPolygons.features[m].geometry.coordinates[0];
+//     var polygon = turf.polygon(
+//         [polygonCoord]
+//     );
+//     var singlePolygonCount = [];
+//     dataArrayPoly.forEach(function(listItem, index){
+//         var polygonMarkers = turf.pointsWithinPolygon(listItem, polygon);
+//         var single_marker = {};
+//         single_marker['marker'] = figLables[index];
+//         single_marker['count'] = polygonMarkers.features.length;
+//         console.log("Single Marker");
+//         console.log(single_marker);
+//         singlePolygonCount.push(single_marker);
+//     });
+//     console.log("Single Polygon Count");
+//     console.log(singlePolygonCount);
+//     polygonCollection.push(singlePolygonCount);
+// };
+// //initialize first plot
+// updateLollipopChart(polygonCollection[0]); 
+// return polygonCollection.length;
+
+// };
 
 
 
@@ -104,11 +199,18 @@ var completeBarDatasets = [barData1, barData2, barData3];
 var completeData = [completeLolliDatasets, completeBarDatasets];
 
 // function to dynamically create buttons for each dataset
-function datasetButtons(num) {
+function datasetButtons(num) { 
+    // remove previous buttons
+    var buttonNode = document.getElementById("button-polygon");
+    while (buttonNode.firstChild) {
+        buttonNode.removeChild(buttonNode.lastChild);
+    };
+
+    // add new buttons
     for(i=0; i<num; i++){
         // create a button
         var iButton = document.createElement('input');
-        iButton.setAttribute( "onClick", "javascript: updateCharts(completeData, " + i + ");");
+        iButton.setAttribute( "onClick", "javascript: updateLollipopChart(polygonCollection_absolute[" + i + "]); updateBarChart(polygonCollection_relative[" + i + "]);");
         iButton.setAttribute( "value", "Polygon " + (i+1).toString());
         iButton.type = "button";
         iButton.style.height = 40;
@@ -120,87 +222,92 @@ function datasetButtons(num) {
     }
 };
 
-datasetButtons(completeData[0].length);
+//datasetButtons(completeData[0].length);
 
-var margin = {top: 60, right: 10, bottom: 60, left: 25},
-    width = 280 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+var margin_poly = {top: 60, right: 10, bottom: 60, left: 25},
+    width_poly = 280 - margin_poly.left - margin_poly.right,
+    height_poly = 300 - margin_poly.top - margin_poly.bottom;
 
 
 var lolliSVG = d3.select("#lollipopChart")
         .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+        .attr("width", width_poly + margin_poly.left + margin_poly.right)
+        .attr("height", height_poly + margin_poly.top + margin_poly.bottom)
         .append("g")
         .attr("transform",
-                "translate(" + margin.left + "," + margin.top + ")");
+                "translate(" + margin_poly.left + "," + margin_poly.top + ")");
 
 
 // Lollipop chart with update
 
 // Initialize X axis
-var x = d3.scaleBand()
-    .range([0, width])
+var x_poly = d3.scaleBand()
+    .range([0, width_poly])
     .padding(1);
 
-var x_axis = lolliSVG.append("g")
-    .attr("transform", "translate(0," + height + ")");
+var x_axis_poly = lolliSVG.append("g")
+    .attr("transform", "translate(0," + height_poly + ")");
 
 // Initialize y_axis
-var y = d3.scaleLinear()
-    .range([height, 0]);
+var y_poly = d3.scaleLinear()
+    .range([height_poly, 0]);
 
-var y_axis = lolliSVG.append("g")
+var y_axis_poly = lolliSVG.append("g")
     .attr("class", "myYaxis");
 
 // Add Title
 lolliSVG.append("text")
-        .attr("x", (width / 2))             
-        .attr("y", 0 - (margin.top / 2))
+        .attr("x", (width_poly / 2))             
+        .attr("y", 0 - (margin_poly.top / 2))
         .attr("text-anchor", "middle")  
         .style("font-size", "16px")  
         .text("Absolute Count");
 
 // update function 
 function updateLollipopChart(data) {
-
+    console.log("updating lollipop");
+    console.log(data);
     // update X axis
-    x.domain(data.map(function(d) { return d.marker ;}));
-    x_axis.transition().duration(1000).call(d3.axisBottom(x));
+    x_poly.domain(data.map(function(d) { return d.marker ;}));
+    x_axis_poly.transition().duration(1000).call(d3.axisBottom(x_poly));
 
     // update Y axis
-    y.domain([0, d3.max(data, function(d) { return d.count ;})]);
-    y_axis.transition().duration(1000).call(d3.axisLeft(y));
+    y_poly.domain([0, d3.max(data, function(d) { return d.count + 2 ;})]);
+    y_axis_poly.transition().duration(1000).call(d3.axisLeft(y_poly));
 
     // variable j to update the lines
-    var j = lolliSVG.selectAll(".myLine")
+    var l = lolliSVG.selectAll(".myLine")
         .data(data)
 
-    j.enter()
+    l.enter()
         .append("line")
         .attr("class", "myLine")
-        .merge(j)
+        .merge(l)
         .transition()
         .duration(1000)
-            .attr("x1", function(d) { return x(d.marker); })
-            .attr("x2", function(d) { return x(d.marker); })
-            .attr("y1", function(d) { return y(d.count); })
-            .attr("y2", y(0))
+            .attr("x1", function(d) { return x_poly(d.marker); })
+            .attr("x2", function(d) { return x_poly(d.marker); })
+            .attr("y1", function(d) { return y_poly(d.count); })
+            .attr("y2", y_poly(0))
             .attr("stroke", "grey")
+    
+    l.exit().remove();
 
     // variabl u to update the circles
-    var u = lolliSVG.selectAll("circle")
+    var c = lolliSVG.selectAll("circle")
         .data(data)
 
-    u.enter()
+    c.enter()
         .append("circle")
-        .merge(u)
+        .merge(c)
         .transition()
         .duration(1000)
-            .attr("cx", function(d) { return x(d.marker); })
-            .attr("cy", function(d) { return y(d.count); })
+            .attr("cx", function(d) { return x_poly(d.marker); })
+            .attr("cy", function(d) { return y_poly(d.count); })
             .attr("r", 8)
             .attr("fill", "#69b3a2")
+
+    c.exit().remove();
 
 };
 
@@ -210,39 +317,38 @@ function updateLollipopChart(data) {
 
 ///// Horizontal Bar Chart /////
 
-var margin2 = {top: 40, right: 30, bottom: 70, left: 60},
-    width2 = 280 - margin2.left - margin2.right,
-    height2 = 300 - margin2.top - margin2.bottom;
+var margin2_poly = {top: 40, right: 30, bottom: 70, left: 60},
+    width2_poly = 280 - margin2_poly.left - margin2_poly.right,
+    height2_poly = 300 - margin2_poly.top - margin2_poly.bottom;
 
 
 // Setup SVG
-var barSVG = d3.select("#barChart").append("svg")
-    .attr("width", width2 + margin2.left + margin2.right)
-    .attr("height", height2 + margin2.top + margin2.bottom)
+var barSVG_poly = d3.select("#barChart").append("svg")
+    .attr("width", width2_poly + margin2_poly.left + margin2_poly.right)
+    .attr("height", height2_poly + margin2_poly.top + margin2_poly.bottom)
     .append("g")
     //.attr("transform", "translate(500, 30)")
-    .attr("transform", "translate(" + margin.right + "," + margin.top + ")");
+    .attr("transform", "translate(" + margin_poly.right + "," + margin_poly.top + ")");
 
 // Initialize X Axis
-var barX = d3.scaleLinear()
+var barX_poly = d3.scaleLinear()
     .range([0, width2])
-    .domain([0, 100]);
 
-var barXaxis = barSVG.append("g")
-    .call(d3.axisTop(barX));
+var barXaxis_poly = barSVG_poly.append("g")
+    .attr("class", "myXaxis_poly")
 
 // initialize Y axis
 
-var barY = d3.scaleBand()
+var barY_poly = d3.scaleBand()
     .range([0, width2])
     .padding(0.1);
 
-var barYaxis = barSVG.append("g")
-    .attr("class", "myYaxis")
+var barYaxis_poly = barSVG_poly.append("g")
+    .attr("class", "myYaxis_poly")
 
-barSVG.append("text")
-    .attr("x", (width2 / 2))             
-    .attr("y", 0 - (margin2.top / 2))
+barSVG_poly.append("text")
+    .attr("x", (width2_poly / 2))             
+    .attr("y", 0 - (margin2_poly.top / 2))
     .attr("text-anchor", "middle")  
     .style("font-size", "16px")  
     .text("Relative to Total");
@@ -254,23 +360,63 @@ function updateBarChart(barData) {
         return d3.descending(a.value, b.value);
     });
 
-    // Update yaxis
-    barY.domain(barData.map(function(d) { return d.marker; }));
-    barYaxis.transition().duration(1000).call(d3.axisLeft(barY));
+    // update x axis
+    barX_poly.domain([0, d3.max(barData, function(d) { return d.value ;})]);
+    barXaxis_poly.transition().duration(1000).call(d3.axisTop(barX_poly));
 
-    // update bars with variable b
-    var b = barSVG.selectAll("rect")
+    // Update yaxis
+    barY_poly.domain(barData.map(function(d) { return d.marker; }));
+    barYaxis_poly.transition().duration(1000).call(d3.axisLeft(barY_poly));
+
+
+    // variable to update the lines
+    var l2_poly = barSVG_poly.selectAll(".lines_poly")
         .data(barData)
 
-    b.enter()
-        .append("rect")
-        .merge(b)
+    l2_poly.enter()
+        .append("line")
+        .attr("class", "lines_poly")
+        //.attr("transform", "translate(" + margin2.left + "," + margin2.top + ")")
+        .merge(l2_poly)
         .transition()
         .duration(1000)
-        .attr("width", function(d) { return barX(d.value); })
-        .attr("y", function(d) {return barY(d.marker); })
-        .attr("height", barY.bandwidth())
-        .attr("fill", "#69b3a2");
+        .attr("x1", function(d) { return barX_poly(d.value);})
+        .attr("x2", barX_poly(0))
+        .attr("y1", function(d) {return barY_poly(d.marker);})
+        .attr("y2", function(d) {return barY_poly(d.marker);})
+        .attr("stroke", "grey");
+
+    l2_poly.exit().remove();
+
+
+    var c2_poly = barSVG_poly.selectAll("circle")
+        .data(barData)
+
+    c2_poly.enter()
+        .append("circle")
+        //.attr("transform", "translate(" + margin2.left + "," + margin2.top + ")")
+        .merge(c2_poly)
+        .transition()
+        .duration(1000)
+            .attr("cx", function(d) {return barX_poly(d.value);})
+            .attr("cy", function(d) {return barY_poly(d.marker);})
+            .attr("r", 8)
+            .attr("fill", "#69b3a2")
+
+    c2_poly.exit().remove();
+    // // update bars with variable b
+    // var b2 = barSVG.selectAll("rect")
+    //     .data(barData)
+
+    // b2.enter()
+    //     .append("rect")
+    //     .merge(b2)
+    //     .transition()
+    //     .duration(1000)
+    //     .attr("width", function(d) { return barX_poly(d.value); })
+    //     .attr("y", function(d) {return barY_poly(d.marker); })
+    //     .attr("height", barY_poly.bandwidth())
+    //     .attr("fill", "#69b3a2");
 
 };
 
@@ -278,13 +424,13 @@ function updateBarChart(barData) {
 //updateBarChart(completeData, 0);
 
 // Initialize both charts 
-updateCharts(completeData, 2);
+//updateCharts(completeData, 2);
 
 // function to update all charts
-function updateCharts(completeData, tracker) {
-    updateLollipopChart(completeData[0][tracker]);
-    updateBarChart(completeData[1][tracker]);
-}
+function updateCharts(completeData) {
+    updateLollipopChart(completeData);
+    updateBarChart(completeData);
+};
 
 
 
@@ -351,4 +497,3 @@ function updateCharts(completeData, tracker) {
 
 // //initialize plot with first dataset
 // update(dataset1)
-

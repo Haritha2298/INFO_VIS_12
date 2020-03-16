@@ -1,6 +1,7 @@
 
 
-//MAPBOX.JS
+
+//MAPBOX TOKEN
 mapboxgl.accessToken = 'pk.eyJ1Ijoibmlsc2xlaCIsImEiOiJjazczNHVscGwwOG12M3BqdDZieHJhMW82In0.c-i1H2T6u3vjmj4WY_D2mA'
     
 //Setup mapbox-gl map
@@ -342,6 +343,39 @@ map.on('load', function() {
     },
   });
 
+
+  ///// Parks /////
+  map.addSource('playground', {
+    'type': 'geojson',
+    'data': 'static/data/playground.json'
+  });
+  map.addLayer({
+    'id': 'playground',
+    'type': 'symbol',
+    'source': 'playground',
+    'layout': {
+      'visibility': 'none',
+      'icon-image': 'playground-15',
+      'icon-allow-overlap': true
+    },
+  });
+
+  ///// Panorama Pictures ////
+  map.addSource('panoramas', {
+    'type': 'geojson',
+    'data': 'static/data/panoramas.json'
+  });
+  map.addLayer({
+    'id': 'panoramas',
+    'type': 'symbol',
+    'source': 'panoramas',
+    'layout':  {
+      'visibility': 'none',
+      'icon-image': 'bicycle-15',
+      'icon-allow-overlap': true
+    },
+  })
+
 });
 
 
@@ -441,8 +475,8 @@ function getSelectValues(select) {
 };
 
 // adjusts the layers specified in the dropdown
-const availableOptions = ["solarPanels", "metro_stops", "sports_field", "trash", "tree", "tram_stop"];
-const markersWithLayers = ["solarPanels","sports_field", "trash", "tree"]
+const availableOptions = ["solarPanels", "metro_stops", "sports_field", "trash", "tree", "tram_stop", "playground", "panoramas"];
+const markersWithClusters = ["solarPanels","sports_field", "trash", "tree"]
 
 function displayLayers (datasetList){
   let difference = availableOptions.filter(x => !datasetList.includes(x));
@@ -454,10 +488,11 @@ function displayLayers (datasetList){
     //var visibility = map.getLayoutProperty(selected_visible, 'visibility');
 
     // set the markers themselves to visible
+    console.log(selected_visible);
     map.setLayoutProperty(selected_visible, 'visibility', 'visible');
 
     // set the cluster layers to visible for markers that have layers
-    if (markersWithLayers.includes(selected_visible)){
+    if (markersWithClusters.includes(selected_visible)){
       var cluster_count_visible = "cluster-count-" + selected_visible;
       var cluster_visible = "cluster-" + selected_visible;
       map.setLayoutProperty(cluster_count_visible, 'visibility', 'visible');
@@ -475,7 +510,7 @@ function displayLayers (datasetList){
     map.setLayoutProperty(selected_not_visible, 'visibility', 'none');
 
     // set the cluster layers to not visible
-    if (markersWithLayers.includes(selected_not_visible)){
+    if (markersWithClusters.includes(selected_not_visible)){
       var cluster_count_not_visible = "cluster-count-" + selected_not_visible;
       var cluster_not_visible = "cluster-" + selected_not_visible;
       map.setLayoutProperty(cluster_count_not_visible, 'visibility', 'none');
@@ -519,7 +554,7 @@ function showHideLayers (datasetList, addOrRemove){
     map.setLayoutProperty(selected_visible, 'visibility', visibility);
 
     // set the cluster layers to visible
-    if (markersWithLayers.includes(selected_visible)){
+    if (markersWithClusters.includes(selected_visible)){
       var cluster_count_visible = "cluster-count-" + selected_visible;
       var cluster_visible = "cluster-" + selected_visible;
       map.setLayoutProperty(cluster_count_visible, 'visibility', visibility);
@@ -531,115 +566,6 @@ function showHideLayers (datasetList, addOrRemove){
 }
 
 
-
-////// POPUP FOR THE NEIGHBORHOOD WITH MODAL///////
-
-map.on('dblclick', 'amsterdam-layer', function(e) {
-
-  var coordinates = e.features[0].geometry.coordinates;
-  var neighborhoodName = e.features[0].properties.name;
-  
-  var hoodModal = document.getElementById("neighborhood-modal");
-  var hoodSpan = document.getElementById("neighborhoodX");
-
-  var el = document.getElementById('dropdown-menu');
-  var datasets = getSelectValues(el);
-  var neighborhoodData = neighborhoodPolygon(coordinates, datasets, neighborhoodName);
-  var dataObject = neighborhoodData[0];
-  var modal_output = JSON.stringify(dataObject[0]);
-  //open the modal
-  hoodModal.style.display = "block";
-  document.getElementById("neighborhood-body").innerHTML = "<p>" + modal_output + "</p>";
-
-  // when user clicks X close the modal
-  hoodSpan.onclick = function() {
-    hoodModal.style.display = "none";
-  };
-  
-  // when user clicks outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == hoodModal) {
-      hoodModal.style.display = "none";
-    }
-  };
-  
-  // 
-});
-
-
-////// POPUP FOR THE POLYGON WITH MODAL///////
-
-function openPolygonModal() {
-  var polyModal = document.getElementById("polygon-modal");
-  var polySpan = document.getElementById("polygonX");
-  
-  var el = document.getElementById('dropdown-menu');
-  var datasets = getSelectValues(el);
-  var drawPolygonData = createDrawnPolygon(datasets);
-  //var modal_output = JSON.stringify(drawPolygonData.Polygon0);
-
-  //open the modal
-  polyModal.style.display = "block";
-
-  // when user clicks X close the modal
-  polySpan.onclick = function() {
-    polyModal.style.display = "none";
-  };
-  
-  // when user clicks outside of the modal, close it
-  window.onclick = function(event) {
-    if (event.target == polyModal) {
-      polyModal.style.display = "none";
-    }
-  };
-  
-  // call to function to send data to polygonModal.js
-  //export {drawPolygonData};
-  //var dataset_for_module = localStorage.setItem("polygonData", drawPolygonData);
-  //window.completePolygonData = drawPolygonData;
-  // turn array into string to send it
-  // console.log(drawPolygonData);
-  // const arr4 = [[["m", 2,], ["s", 4]], [["m", 6], ["s", 8]]];
-  var obj4 = [];
-  var first = 
-    [
-    {"marker": "solar", "count": 80},
-    {"marker": "metro", "count": 840},
-    {"marker": "tree", "count": 60,}
-  ];
-  var second = 
-  [
-    {"marker": "solar", "count": 60},
-    {"marker": "metro", "count": 80},
-    {"marker": "tree", "count": 50,}
-  ];
-  obj4.push(first, second);
-  console.log("Own Created Data");
-  console.log(obj4);
-  console.log(obj4[0]);
-  console.log(obj4[0][0]);
-  // var otherString = obj4.map(function(item) {
-  //   return item['marker'] + " " + item["count"].toString();
-  // });
-  // console.log("Other String");
-  // console.log(otherString);
-  // var dataString = obj4.flat(Infinity);
-  // //[].concat.apply([], drawPolygonData);
-  // //drawPolygonData + "";
-  // //drawPolygonData.toString();
-  // console.log("Sending this Data now");
-  // console.log(drawPolygonData);
-  // console.log(otherString.toString());
-  // //localStorage.setItem("completePolygonData", JSON.stringify(drawPolygonData));
-  // localStorage.setItem("completePolygonData", otherString.toString());
-  // var polyData = drawPolygonData;
-  // amsterdam.exports = {
-  //   polyData
-  // };
-  console.log("Data being sent");
-  console.log(drawPolygonData);
-  return drawPolygonData;
-};
 
 
 

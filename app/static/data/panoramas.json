@@ -1,0 +1,2530 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-0.81",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "F",
+             "geometry": "POINT (4.7962554139822799,52.3727375872242007)",
+             "heading": "193.863827909381",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/02/14/TMX7316010203-001099/pano_0010_000417/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Ookmeer",
+             "neighbourhood_code": "F80a",
+             "pano_id": "TMX7316010203-001099_pano_0010_000417",
+             "pitch": "-0.181947681328102",
+             "quarter_code": "F80",
+             "roll": "0.18926681877793",
+             "surface_type": "L",
+             "timestamp": "2019-02-14 13:58"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.7962554139822799,
+                52.3727375872242007
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-0.83",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "F",
+             "geometry": "POINT (4.7970981374284003,52.3724878175383992)",
+             "heading": "3.25326403659864",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/02/14/TMX7316010203-001099/pano_0010_000453/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Ookmeer",
+             "neighbourhood_code": "F80a",
+             "pano_id": "TMX7316010203-001099_pano_0010_000453",
+             "pitch": "1.12719089774536",
+             "quarter_code": "F80",
+             "roll": "-0.162367329834951",
+             "surface_type": "L",
+             "timestamp": "2019-02-14 13:59"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.7970981374284003,
+                52.3724878175383992
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-0.883",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "F",
+             "geometry": "POINT (4.8109449301906597,52.3764043596130975)",
+             "heading": "276.851098934019",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/07/06/TMX7316010203-000829/pano_0000_003339/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Buurt 5 Zuid",
+             "neighbourhood_code": "F77f",
+             "pano_id": "TMX7316010203-000829_pano_0000_003339",
+             "pitch": "0.0625101243379445",
+             "quarter_code": "F77",
+             "roll": "-1.66378110555627",
+             "surface_type": "L",
+             "timestamp": "2018-07-06 14:15"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.8109449301906597,
+               52.3764043596130975
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "4.69",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9158181503646396,52.4108883035248994)",
+             "heading": "143.782398137053",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/02/TMX7316010203-001268/pano_0000_000050/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Banne Noordwest",
+             "neighbourhood_code": "N70c",
+             "pano_id": "TMX7316010203-001268_pano_0000_000050",
+             "pitch": "-1.82364638928174",
+             "quarter_code": "N70",
+             "roll": "0.172072554473858",
+             "surface_type": "L",
+             "timestamp": "2019-07-02 09:09"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9158181503646396,
+               52.4108883035248994
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-0.009",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9122881080433700,52.4110626590389970)",
+             "heading": "144.584333711191",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/07/31/TMX7316010203-000887/pano_0000_003333/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Kadoelen",
+             "neighbourhood_code": "N67a",
+             "pano_id": "TMX7316010203-000887_pano_0000_003333",
+             "pitch": "2.09936100935715",
+             "quarter_code": "N67",
+             "roll": "0.342860146890519",
+             "surface_type": "L",
+             "timestamp": "2018-07-31 09:45"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9122881080433700,
+               52.4110626590389970
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-0.308",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9209515079620001,52.4140733616407033)",
+             "heading": "34.4027491901405",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2016/08/23/TMX7316010203-000081/pano_0000_014771/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Banne Noordwest",
+             "neighbourhood_code": "N70c",
+             "pano_id": "TMX7316010203-000081_pano_0000_014771",
+             "pitch": "0.0573237424985631",
+             "quarter_code": "N70",
+             "roll": "-1.22789673319359",
+             "surface_type": "L",
+             "timestamp": "2016-08-23 11:56"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9209515079620001,
+               52.4140733616407033
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-0.716",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "F",
+             "geometry": "POINT (4.8041228382464896,52.3795295457980004)",
+             "heading": "355.787363162992",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/07/05/TMX7316010203-000827/pano_0001_005823/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Buurt 8",
+             "neighbourhood_code": "F78c",
+             "pano_id": "TMX7316010203-000827_pano_0001_005823",
+             "pitch": "-0.0347769972429248",
+             "quarter_code": "F78",
+             "roll": "-2.76514358327324",
+             "surface_type": "L",
+             "timestamp": "2018-07-05 13:24"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.8041228382464896,
+               52.3795295457980004
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-0.473",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "F",
+             "geometry": "POINT (4.8101343444108702,52.3505525159918008)",
+             "heading": "251.083205560486",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/11/TMX7316010203-001306/pano_0000_000029/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Nieuw Sloten Noordoost",
+             "neighbourhood_code": "F88f",
+             "pano_id": "TMX7316010203-001306_pano_0000_000029",
+             "pitch": "-0.911695385060203",
+             "quarter_code": "F88",
+             "roll": "-1.08543127194653",
+             "surface_type": "L",
+             "timestamp": "2019-07-11 11:10"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.8101343444108702,
+               52.3505525159918008
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "7.343",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "F",
+             "geometry": "POINT (4.8085611880308203,52.3507009217712991)",
+             "heading": "71.0723931206648",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/17/TMX7316010203-001316/pano_0000_003958/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Nieuw Sloten Noordoost",
+             "neighbourhood_code": "F88f",
+             "pano_id": "TMX7316010203-001316_pano_0000_003958",
+             "pitch": "-1.18020955122277",
+             "quarter_code": "F88",
+             "roll": "-1.45583152069762",
+             "surface_type": "L",
+             "timestamp": "2019-07-17 09:57"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.8085611880308203,
+               52.3507009217712991
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-1.182",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "F",
+             "geometry": "POINT (4.8094345368894098,52.3462175680356978)",
+             "heading": "69.5906923057682",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2016/07/26/TMX7316010203-000024/pano_0000_005051/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Nieuw Sloten Noordwest",
+             "neighbourhood_code": "F88e",
+             "pano_id": "TMX7316010203-000024_pano_0000_005051",
+             "pitch": "-0.364844000831799",
+             "quarter_code": "F88",
+             "roll": "1.73155152961103",
+             "surface_type": "L",
+             "timestamp": "2016-07-26 11:31"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.8094345368894098,
+               52.3462175680356978
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.886",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9341256826806701,52.3696874421425989)",
+             "heading": "192.191044625276",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001195/pano_0000_001767/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Entrepot-Noordwest",
+             "neighbourhood_code": "M33g",
+             "pano_id": "TMX7316010203-001195_pano_0000_001767",
+             "pitch": "-1.39691074533604",
+             "quarter_code": "M33",
+             "roll": "-2.11870669688844",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 12:09"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9341256826806701,
+               52.3696874421425989
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.939",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9343919162439400,52.3702439428112996)",
+             "heading": "183.339525803825",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001195/pano_0000_001395/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Entrepot-Noordwest",
+             "neighbourhood_code": "M33g",
+             "pano_id": "TMX7316010203-001195_pano_0000_001395",
+             "pitch": "-1.3291375739953",
+             "quarter_code": "M33",
+             "roll": "-1.38684147407001",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 12:04"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9343919162439400,
+               52.3702439428112996
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "2.382",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9338184045009301,52.3686376288662032)",
+             "heading": "178.828590726022",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001195/pano_0000_001741/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Entrepot-Noordwest",
+             "neighbourhood_code": "M33g",
+             "pano_id": "TMX7316010203-001195_pano_0000_001741",
+             "pitch": "-0.179437621459986",
+             "quarter_code": "M33",
+             "roll": "-1.04564102007588",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 12:09"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9338184045009301,
+               52.3686376288662032
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9276229385958299,52.3795951551976984)",
+             "heading": "284.462904485879",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2016/11/01/TMX7316010203-000172/pano_0000_001406/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Java-eiland",
+             "neighbourhood_code": "M33c",
+             "pano_id": "TMX7316010203-000172_pano_0000_001406",
+             "pitch": "-1.18676636773106",
+             "quarter_code": "M33",
+             "roll": "1.60756687334589",
+             "surface_type": "W",
+             "timestamp": "2016-11-01 11:37"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9276229385958299,
+               52.3795951551976984
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.352",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9272665301012504,52.3789787153571993)",
+             "heading": "104.695727117264",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/05/16/TMX7316010203-000724/pano_0000_001156/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Java-eiland",
+             "neighbourhood_code": "M33c",
+             "pano_id": "TMX7316010203-000724_pano_0000_001156",
+             "pitch": "-2.58459454599715",
+             "quarter_code": "M33",
+             "roll": "1.90525741471652",
+             "surface_type": "L",
+             "timestamp": "2018-05-16 10:20"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9272665301012504,
+               52.3789787153571993
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9271118731758801,52.3780230107136973)",
+             "heading": "105.323708067175",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2016/11/01/TMX7316010203-000172/pano_0000_001259/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Java-eiland",
+             "neighbourhood_code": "M33c",
+             "pano_id": "TMX7316010203-000172_pano_0000_001259",
+             "pitch": "-1.05796718759756",
+             "quarter_code": "M33",
+             "roll": "1.5235664184766",
+             "surface_type": "W",
+             "timestamp": "2016-11-01 11:28"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9271118731758801,
+               52.3780230107136973
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.453",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9026675039980798,52.4113064480149973)",
+             "heading": "139.074365628485",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/05/TMX7316010203-001292/pano_0000_009345/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "De Bongerd",
+             "neighbourhood_code": "N65d",
+             "pano_id": "TMX7316010203-001292_pano_0000_009345",
+             "pitch": "-0.446472491958814",
+             "quarter_code": "N65",
+             "roll": "-2.29798598418387",
+             "surface_type": "L",
+             "timestamp": "2019-07-05 12:37"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9026675039980798,
+               52.4113064480149973
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "5.272",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9054212385082003,52.4217635472989016)",
+             "heading": "123.407543191363",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/07/29/TMX7316010203-000880/pano_0000_005746/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Twiske Oost",
+             "neighbourhood_code": "N67b",
+             "pano_id": "TMX7316010203-000880_pano_0000_005746",
+             "pitch": "-0.366625522370609",
+             "quarter_code": "N67",
+             "roll": "-1.7771925598847",
+             "surface_type": "L",
+             "timestamp": "2018-07-29 11:53"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9054212385082003,
+               52.4217635472989016
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.957",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.8967998400147499,52.4130588605871992)",
+             "heading": "129.750636443265",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/02/15/TMX7316010203-001103/pano_0000_000197/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Terrasdorp",
+             "neighbourhood_code": "N65c",
+             "pano_id": "TMX7316010203-001103_pano_0000_000197",
+             "pitch": "-0.432914355206557",
+             "quarter_code": "N65",
+             "roll": "-1.27837406934269",
+             "surface_type": "L",
+             "timestamp": "2019-02-15 13:05"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.8967998400147499,
+               52.4130588605871992
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.285",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9375076435703402,52.3711408839389989)",
+             "heading": "85.3838424059981",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/05/17/TMX7316010203-000739/pano_0000_001752/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Rietlanden",
+             "neighbourhood_code": "M33b",
+             "pano_id": "TMX7316010203-000739_pano_0000_001752",
+             "pitch": "-0.481431446687867",
+             "quarter_code": "M33",
+             "roll": "-1.82363326412272",
+             "surface_type": "L",
+             "timestamp": "2018-05-17 10:14"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9375076435703402,
+               52.3711408839389989
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.241",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9351971417482599,52.3710964030401982)",
+             "heading": "268.437570295268",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001195/pano_0000_001422/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Rietlanden",
+             "neighbourhood_code": "M33b",
+             "pano_id": "TMX7316010203-001195_pano_0000_001422",
+             "pitch": "-1.11507627124794",
+             "quarter_code": "M33",
+             "roll": "-1.39335313722923",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 12:04"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9351971417482599,
+               52.3710964030401982
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.19",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9358105547415301,52.3710968196132995)",
+             "heading": "269.77991936027",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001195/pano_0000_001430/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Entrepot-Noordwest",
+             "neighbourhood_code": "M33g",
+             "pano_id": "TMX7316010203-001195_pano_0000_001430",
+             "pitch": "-0.950967782203335",
+             "quarter_code": "M33",
+             "roll": "-2.46652086963725",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 12:04"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9358105547415301,
+               52.3710968196132995
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-1.677",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.8939387930410003,52.4129969595240013)",
+             "heading": "354.498586513665",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/08/03/TMX7316010203-000902/pano_0000_000300/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Tuindorp Oostzaan Oost",
+             "neighbourhood_code": "N65b",
+             "pano_id": "TMX7316010203-000902_pano_0000_000300",
+             "pitch": "-0.373026434830473",
+             "quarter_code": "N65",
+             "roll": "2.12883007559532",
+             "surface_type": "L",
+             "timestamp": "2018-08-03 13:53"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.8939387930410003,
+               52.4129969595240013
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "2.002",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.8971576562619301,52.4115826816466992)",
+             "heading": "37.2458794954148",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/09/TMX7316010203-001300/pano_0000_003880/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Terrasdorp",
+             "neighbourhood_code": "N65c",
+             "pano_id": "TMX7316010203-001300_pano_0000_003880",
+             "pitch": "-1.03476605166717",
+             "quarter_code": "N65",
+             "roll": "-1.8375505562654",
+             "surface_type": "L",
+             "timestamp": "2019-07-09 10:12"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.8971576562619301,
+               52.4115826816466992
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "2.083",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.8968792631070102,52.4113616604418979)",
+             "heading": "36.910826097224",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/09/TMX7316010203-001300/pano_0000_003886/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Terrasdorp",
+             "neighbourhood_code": "N65c",
+             "pano_id": "TMX7316010203-001300_pano_0000_003886",
+             "pitch": "-0.817103727729617",
+             "quarter_code": "N65",
+             "roll": "-2.30631011254264",
+             "surface_type": "L",
+             "timestamp": "2019-07-09 10:12"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.8968792631070102,
+               52.4113616604418979
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.414",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9461372550246097,52.3731767134564024)",
+             "heading": "257.379367283049",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001194/pano_0000_002634/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Sporenburg",
+             "neighbourhood_code": "M33e",
+             "pano_id": "TMX7316010203-001194_pano_0000_002634",
+             "pitch": "-0.936190603026285",
+             "quarter_code": "M33",
+             "roll": "-0.285310452637689",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 10:57"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9461372550246097,52.3731767134564024
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.419",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9414533160367098,52.3770271733199024)",
+             "heading": "267.082812669345",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001194/pano_0000_001475/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "KNSM-eiland",
+             "neighbourhood_code": "M33d",
+             "pano_id": "TMX7316010203-001194_pano_0000_001475",
+             "pitch": "-1.44281378146236",
+             "quarter_code": "M33",
+             "roll": "-1.30974405779078",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 10:37"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9414533160367098,52.3770271733199024
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.533",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9413646704091301,52.3770696483050031)",
+             "heading": "83.6222826185895",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/05/16/TMX7316010203-000725/pano_0000_000508/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "KNSM-eiland",
+             "neighbourhood_code": "M33d",
+             "pano_id": "TMX7316010203-000725_pano_0000_000508",
+             "pitch": "0.156095780237477",
+             "quarter_code": "M33",
+             "roll": "-1.1452432091666",
+             "surface_type": "L",
+             "timestamp": "2018-05-16 10:54"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9413646704091301,52.3770696483050031
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.71",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9385490590584604,52.3776359009569035)",
+             "heading": "275.468911516981",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001194/pano_0000_001879/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "KNSM-eiland",
+             "neighbourhood_code": "M33d",
+             "pano_id": "TMX7316010203-001194_pano_0000_001879",
+             "pitch": "-1.32438926432565",
+             "quarter_code": "M33",
+             "roll": "2.74536155077371",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 10:44"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9385490590584604,52.3776359009569035
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "2.77",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9464898493367500,52.3772382919077018)",
+             "heading": "83.0631661612836",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/05/16/TMX7316010203-000725/pano_0000_000195/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "KNSM-eiland",
+             "neighbourhood_code": "M33d",
+             "pano_id": "TMX7316010203-000725_pano_0000_000195",
+             "pitch": "0.0354863795968834",
+             "quarter_code": "M33",
+             "roll": "0.3237823355654",
+             "surface_type": "L",
+             "timestamp": "2018-05-16 10:46"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9464898493367500,52.3772382919077018
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-1.059",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9266883751194301,52.3588009679062978)",
+             "heading": "68.686496905861",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/15/TMX7316010203-001184/pano_0002_001419/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Dapperbuurt Zuid",
+             "neighbourhood_code": "M29b",
+             "pano_id": "TMX7316010203-001184_pano_0002_001419",
+             "pitch": "-4.10754768463179",
+             "quarter_code": "M29",
+             "roll": "-0.557573757705718",
+             "surface_type": "L",
+             "timestamp": "2019-05-15 10:17"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9266883751194301,52.3588009679062978
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.405",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9269778280247003,52.3604034340502977)",
+             "heading": "244.750104562911",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/12/11/TMX7316010203-001007/pano_0003_000248/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Dapperbuurt Zuid",
+             "neighbourhood_code": "M29b",
+             "pano_id": "TMX7316010203-001007_pano_0003_000248",
+             "pitch": "-0.455995519037575",
+             "quarter_code": "M29",
+             "roll": "-0.226042028816966",
+             "surface_type": "L",
+             "timestamp": "2018-12-11 10:30"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9269778280247003,52.3604034340502977
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.581",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9286262981399798,52.3650527497946001)",
+             "heading": "118.02410860438",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/11/29/TMX7316010203-001475/pano_0000_000857/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Dapperbuurt Noord",
+             "neighbourhood_code": "M29a",
+             "pano_id": "TMX7316010203-001475_pano_0000_000857",
+             "pitch": "-1.73717867792435",
+             "quarter_code": "M29",
+             "roll": "-1.39354003976151",
+             "surface_type": "L",
+             "timestamp": "2019-11-29 11:44"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9286262981399798,52.3650527497946001
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.608",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9294227903494603,52.3644303560676008)",
+             "heading": "73.0670793607146",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/11/29/TMX7316010203-001475/pano_0000_000671/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Dapperbuurt Noord",
+             "neighbourhood_code": "M29a",
+             "pano_id": "TMX7316010203-001475_pano_0000_000671",
+             "pitch": "1.19424398530548",
+             "quarter_code": "M29",
+             "roll": "-3.14777504407057",
+             "surface_type": "L",
+             "timestamp": "2019-11-29 11:41"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9294227903494603,52.3644303560676008
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.753",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9305718401722700,52.3654447129216010)",
+             "heading": "183.664635012106",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/06/03/TMX7316010203-001209/pano_0000_001558/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Dapperbuurt Noord",
+             "neighbourhood_code": "M29a",
+             "pano_id": "TMX7316010203-001209_pano_0000_001558",
+             "pitch": "-1.08552947211608",
+             "quarter_code": "M29",
+             "roll": "-0.833107295922651",
+             "surface_type": "L",
+             "timestamp": "2019-06-03 10:45"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9305718401722700,52.3654447129216010
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.543",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9302818509204496,52.3650355265794971)",
+             "heading": "286.080240971376",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2016/05/12/TMX7315120208-000048/pano_0000_003869/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Dapperbuurt Noord",
+             "neighbourhood_code": "M29a",
+             "pano_id": "TMX7315120208-000048_pano_0000_003869",
+             "pitch": "-1.01060742881984",
+             "quarter_code": "M29",
+             "roll": "-1.11369123075008",
+             "surface_type": "L",
+             "timestamp": "2016-05-12 10:44"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9302818509204496,52.3650355265794971
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.481",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9471168638281400,52.3749058845943978)",
+             "heading": "259.54633902906",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001194/pano_0000_002428/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Sporenburg",
+             "neighbourhood_code": "M33e",
+             "pano_id": "TMX7316010203-001194_pano_0000_002428",
+             "pitch": "-1.22425647242131",
+             "quarter_code": "M33",
+             "roll": "1.43628656873153",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 10:54"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9471168638281400,52.3749058845943978
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.823",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9342355831712803,52.3710245996814976)",
+             "heading": "178.50758222231",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001195/pano_0000_001798/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Entrepot-Noordwest",
+             "neighbourhood_code": "M33g",
+             "pano_id": "TMX7316010203-001195_pano_0000_001798",
+             "pitch": "-1.85578469764065",
+             "quarter_code": "M33",
+             "roll": "-1.15950899676922",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 12:10"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9342355831712803,52.3710245996814976
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.509",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9246011529407898,52.3647143160554975)",
+             "heading": "221.182520707011",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/12/11/TMX7316010203-001007/pano_0000_000057/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Dapperbuurt Noord",
+             "neighbourhood_code": "M29a",
+             "pano_id": "TMX7316010203-001007_pano_0000_000057",
+             "pitch": "-0.705100459555907",
+             "quarter_code": "M29",
+             "roll": "-0.378119164418985",
+             "surface_type": "L",
+             "timestamp": "2018-12-11 10:03"
+          },
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+                4.9246011529407898,52.3647143160554975
+            ]
+         }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "3.183",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9392308407906400,52.3693164066694976)",
+             "heading": "134.893339703749",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2016/05/17/TMX7315120208-000050/pano_0002_002520/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Architectenbuurt",
+             "neighbourhood_code": "M33h",
+             "pano_id": "TMX7315120208-000050_pano_0002_002520",
+             "pitch": "-0.827937207827017",
+             "quarter_code": "M33",
+             "roll": "0.117072407872972",
+             "surface_type": "L",
+             "timestamp": "2016-05-17 11:36"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9392308407906400,52.3693164066694976
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.486",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "K",
+             "geometry": "POINT (4.8632665032722100,52.3453354676059988)",
+             "heading": "85.2234163414926",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/14/TMX7316010203-001183/pano_0001_000293/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Van Tuyllbuurt",
+             "neighbourhood_code": "K48f",
+             "pano_id": "TMX7316010203-001183_pano_0001_000293",
+             "pitch": "-2.44825684351064",
+             "quarter_code": "K48",
+             "roll": "-1.00172065136698",
+             "surface_type": "L",
+             "timestamp": "2019-05-14 12:38"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.8632665032722100,52.3453354676059988
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.427",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9274445012611903,52.3605180202375990)",
+             "heading": "244.6597087201",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/12/11/TMX7316010203-001007/pano_0003_000255/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Dapperbuurt Zuid",
+             "neighbourhood_code": "M29b",
+             "pano_id": "TMX7316010203-001007_pano_0003_000255",
+             "pitch": "-0.25477882302887",
+             "quarter_code": "M29",
+             "roll": "-0.931683881055038",
+             "surface_type": "L",
+             "timestamp": "2018-12-11 10:30"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9274445012611903,52.3605180202375990
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.612",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9344137065261702,52.3592886577947993)",
+             "heading": "135.525254014297",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/23/TMX7316010203-001205/pano_0001_000444/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Zuidwestkwadrant Indische buurt",
+             "neighbourhood_code": "M31c",
+             "pano_id": "TMX7316010203-001205_pano_0001_000444",
+             "pitch": "-1.4946829054029",
+             "quarter_code": "M31",
+             "roll": "0.22514252957862",
+             "surface_type": "L",
+             "timestamp": "2019-05-23 10:35"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9344137065261702,52.3592886577947993
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.775",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9020533689330099,52.4082406445442999)",
+             "heading": "138.004337733327",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/05/TMX7316010203-001292/pano_0000_009055/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "De Bongerd",
+             "neighbourhood_code": "N65d",
+             "pano_id": "TMX7316010203-001292_pano_0000_009055",
+             "pitch": "-0.805065667917726",
+             "quarter_code": "N65",
+             "roll": "0.750760020080387",
+             "surface_type": "L",
+             "timestamp": "2019-07-05 12:32"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9020533689330099,52.4082406445442999
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.518",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9018245457206504,52.4105878526599014)",
+             "heading": "132.913152615158",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2016/06/14/TMX7315120208-000080/pano_0000_000137/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "De Bongerd",
+             "neighbourhood_code": "N65d",
+             "pano_id": "TMX7315120208-000080_pano_0000_000137",
+             "pitch": "-0.258374143524085",
+             "quarter_code": "N65",
+             "roll": "-1.87598557829835",
+             "surface_type": "L",
+             "timestamp": "2016-06-14 10:08"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9018245457206504,52.4105878526599014
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-0.342",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "F",
+             "geometry": "POINT (4.8370322606021903,52.3428214159018026)",
+             "heading": "355.538042787105",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/18/TMX7316010203-001318/pano_0000_000238/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Riekerhaven",
+             "neighbourhood_code": "F87e",
+             "pano_id": "TMX7316010203-001318_pano_0000_000238",
+             "pitch": "-0.8955449488462",
+             "quarter_code": "F87",
+             "roll": "-1.63236601467602",
+             "surface_type": "L",
+             "timestamp": "2019-07-18 08:34"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.8370322606021903,52.3428214159018026
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-0.33",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "F",
+             "geometry": "POINT (4.8370409340348504,52.3423555997749972)",
+             "heading": "359.168119465233",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/18/TMX7316010203-001318/pano_0000_000255/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Riekerhaven",
+             "neighbourhood_code": "F87e",
+             "pano_id": "TMX7316010203-001318_pano_0000_000255",
+             "pitch": "-1.33864480895065",
+             "quarter_code": "F87",
+             "roll": "-1.37194887463179",
+             "surface_type": "L",
+             "timestamp": "2019-07-18 08:35"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.8370409340348504,52.3423555997749972
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-0.437",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "F",
+             "geometry": "POINT (4.8370445263834103,52.3420302496394996)",
+             "heading": "359.118740160881",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/18/TMX7316010203-001318/pano_0000_000262/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Riekerhaven",
+             "neighbourhood_code": "F87e",
+             "pano_id": "TMX7316010203-001318_pano_0000_000262",
+             "pitch": "-1.01322585512818",
+             "quarter_code": "F87",
+             "roll": "-1.41673593196595",
+             "surface_type": "L",
+             "timestamp": "2019-07-18 08:35"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.8370445263834103,52.3420302496394996
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "5.312",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.8939240896880003,52.4249047017654988)",
+             "heading": "96.7267499666454",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/07/29/TMX7316010203-000880/pano_0000_005832/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Twiske West",
+             "neighbourhood_code": "N66d",
+             "pano_id": "TMX7316010203-000880_pano_0000_005832",
+             "pitch": "-0.433345178155659",
+             "quarter_code": "N66",
+             "roll": "-1.91971523691246",
+             "surface_type": "L",
+             "timestamp": "2018-07-29 11:54"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.8939240896880003,52.4249047017654988
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-0.868",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "F",
+             "geometry": "POINT (4.7978620609482601,52.3804704839385025)",
+             "heading": "357.270377920972",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2017/05/19/TMX7316010203-000302/pano_0001_001059/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Buurt 9",
+             "neighbourhood_code": "F78d",
+             "pano_id": "TMX7316010203-000302_pano_0001_001059",
+             "pitch": "-0.927994052022406",
+             "quarter_code": "F78",
+             "roll": "-0.115611046863844",
+             "surface_type": "L",
+             "timestamp": "2017-05-19 11:13"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.7978620609482601,52.3804704839385025
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.883",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9334086339724097,52.3725067677014025)",
+             "heading": "162.035410123272",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001196/pano_0000_000561/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Rietlanden",
+             "neighbourhood_code": "M33b",
+             "pano_id": "TMX7316010203-001196_pano_0000_000561",
+             "pitch": "-1.3186061063116",
+             "quarter_code": "M33",
+             "roll": "0.973084731762774",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 14:05"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9334086339724097,52.3725067677014025
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.098",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.8999537324924303,52.4179342684738003)",
+             "heading": "19.3134948117012",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/09/TMX7316010203-001301/pano_0000_003474/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Kadoelen",
+             "neighbourhood_code": "N67a",
+             "pano_id": "TMX7316010203-001301_pano_0000_003474",
+             "pitch": "0.144467824573479",
+             "quarter_code": "N67",
+             "roll": "1.26805887025298",
+             "surface_type": "L",
+             "timestamp": "2019-07-09 12:13"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.8999537324924303,52.4179342684738003
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-1.921",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "T",
+             "geometry": "POINT (4.9974630942016303,52.3043591929994989)",
+             "heading": "325.46283752632",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/06/03/TMX7316010203-001210/pano_0001_002683/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Gaasperplas",
+             "neighbourhood_code": "T95c",
+             "pano_id": "TMX7316010203-001210_pano_0001_002683",
+             "pitch": "-0.153874418105649",
+             "quarter_code": "T95",
+             "roll": "0.377851062868131",
+             "surface_type": "L",
+             "timestamp": "2019-06-03 13:44"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9974630942016303,52.3043591929994989
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "3.579",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9350897000712504,52.3654858030688999)",
+             "heading": "170.921067559423",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/05/23/TMX7316010203-000747/pano_0002_000337/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Noordwestkwadrant Indische buurt Noord",
+             "neighbourhood_code": "M31a",
+             "pano_id": "TMX7316010203-000747_pano_0002_000337",
+             "pitch": "-0.170017637242945",
+             "quarter_code": "M31",
+             "roll": "-1.05778609256671",
+             "surface_type": "L",
+             "timestamp": "2018-05-23 14:20"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9350897000712504,52.3654858030688999
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.463",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9337950485054298,52.3602922756738991)",
+             "heading": "233.293378904946",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/23/TMX7316010203-001205/pano_0001_001889/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Zuidwestkwadrant Indische buurt",
+             "neighbourhood_code": "M31c",
+             "pano_id": "TMX7316010203-001205_pano_0001_001889",
+             "pitch": "-1.22371246862499",
+             "quarter_code": "M31",
+             "roll": "-1.70697260603928",
+             "surface_type": "L",
+             "timestamp": "2019-05-23 11:10"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9337950485054298,52.3602922756738991
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "2.151",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9234922533325598,52.3797030564765009)",
+             "heading": "259.065573207754",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001194/pano_0000_000526/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Java-eiland",
+             "neighbourhood_code": "M33c",
+             "pano_id": "TMX7316010203-001194_pano_0000_000526",
+             "pitch": "0.546267345784653",
+             "quarter_code": "M33",
+             "roll": "-1.31626418141018",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 10:23"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9234922533325598,52.3797030564765009
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9238066906366296,52.3802503961022978)",
+             "heading": "281.843330002442",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2016/11/01/TMX7316010203-000172/pano_0000_001379/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Java-eiland",
+             "neighbourhood_code": "M33c",
+             "pano_id": "TMX7316010203-000172_pano_0000_001379",
+             "pitch": "-1.252859012591",
+             "quarter_code": "M33",
+             "roll": "1.61644094467358",
+             "surface_type": "W",
+             "timestamp": "2016-11-01 11:36"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9238066906366296,52.3802503961022978
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "4.741",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9231295207272501,52.3792113035380993)",
+             "heading": "188.950960118077",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001194/pano_0000_000383/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Java-eiland",
+             "neighbourhood_code": "M33c",
+             "pano_id": "TMX7316010203-001194_pano_0000_000383",
+             "pitch": "-0.52865076544716",
+             "quarter_code": "M33",
+             "roll": "-2.06998720477026",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 10:21"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9231295207272501,52.3792113035380993
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9251763882437398,52.3800548433501021)",
+             "heading": "285.412278798255",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/03/05/TMX7316010203-001120/pano_0000_000051/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Java-eiland",
+             "neighbourhood_code": "M33c",
+             "pano_id": "TMX7316010203-001120_pano_0000_000051",
+             "pitch": "0.512325210496387",
+             "quarter_code": "M33",
+             "roll": "1.33677098352678",
+             "surface_type": "W",
+             "timestamp": "2019-03-05 12:31"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9251763882437398,52.3800548433501021
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9234139862317896,52.3801838977290970)",
+             "heading": "281.713869391459",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2020/01/23/TMX7316010203-001587/pano_0000_000813/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Java-eiland",
+             "neighbourhood_code": "M33c",
+             "pano_id": "TMX7316010203-001587_pano_0000_000813",
+             "pitch": "0.803372790816741",
+             "quarter_code": "M33",
+             "roll": "1.79266215235247",
+             "surface_type": "W",
+             "timestamp": "2020-01-23 10:42"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9234139862317896,52.3801838977290970
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "12.055",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "K",
+             "geometry": "POINT (4.8741127568339300,52.3293110498334002)",
+             "heading": "82.1820090213332",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/05/31/TMX7316010203-000764/pano_0000_000966/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Gelderlandpleinbuurt",
+             "neighbourhood_code": "K90a",
+             "pano_id": "TMX7316010203-000764_pano_0000_000966",
+             "pitch": "0.0235699550196344",
+             "quarter_code": "K90",
+             "roll": "2.45114634955495",
+             "surface_type": "L",
+             "timestamp": "2018-05-31 11:39"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.8741127568339300,52.3293110498334002
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-1.015",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "T",
+             "geometry": "POINT (4.9988943938545898,52.2979275514816990)",
+             "heading": "260.231312509794",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/06/06/TMX7316010203-001212/pano_0000_001798/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Gein Noordoost",
+             "neighbourhood_code": "T97c",
+             "pano_id": "TMX7316010203-001212_pano_0000_001798",
+             "pitch": "-0.706281867104561",
+             "quarter_code": "T97",
+             "roll": "-0.458310500422248",
+             "surface_type": "L",
+             "timestamp": "2019-06-06 13:23"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9988943938545898,52.2979275514816990
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-0.477",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9018461468536296,52.4212543127290971)",
+             "heading": "90.7812848896296",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/09/TMX7316010203-001301/pano_0000_004804/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Twiske Oost",
+             "neighbourhood_code": "N67b",
+             "pano_id": "TMX7316010203-001301_pano_0000_004804",
+             "pitch": "-0.988885567259743",
+             "quarter_code": "N67",
+             "roll": "-0.566448099316719",
+             "surface_type": "L",
+             "timestamp": "2019-07-09 12:31"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9018461468536296,52.4212543127290971
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "5.526",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9185922448507204,52.4105597407697985)",
+             "heading": "124.599870788016",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/07/31/TMX7316010203-000887/pano_0000_001930/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Banne Noordwest",
+             "neighbourhood_code": "N70c",
+             "pano_id": "TMX7316010203-000887_pano_0000_001930",
+             "pitch": "-0.241687074351893",
+             "quarter_code": "N70",
+             "roll": "-0.177852351961088",
+             "surface_type": "L",
+             "timestamp": "2018-07-31 09:15"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9185922448507204,52.4105597407697985
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-0.218",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9207025816838197,52.4108760701058003)",
+             "heading": "40.3663814353799",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/02/TMX7316010203-001268/pano_0000_003174/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Banne Noordwest",
+             "neighbourhood_code": "N70c",
+             "pano_id": "TMX7316010203-001268_pano_0000_003174",
+             "pitch": "-1.30597998543049",
+             "quarter_code": "N70",
+             "roll": "0.994850445013892",
+             "surface_type": "L",
+             "timestamp": "2019-07-02 10:28"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9207025816838197,52.4108760701058003
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.506",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9239463931590599,52.3590192596136035)",
+             "heading": "64.1400666735663",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/15/TMX7316010203-001184/pano_0002_002100/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Oosterparkbuurt Zuidoost",
+             "neighbourhood_code": "M28c",
+             "pano_id": "TMX7316010203-001184_pano_0002_002100",
+             "pitch": "2.45400002521596",
+             "quarter_code": "M28",
+             "roll": "-1.53127737984935",
+             "surface_type": "L",
+             "timestamp": "2019-05-15 10:30"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9239463931590599,52.3590192596136035
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.633",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9010452406634100,52.4075171480968010)",
+             "heading": "244.506911648588",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/05/TMX7316010203-001292/pano_0000_008600/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "De Bongerd",
+             "neighbourhood_code": "N65d",
+             "pano_id": "TMX7316010203-001292_pano_0000_008600",
+             "pitch": "0.156181555105468",
+             "quarter_code": "N65",
+             "roll": "1.3703336534377",
+             "surface_type": "L",
+             "timestamp": "2019-07-05 12:25"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9010452406634100,52.4075171480968010
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.616",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9012274574991102,52.4074867590017988)",
+             "heading": "139.069974958072",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/05/TMX7316010203-001292/pano_0000_008852/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "De Bongerd",
+             "neighbourhood_code": "N65d",
+             "pano_id": "TMX7316010203-001292_pano_0000_008852",
+             "pitch": "-0.859577648764229",
+             "quarter_code": "N65",
+             "roll": "-1.41949194365534",
+             "surface_type": "L",
+             "timestamp": "2019-07-05 12:29"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9012274574991102,52.4074867590017988
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-2.227",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "T",
+             "geometry": "POINT (4.9482623631176299,52.3098890206280984)",
+             "heading": "150.1702095246",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/06/26/TMX7316010203-001251/pano_0000_001553/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Amstel III deel A/B Noord",
+             "neighbourhood_code": "T92b",
+             "pano_id": "TMX7316010203-001251_pano_0000_001553",
+             "pitch": "-1.06332918064136",
+             "quarter_code": "T92",
+             "roll": "1.31799995861326",
+             "surface_type": "L",
+             "timestamp": "2019-06-26 09:18"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9482623631176299,52.3098890206280984
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-1.438",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "F",
+             "geometry": "POINT (4.8086009282010096,52.3449276763207010)",
+             "heading": "268.532029180919",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/15/TMX7316010203-001311/pano_0002_001327/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Nieuw Sloten Zuidwest",
+             "neighbourhood_code": "F88h",
+             "pano_id": "TMX7316010203-001311_pano_0002_001327",
+             "pitch": "-0.445792015085459",
+             "quarter_code": "F88",
+             "roll": "-1.90937545028013",
+             "surface_type": "L",
+             "timestamp": "2019-07-15 10:44"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.8086009282010096,52.3449276763207010
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-1.141",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "F",
+             "geometry": "POINT (4.8086284788090001,52.3473876061319032)",
+             "heading": "262.778838641677",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/06/22/TMX7316010203-000804/pano_0000_003565/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Nieuw Sloten Noordwest",
+             "neighbourhood_code": "F88e",
+             "pano_id": "TMX7316010203-000804_pano_0000_003565",
+             "pitch": "-0.0601795583230865",
+             "quarter_code": "F88",
+             "roll": "0.644813476179487",
+             "surface_type": "L",
+             "timestamp": "2018-06-22 13:43"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.8086284788090001,52.3473876061319032
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.451",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "F",
+             "geometry": "POINT (4.8096176431828201,52.3509142678421000)",
+             "heading": "70.6113870047759",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/17/TMX7316010203-001316/pano_0000_003943/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Nieuw Sloten Noordoost",
+             "neighbourhood_code": "F88f",
+             "pano_id": "TMX7316010203-001316_pano_0000_003943",
+             "pitch": "-1.24742107162035",
+             "quarter_code": "F88",
+             "roll": "-1.35855132175709",
+             "surface_type": "L",
+             "timestamp": "2019-07-17 09:57"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.8096176431828201,52.3509142678421000
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "6.456",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9450827329168296,52.3669317236359007)",
+             "heading": "267.739776005984",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/11/29/TMX7316010203-001475/pano_0002_000153/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Bedrijvengebied Zeeburgerkade",
+             "neighbourhood_code": "M33k",
+             "pano_id": "TMX7316010203-001475_pano_0002_000153",
+             "pitch": "-1.79809477113779",
+             "quarter_code": "M33",
+             "roll": "-2.12828260279549",
+             "surface_type": "L",
+             "timestamp": "2019-11-29 12:09"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9450827329168296,52.3669317236359007
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.739",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9385779657602198,52.3902220186283003)",
+             "heading": "304.666590173995",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/07/24/TMX7316010203-000866/pano_0000_002414/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Vliegenbos",
+             "neighbourhood_code": "N61d",
+             "pano_id": "TMX7316010203-000866_pano_0000_002414",
+             "pitch": "-0.639945685925237",
+             "quarter_code": "N61",
+             "roll": "-0.90721062585311",
+             "surface_type": "L",
+             "timestamp": "2018-07-24 14:13"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9385779657602198,52.3902220186283003
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-0.177",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9446332156646999,52.3994962658633980)",
+             "heading": "112.603102433675",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/08/02/TMX7316010203-000899/pano_0001_004000/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "De Kleine Wereld",
+             "neighbourhood_code": "N69l",
+             "pano_id": "TMX7316010203-000899_pano_0001_004000",
+             "pitch": "-0.678662022430785",
+             "quarter_code": "N69",
+             "roll": "-1.14674029162076",
+             "surface_type": "L",
+             "timestamp": "2018-08-02 15:12"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9446332156646999,52.3994962658633980
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "3.193",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9195550874276401,52.4157234314256968)",
+             "heading": "304.721906105758",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/03/TMX7316010203-001270/pano_0001_000303/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Banne Noordwest",
+             "neighbourhood_code": "N70c",
+             "pano_id": "TMX7316010203-001270_pano_0001_000303",
+             "pitch": "-1.14242889161978",
+             "quarter_code": "N70",
+             "roll": "-2.12940778667023",
+             "surface_type": "L",
+             "timestamp": "2019-07-03 07:56"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9195550874276401,52.4157234314256968
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "3.046",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9202715080215702,52.4154084668551974)",
+             "heading": "305.515177175366",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/07/03/TMX7316010203-001270/pano_0001_000315/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Banne Noordwest",
+             "neighbourhood_code": "N70c",
+             "pano_id": "TMX7316010203-001270_pano_0001_000315",
+             "pitch": "-1.01846319145117",
+             "quarter_code": "N70",
+             "roll": "-1.63010207582856",
+             "surface_type": "L",
+             "timestamp": "2019-07-03 07:56"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9202715080215702,52.4154084668551974
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.68",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9336505669963300,52.3772776561386024)",
+             "heading": "85.8353006730801",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/05/16/TMX7316010203-000724/pano_0000_000810/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Java-eiland",
+             "neighbourhood_code": "M33c",
+             "pano_id": "TMX7316010203-000724_pano_0000_000810",
+             "pitch": "-2.02371151377577",
+             "quarter_code": "M33",
+             "roll": "2.0828943637565",
+             "surface_type": "L",
+             "timestamp": "2018-05-16 09:58"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9336505669963300,52.3772776561386024
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "2.829",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9342057948387597,52.3777643072060997)",
+             "heading": "293.885500604185",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/12/14/TMX7316010203-001013/pano_0005_000124/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Java-eiland",
+             "neighbourhood_code": "M33c",
+             "pano_id": "TMX7316010203-001013_pano_0005_000124",
+             "pitch": "-0.0261896185507771",
+             "quarter_code": "M33",
+             "roll": "-1.84005668157329",
+             "surface_type": "L",
+             "timestamp": "2018-12-14 10:02"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9342057948387597,52.3777643072060997
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9304317977038004,52.3791490970132969)",
+             "heading": "285.411612135413",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/03/05/TMX7316010203-001120/pano_0000_000088/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Java-eiland",
+             "neighbourhood_code": "M33c",
+             "pano_id": "TMX7316010203-001120_pano_0000_000088",
+             "pitch": "0.534038075293185",
+             "quarter_code": "M33",
+             "roll": "1.3663240229813",
+             "surface_type": "W",
+             "timestamp": "2019-03-05 12:32"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9304317977038004,52.3791490970132969
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.29",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9261503329069596,52.3588126982206035)",
+             "heading": "156.990378812402",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2016/05/31/TMX7315120208-000061/pano_0000_000249/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Dapperbuurt Zuid",
+             "neighbourhood_code": "M29b",
+             "pano_id": "TMX7315120208-000061_pano_0000_000249",
+             "pitch": "-0.582126946721268",
+             "quarter_code": "M29",
+             "roll": "0.181038534493387",
+             "surface_type": "L",
+             "timestamp": "2016-05-31 15:26"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9261503329069596,52.3588126982206035
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.64",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "A",
+             "geometry": "POINT (4.9284292042189302,52.3724193442039976)",
+             "heading": "40.1782269886488",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/01/14/TMX7316010203-001051/pano_0001_003562/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Oostenburg",
+             "neighbourhood_code": "A09d",
+             "pano_id": "TMX7316010203-001051_pano_0001_003562",
+             "pitch": "-0.0933854746414763",
+             "quarter_code": "A09",
+             "roll": "-0.278297472782224",
+             "surface_type": "L",
+             "timestamp": "2019-01-14 10:17"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9284292042189302,52.3724193442039976
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.619",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "A",
+             "geometry": "POINT (4.9249727726148897,52.3689549691752987)",
+             "heading": "53.0860287888787",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2016/05/24/TMX7315120208-000056/pano_0000_000430/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Oostenburg",
+             "neighbourhood_code": "A09d",
+             "pano_id": "TMX7315120208-000056_pano_0000_000430",
+             "pitch": "1.78759840002817",
+             "quarter_code": "A09",
+             "roll": "-0.152244085862439",
+             "surface_type": "L",
+             "timestamp": "2016-05-24 13:09"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9249727726148897,52.3689549691752987
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.636",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "A",
+             "geometry": "POINT (4.9250877967670803,52.3690389568488968)",
+             "heading": "67.074828386374",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2017/04/05/TMX7316010203-000247/pano_0000_000812/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Oostenburg",
+             "neighbourhood_code": "A09d",
+             "pano_id": "TMX7316010203-000247_pano_0000_000812",
+             "pitch": "0.514396030749786",
+             "quarter_code": "A09",
+             "roll": "-0.198509505788651",
+             "surface_type": "L",
+             "timestamp": "2017-04-05 16:18"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9250877967670803,52.3690389568488968
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "-2.429",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "N",
+             "geometry": "POINT (4.9444142166401299,52.4063354577251985)",
+             "heading": "143.097276305889",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/06/18/TMX7316010203-001228/pano_0001_001123/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Noorderstrook West",
+             "neighbourhood_code": "N73i",
+             "pano_id": "TMX7316010203-001228_pano_0001_001123",
+             "pitch": "-1.24860128432092",
+             "quarter_code": "N73",
+             "roll": "-1.30066053346634",
+             "surface_type": "L",
+             "timestamp": "2019-06-18 09:56"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9444142166401299,52.4063354577251985
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.533",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "A",
+             "geometry": "POINT (4.9245405491628800,52.3686208962031969)",
+             "heading": "42.8325330214657",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001195/pano_0001_000210/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Oostenburg",
+             "neighbourhood_code": "A09d",
+             "pano_id": "TMX7316010203-001195_pano_0001_000210",
+             "pitch": "-1.7420033333801",
+             "quarter_code": "A09",
+             "roll": "-0.199708495412889",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 13:05"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9245405491628800,52.3686208962031969
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.54",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "A",
+             "geometry": "POINT (4.9308854032780998,52.3726005315067979)",
+             "heading": "187.622440313079",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/05/17/TMX7316010203-000739/pano_0000_002174/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Oostenburg",
+             "neighbourhood_code": "A09d",
+             "pano_id": "TMX7316010203-000739_pano_0000_002174",
+             "pitch": "-1.73928625346531",
+             "quarter_code": "A09",
+             "roll": "0.0349131747799424",
+             "surface_type": "L",
+             "timestamp": "2018-05-17 10:22"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9308854032780998,52.3726005315067979
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "1.564",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9366091815333197,52.3745468104240004)",
+             "heading": "285.31888902537",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/21/TMX7316010203-001195/pano_0000_002906/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Rietlanden",
+             "neighbourhood_code": "M33b",
+             "pano_id": "TMX7316010203-001195_pano_0000_002906",
+             "pitch": "-1.31379311866338",
+             "quarter_code": "M33",
+             "roll": "0.44648699024125",
+             "surface_type": "L",
+             "timestamp": "2019-05-21 12:39"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9366091815333197,52.3745468104240004
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "6.232",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9255570804906199,52.3635710066293001)",
+             "heading": "69.328223447821",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/11/29/TMX7316010203-001475/pano_0000_000729/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Dapperbuurt Noord",
+             "neighbourhood_code": "M29a",
+             "pano_id": "TMX7316010203-001475_pano_0000_000729",
+             "pitch": "-1.68919344650145",
+             "quarter_code": "M29",
+             "roll": "-0.948154335003438",
+             "surface_type": "L",
+             "timestamp": "2019-11-29 11:42"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9255570804906199,52.3635710066293001
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "14.016",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9247571274645203,52.3602375096099024)",
+             "heading": "167.933917148682",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/15/TMX7316010203-001184/pano_0000_003823/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Oosterpark",
+             "neighbourhood_code": "M28b",
+             "pano_id": "TMX7316010203-001184_pano_0000_003823",
+             "pitch": "-0.820251486997546",
+             "quarter_code": "M28",
+             "roll": "-0.52722739598616",
+             "surface_type": "L",
+             "timestamp": "2019-05-15 09:35"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9247571274645203,52.3602375096099024
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.324",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9251665566963103,52.3603054394499026)",
+             "heading": "153.136989573028",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/15/TMX7316010203-001184/pano_0000_003432/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Dapperbuurt Zuid",
+             "neighbourhood_code": "M29b",
+             "pano_id": "TMX7316010203-001184_pano_0000_003432",
+             "pitch": "-1.89877873019311",
+             "quarter_code": "M29",
+             "roll": "0.000692041320168479",
+             "surface_type": "L",
+             "timestamp": "2019-05-15 09:29"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9251665566963103,52.3603054394499026
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.519",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9365846764531902,52.3609236309050985)",
+             "heading": "167.685189613857",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2016/05/11/TMX7315120208-000047/pano_0000_002038/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Zuidwestkwadrant Indische buurt",
+             "neighbourhood_code": "M31c",
+             "pano_id": "TMX7315120208-000047_pano_0000_002038",
+             "pitch": "-0.399739887264817",
+             "quarter_code": "M31",
+             "roll": "-0.470566664864598",
+             "surface_type": "L",
+             "timestamp": "2016-05-11 14:05"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9365846764531902,52.3609236309050985
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.484",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9382701704298402,52.3632706981663034)",
+             "heading": "357.357418088675",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/05/24/TMX7316010203-000748/pano_0000_003927/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Noordwestkwadrant Indische buurt Zuid",
+             "neighbourhood_code": "M31b",
+             "pano_id": "TMX7316010203-000748_pano_0000_003927",
+             "pitch": "-3.09480621778315",
+             "quarter_code": "M31",
+             "roll": "-0.116053364922484",
+             "surface_type": "L",
+             "timestamp": "2018-05-24 10:22"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9382701704298402,52.3632706981663034
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "2.045",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "A",
+             "geometry": "POINT (4.9271710669679596,52.3667745024468019)",
+             "heading": "80.5065685527497",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/11/29/TMX7316010203-001475/pano_0001_000229/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Het Funen",
+             "neighbourhood_code": "A09f",
+             "pano_id": "TMX7316010203-001475_pano_0001_000229",
+             "pitch": "-3.96440917283347",
+             "quarter_code": "A09",
+             "roll": "0.417129751038633",
+             "surface_type": "L",
+             "timestamp": "2019-11-29 11:51"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9271710669679596,52.3667745024468019
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "A",
+             "geometry": "POINT (4.9271346116038304,52.3671322048390024)",
+             "heading": "265.770945534575",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2017/07/05/TMX7316010203-000353/pano_0003_000104/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Czaar Peterbuurt",
+             "neighbourhood_code": "A09e",
+             "pano_id": "TMX7316010203-000353_pano_0003_000104",
+             "pitch": "-0.102912678453069",
+             "quarter_code": "A09",
+             "roll": "0.60356308452462",
+             "surface_type": "W",
+             "timestamp": "2017-07-05 13:41"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9271346116038304,52.3671322048390024
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.745",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9336479431651803,52.3579477485487033)",
+             "heading": "69.1902760391118",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2018/05/25/TMX7316010203-000751/pano_0000_000253/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Oostpoort",
+             "neighbourhood_code": "M29c",
+             "pano_id": "TMX7316010203-000751_pano_0000_000253",
+             "pitch": "-0.333123304293987",
+             "quarter_code": "M29",
+             "roll": "-0.857586444229224",
+             "surface_type": "L",
+             "timestamp": "2018-05-25 08:40"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9336479431651803,52.3579477485487033
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.761",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9343698833973502,52.3584400293563021)",
+             "heading": "123.32697099902",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/23/TMX7316010203-001205/pano_0000_000531/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Oostpoort",
+             "neighbourhood_code": "M29c",
+             "pano_id": "TMX7316010203-001205_pano_0000_000531",
+             "pitch": "0.116123573379042",
+             "quarter_code": "M29",
+             "roll": "-1.06343682073508",
+             "surface_type": "L",
+             "timestamp": "2019-05-23 09:45"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9343698833973502,52.3584400293563021
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "A",
+             "geometry": "POINT (4.9242855934413399,52.3714167924993035)",
+             "heading": "46.4199413696199",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2017/07/05/TMX7316010203-000353/pano_0002_000387/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Oostenburg",
+             "neighbourhood_code": "A09d",
+             "pano_id": "TMX7316010203-000353_pano_0002_000387",
+             "pitch": "-0.109027184542679",
+             "quarter_code": "A09",
+             "roll": "1.00152770923668",
+             "surface_type": "W",
+             "timestamp": "2017-07-05 13:10"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9242855934413399,52.3714167924993035
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.53",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9319744299464903,52.3617435487683025)",
+             "heading": "342.600699804515",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/05/23/TMX7316010203-001205/pano_0001_001012/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Noordwestkwadrant Indische buurt Zuid",
+             "neighbourhood_code": "M31b",
+             "pano_id": "TMX7316010203-001205_pano_0001_001012",
+             "pitch": "-1.9331868047036",
+             "quarter_code": "M31",
+             "roll": "-1.79081744712099",
+             "surface_type": "L",
+             "timestamp": "2019-05-23 10:49"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9319744299464903,52.3617435487683025
+             ]
+          }
+       },
+       {
+          "type": "Feature",
+          "properties": {
+             "car_height": "0.439",
+             "current_tablename": "panoramas_new_2_5",
+             "district_code": "M",
+             "geometry": "POINT (4.9263359875275503,52.3613248897924990)",
+             "heading": "68.7050684246824",
+             "img_url": "https://panorama.data.amsterdam.nl/panorama/2019/11/29/TMX7316010203-001475/pano_0000_000466/equirectangular/panorama_2000.jpg",
+             "neighbourhood": "Dapperbuurt Zuid",
+             "neighbourhood_code": "M29b",
+             "pano_id": "TMX7316010203-001475_pano_0000_000466",
+             "pitch": "-1.09881975855653",
+             "quarter_code": "M29",
+             "roll": "0.00614340325712526",
+             "surface_type": "L",
+             "timestamp": "2019-11-29 11:37"
+          },
+          "geometry": {
+             "type": "Point",
+             "coordinates": [
+                4.9263359875275503,52.3613248897924990
+             ]
+          }
+       }
+    ]
+ }
