@@ -37,13 +37,13 @@ const labels = {
 };
 
 const absolute_counts = {
-    "Tram Stops": 183,
-    "Tree": 265036,
+    "Tram Stops": 100,
+    "Tree": 100,
     "Trash Disposal": 12532,
-    "Sports Field": 669,
+    "Sports Field": 100,
     "Metro Station": 58,
     "Solar Panel": 12000 ,
-    "Playground": 162
+    "Playground": 100
 }
 
 function openNeighborhoodPanel() {
@@ -166,27 +166,7 @@ map.scrollZoom.disable();
 var popup = new mapboxgl.Popup({
     closeButton: false,
     closeOnClick: false
-});
-
-// get data from hover over states
-
-// datasets for lollipop chart
-var dataset1 = [
-    {"marker": "solar", "count": 80},
-    {"marker": "metro", "count": 74},
-    {"marker": "tree", "count": 50},
-    {"marker": "train", "count": 60},
-];
-
-
-// datasets for barChart
-var barData1 = [
-    {"marker": "solar", "value": 30},
-    {"marker": "metro", "value": 50},
-    {"marker": "tree", "value": 80},
-    {"marker": "train", "value": 17},
-];
- 
+}); 
 
 
 var margin = {top: 50, right: 10, bottom: 60, left: 25},
@@ -228,16 +208,6 @@ lolliSVG2.append("text")
         .style("font-size", "16px")  
         .text("Absolute Count");
 
-// rotate tick labels
-// lolliSVG2.append("g")
-//     .attr("class", "x axis")
-//     .attr("transform", "translate(0," + height + ")")
-//     .call(x_axis)
-//     .selectAll("text")
-//     .style("text-anchor", "end")
-//     .attr("dx", "-.8em")
-//     .attr("dy", ".15em")
-//     .attr("transform", "rotate(-65)");
 
 // update function 
 function updateLollipopChart2(data) {
@@ -393,24 +363,6 @@ function updateBarChart2(barData) {
             .attr("fill", "#69b3a2")
 
     c2.exit().remove();
-    // // update bars with variable b
-    // var b = barSVG2.selectAll(".rectneighborhood")
-    //     .data(barData)
-
-    // b.enter()
-    //     .append("rect")
-    //     .attr("class", ".rectneighborhood")
-    //     .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")")
-    //     .merge(b)
-    //     .transition()
-    //     .duration(1000)
-    //     .attr("width", function(d) {return barX(d.value); })
-    //     .attr("y", function(d) {return barY(d.marker); })
-    //     //.attr("height", barY.bandwidth())
-    //     .attr("height", width2 / barData.length)
-    //     .attr("fill", "#69b3a2");
-    
-    // b.exit().remove();
 
 };
 

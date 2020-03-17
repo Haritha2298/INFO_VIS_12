@@ -82,17 +82,17 @@ map.on('load', function() {
       'circle-color': [
         'step',
         ['get', 'point_count'],
-        '#6C96F9',
+        '#1f78b4',
         10,
-        '#6C96F9',
+        '#1f78b4',
         50,
-        '#6C96F9'
+        '#1f78b4'
       ],
       'circle-radius': [
         'step',
         ['get', 'point_count'],
-        5,10,
-        10,50,
+        10,10,
+        14,50,
         20
       ]
     }
@@ -162,15 +162,15 @@ map.on('load', function() {
       'circle-color': [
         'step',
         ['get', 'point_count'],
-        '#F99736',10,
-        '#F99736',50,
-        '#F99736'
+        '#fb9a99',10,
+        '#fb9a99',50,
+        '#fb9a99'
       ],
       'circle-radius': [
         'step',
         ['get', 'point_count'],
-        5,10,
-        10,50,
+        10,10,
+        14,50,
         20
       ]
     }
@@ -224,15 +224,15 @@ map.on('load', function() {
       'circle-color': [
         'step',
         ['get', 'point_count'],
-        '#A4A7AA',10,
-        '#A4A7AA',50,
-        '#A4A7AA'
+        '#a6cee3',10,
+        '#a6cee3',50,
+        '#a6cee3'
       ],
       'circle-radius': [
         'step',
         ['get', 'point_count'],
-        5,10,
-        10,50,
+        10,10,
+        14,50,
         20
       ]
     }
@@ -269,12 +269,12 @@ map.on('load', function() {
   map.addSource('tree', {
     'type': 'geojson',
     'data': 'static/data/tree.json',
-    // 'cluster': true,
-    // 'clusterMaxZoom': 14,
-    // 'clusterRadius': 50,
+    'cluster': true,
+    'clusterMaxZoom': 14,
+    'clusterRadius': 50,
   });
 
-   // clusters for tree disposal
+   // clusters for tree
    map.addLayer({
     id: 'cluster-tree',
     type: 'circle',
@@ -286,15 +286,15 @@ map.on('load', function() {
       'circle-color': [
         'step',
         ['get', 'point_count'],
-        '#0CA21D',10,
-        '#0CA21D',50,
-        '#0CA21D'
+        '#33a02c',10,
+        '#33a02c',50,
+        '#33a02c'
       ],
       'circle-radius': [
         'step',
         ['get', 'point_count'],
-        5,10,
-        10,50,
+        10,10,
+        14,50,
         20
       ]
     }
@@ -344,11 +344,56 @@ map.on('load', function() {
   });
 
 
-  ///// Parks /////
+  ///// Playgrounds /////
   map.addSource('playground', {
     'type': 'geojson',
-    'data': 'static/data/playground.json'
+    'data': 'static/data/playground.json',
+    'cluster': true,
+    'clusterMaxZoom': 14,
+    'clusterRadius': 50,
   });
+  map.addLayer({
+    id: 'cluster-playground',
+    type: 'circle',
+    source: 'playground',
+    filter: ['has', 'point_count'],
+    layout: {
+      'visibility': 'none'
+    },
+    paint: {
+      'circle-color': [
+        'step',
+        ['get', 'point_count'],
+        '#fdbf6f',
+        5,
+        '#fdbf6f',
+        25,
+        '#fdbf6f'
+      ],
+      'circle-radius':[
+        'step',
+        ['get', 'point_count'],
+        10,5,
+        14,25,
+        20
+      ]
+
+    }
+  });
+
+  map.addLayer({
+    id: 'cluster-count-playground',
+    type: 'symbol',
+    source: 'playground',
+    filter: ['has', 'point_count'],
+    layout: {
+      'visibility': 'none',
+      'text-field': '{point_count_abbreviated}',
+      'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+      'text-size': 10
+    }
+  });
+
   map.addLayer({
     'id': 'playground',
     'type': 'symbol',
@@ -391,8 +436,8 @@ map.on('load', function() {
       'circle-radius':[
         'step',
         ['get', 'point_count'],
-        5,10,
-        10,50,
+        10,10,
+        14,50,
         20
       ]
     }
