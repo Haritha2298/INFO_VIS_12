@@ -25,7 +25,7 @@ var map = new mapboxgl.Map({
 
 // function to add all the markers images
 function loadIcons() {
-  var icon_list = ['rail-11.png', 'metro-11.png', 'solar-11.png', 'trash-11.png'];
+  var icon_list = ['rail-11.png', 'metro-11.png', 'solar-11.png', 'trash-11.png', 'camera-15.png'];
   icon_list.forEach(function(listItem){
     map.loadImage("/static/icons/" + listItem, function(error, image){
       if (error) throw error;
@@ -269,9 +269,9 @@ map.on('load', function() {
   map.addSource('tree', {
     'type': 'geojson',
     'data': 'static/data/tree.json',
-    'cluster': true,
-    'clusterMaxZoom': 14,
-    'clusterRadius': 50,
+    // 'cluster': true,
+    // 'clusterMaxZoom': 14,
+    // 'clusterRadius': 50,
   });
 
    // clusters for tree disposal
@@ -363,15 +363,63 @@ map.on('load', function() {
   ///// Panorama Pictures ////
   map.addSource('panoramas', {
     'type': 'geojson',
-    'data': 'static/data/panoramas.json'
+    'data': 'static/data/panoramas.json',
+    'cluster': true,
+    'clusterMaxZoom': 14,
+    'clusterRadius': 50,
   });
+
+  // clusteer for pictures
+  map.addLayer({
+    id: 'cluster-panoramas',
+    type: 'circle',
+    source: 'panoramas',
+    filter: ['has', 'point_count'],
+    layout: {
+      'visibility': 'none',
+    },
+    paint: {
+      'circle-color': [
+        'step',
+        ['get', 'point_count'],
+        '#898B8F',
+        10,
+        '#898B8F',
+        50,
+        '#898B8F'
+      ],
+      'circle-radius':[
+        'step',
+        ['get', 'point_count'],
+        5,10,
+        10,50,
+        20
+      ]
+    }
+  });
+
+  // cluster count number panoramas
+  map.addLayer({
+    id: 'cluster-count-panoramas',
+    type: 'symbol',
+    source: 'panoramas',
+    filter: ['has', 'point_count'],
+    layout: {
+      'visibility': 'none',
+      'text-field': '{point_count_abbreviated}',
+      'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+      'text-size': 10
+    }
+  });
+
   map.addLayer({
     'id': 'panoramas',
     'type': 'symbol',
     'source': 'panoramas',
+    'filter': ['!', ['has', 'point_count']],
     'layout':  {
       'visibility': 'none',
-      'icon-image': 'bicycle-15',
+      'icon-image': 'camera-15',
       'icon-allow-overlap': true
     },
   })
@@ -531,11 +579,15 @@ showHideButton.addEventListener('click', function() {
     showHideButton.innerHTML = showHideButton.getAttribute("data-text-original");
     showHideLayers(dropdownDatasets, true);
     map.setLayoutProperty("panoramas", 'visibility', 'none');
+    map.setLayoutProperty("cluster-panoramas", 'visibility', 'none');
+    map.setLayoutProperty("cluster-count-panoramas", 'visibility', 'none');
   } else {
     showHideButton.setAttribute("data-text-original", showHideButton.innerHTML);
     showHideButton.innerHTML = showHideButton.getAttribute("data-text-swap");
     showHideLayers(dropdownDatasets, false);
     map.setLayoutProperty("panoramas", 'visibility', 'visible');
+    map.setLayoutProperty("cluster-panoramas", 'visibility', 'visible');
+    map.setLayoutProperty("cluster-count-panoramas", 'visibility', 'visible');
   }
 }, false);
 
