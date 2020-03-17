@@ -475,7 +475,7 @@ function getSelectValues(select) {
 };
 
 // adjusts the layers specified in the dropdown
-const availableOptions = ["solarPanels", "metro_stops", "sports_field", "trash", "tree", "tram_stop", "playground", "panoramas"];
+const availableOptions = ["solarPanels", "metro_stops", "sports_field", "trash", "tree", "tram_stop", "playground"];
 const markersWithClusters = ["solarPanels","sports_field", "trash", "tree"]
 
 function displayLayers (datasetList){
@@ -530,10 +530,12 @@ showHideButton.addEventListener('click', function() {
   if (showHideButton.getAttribute("data-text-swap") == showHideButton.innerHTML){
     showHideButton.innerHTML = showHideButton.getAttribute("data-text-original");
     showHideLayers(dropdownDatasets, true);
+    map.setLayoutProperty("panoramas", 'visibility', 'none');
   } else {
     showHideButton.setAttribute("data-text-original", showHideButton.innerHTML);
     showHideButton.innerHTML = showHideButton.getAttribute("data-text-swap");
     showHideLayers(dropdownDatasets, false);
+    map.setLayoutProperty("panoramas", 'visibility', 'visible');
   }
 }, false);
 
@@ -565,7 +567,40 @@ function showHideLayers (datasetList, addOrRemove){
 
 }
 
+map.on('click', 'panoramas', function(e) {
+  var panoCoords = e.features[0].geometry.coordinates.slice();
+  var panoURL = e.features[0].properties['img_url'];
+  var panoDescription = e.features[0].properties['neighbourhood'];
 
+  // new mapboxgl.Popup()
+  //   .setLngLat(panoCoords)
+  //   .setHTML(panoDescription)
+  //   .addTo(map);
+  var panoModal = document.getElementById("panoModal");
+  var span = document.getElementById("panoClose");
+
+  // set the title of the box
+  document.getElementById("panoTitle").innerHTML = "Neighborhood: " + panoDescription;
+
+  // set the picture
+  document.getElementById("panoUrl").src = panoURL;
+
+  // open the modal on click
+  panoModal.style.display = "block";
+
+  // When clicking x close the box
+  span.onclick = function() {
+    panoModal.style.display = "none";
+  }
+
+  // when clicking anywhere outside the box close it
+  window.onclick = function(event) {
+    if(event.target == panoModal) {
+      panoModal.style.display = "none";
+    }
+  }
+
+});
 
 
 

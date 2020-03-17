@@ -112,7 +112,6 @@ body, html {height: 100%}
     <option value="sports_field">Sports Field</option>
     <option value="metro_stops">Metro Stations</option>
     <option value="solarPanels">Solar Panels</option>
-    <option value="panoramas">Panoramas</option>
   </select>
   
   <!-- <input type="button" id='submit' value="Submit" onclick="getSelectValues()"/> -->
@@ -147,6 +146,16 @@ body, html {height: 100%}
   $('select').selectpicker();
   </script>
 
+  <!-- Panorama Picture Modal -->
+  <div id="panoModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span id="panoClose" class="close">&times;</span>
+      <p id="panoTitle"> Panorama Picture </p>
+      <img id="panoUrl" alt="Panorama Picture" class="center" width="750" height="600">
+    </div>
+  </div>
 
   <!-- <pre id='cordInfo'></pre> -->
 
