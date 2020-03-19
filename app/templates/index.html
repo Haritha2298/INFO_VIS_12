@@ -28,7 +28,7 @@ body, html {height: 100%}
   height: 100%;
 }
 
-.button {
+.linker {
   border-radius: 3px;
   background-color: #ffdfc5;
   border: none;
@@ -45,14 +45,14 @@ body, html {height: 100%}
   left:-20px;
 }
 
-.button span {
+.linker span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-.button span:after {
+.linker span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -61,36 +61,32 @@ body, html {height: 100%}
   transition: 0.5s;
 }
 
-.button:hover span {
+.linker:hover span {
   padding-right: 25px;
 }
 
-.button:hover span:after {
+.linker:hover span:after {
   opacity: 1;
   right: 0;
 }
 .mapss{
   padding: 5rem 0 0;
 }
+
 </style>
 <body>
 <header class="bgimg w3-display-container w3-animate-opacity w3-text-white">
-  <div class="w3-display-topleft w3-padding-large w3-xlarge">
-    Amsterdam
-  </div>
   <div class="w3-display-middle">
     <h1 class="w3-jumbo w3-animate-top">Discover Amsterdam</h1>
     <hr class="w3-border-grey" style="margin:auto;width:40%">
-
-  </div>
-  <div class="w3-display-middle">
-  <a href="#mapss" class="button"><span>Explore</span</a>
+	<div class="w3-display-middle">
+  <a href="#mapss" class="linker"><span>Explore</span></a>
 <!--<button class="button"><span>Explore</span></button>-->
   </div>
 
   </header>
   <section id="mapss" class="mapimg">
-
+<center>
   <!-- Build your select: -->
   <select id='dropdown-menu' class='selectpicker' multiple data-live-search="true">
     <!-- <option value="bridge.json">Bridges</option>
@@ -122,25 +118,25 @@ body, html {height: 100%}
   <button type="button" class="btn btn-demo" onclick="
       var el = document.getElementById('dropdown-menu');
       var datasets = getSelectValues(el);
-      displayLayers(datasets);">Submit Data Selection</button>
+      displayLayers(datasets);">Submit</button>
 
   <!-- <button type="button" class="btn btn-demo" onclick="
       openPolygonModal();
       loadData();">Finished Polygons</button> -->
     
   <!-- <input type="button" id="showHideMarkers" data-text-swap="Show Markers" value="Remove Markers"/> -->
-  <button id= "showHideMarkers" class="btn btn-demo" data-text-swap="Make Markers Visible">Make Markers Invisible</button>
+  <button id= "showHideMarkers" class="btn btn-demo" data-text-swap="Make Markers Visible">Switch to Panaroma</button>
 
   <!-- Button to open Polygon Panel -->
   <button type="button" class="btn btn-demo" onclick="openPolygonPanel();">
-    Polygon Panel
+    Compare Polygons
   </button>
 
   <!-- Button to open Neighborhood Panel -->
   <button type="button" class="btn btn-demo" onclick="openNeighborhoodPanel();">
-    Neighborhood Panel
+    Compare Neighborhoods
   </button>
- 
+ </center>
   <!-- Initialize the plugin: -->
   <script type="text/javascript">
   $('select').selectpicker();
@@ -169,6 +165,7 @@ body, html {height: 100%}
       <H4>Polygon Data</H4>
       <div id="button-polygon"></div>
       <div id="lollipopChart"></div>
+	  <br><br><br><br><br><br><br><br><br><br><br><br>
       <div id="barChart"></div>
     </div>
 
@@ -178,6 +175,7 @@ body, html {height: 100%}
       <H4>Neighborhood Data</H4>
       <div id="neighborhoodName"></div>
       <div id="lollipopChart-hood"></div>
+	  <br><br><br><br><br><br><br><br><br><br><br><br>
       <div id="barChart-hood"></div>
     </div>
 
