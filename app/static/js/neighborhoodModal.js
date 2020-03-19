@@ -169,7 +169,7 @@ var popup = new mapboxgl.Popup({
 }); 
 
 
-var margin = {top: 50, right: 10, bottom: 60, left: 25},
+var margin = {top: 60, right: 10, bottom: 60, left:25},
     width = 280 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 
@@ -276,7 +276,7 @@ function updateLollipopChart2(data) {
 
 ///// Horizontal Bar Chart /////
 
-var margin2 = {top: 60, right: 30, bottom: 70, left: 60},
+var margin2 = {top: 60, right: 10, bottom: 60, left:20},
     width2 = 280 - margin2.left - margin2.right,
     height2 = 300 - margin2.top - margin2.bottom;
 

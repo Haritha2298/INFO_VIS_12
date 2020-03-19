@@ -120,7 +120,7 @@ function datasetButtons(num) {
 
 //datasetButtons(completeData[0].length);
 
-var margin_poly = {top: 60, right: 10, bottom: 60, left: 25},
+var margin_poly = {top: 60, right: 10, bottom: 60, left:20},
     width_poly = 280 - margin_poly.left - margin_poly.right,
     height_poly = 300 - margin_poly.top - margin_poly.bottom;
 
@@ -213,7 +213,7 @@ function updateLollipopChart(data) {
 
 ///// Horizontal Bar Chart /////
 
-var margin2_poly = {top: 40, right: 30, bottom: 70, left: 60},
+var margin2_poly = {top: 60, right: 10, bottom: 60, left:20},
     width2_poly = 280 - margin2_poly.left - margin2_poly.right,
     height2_poly = 300 - margin2_poly.top - margin2_poly.bottom;
 
@@ -228,7 +228,7 @@ var barSVG_poly = d3.select("#barChart").append("svg")
 
 // Initialize X Axis
 var barX_poly = d3.scaleLinear()
-    .range([0, width2])
+    .range([0, width2_poly])
 
 var barXaxis_poly = barSVG_poly.append("g")
     .attr("class", "myXaxis_poly")
@@ -236,7 +236,7 @@ var barXaxis_poly = barSVG_poly.append("g")
 // initialize Y axis
 
 var barY_poly = d3.scaleBand()
-    .range([0, width2])
+    .range([0, width2_poly])
     .padding(0.1);
 
 var barYaxis_poly = barSVG_poly.append("g")
