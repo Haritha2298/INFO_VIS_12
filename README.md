@@ -16,7 +16,7 @@ Clicking on the compare neighbourhoods button activates the feature.
 
 ## Who are the Target groups for this projects?
 
-The project is aimed at reaching the general public. It can be used as a map by a common man to track the areas of Amsterdam. Using the map one can get to know the nearest stops for tram and metro, nearest playground and it also can help the city planning authorities and the municipal departments to understan how a particular area fares in comparison to the other. With the Panorama view, a person can experience the place before even actually going there. So the project is targetted to be useful by all sections of the people.
+The project is aimed at reaching the general public. It can be used as a map by ordinary people to explore areas of Amsterdam. Using the map one can get to know the nearest stops for tram and metro, nearest playground and it also can help the city planning authorities and the municipal departments to understan how a particular area fares in comparison to the other as it allows for a grand overview. With the Panorama view, a person can experience the place before even actually going there. So the project is targetted at people with a variety of backgrounds or aims.
 
 ## Application Structure:
 
