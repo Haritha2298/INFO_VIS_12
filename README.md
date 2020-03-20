@@ -9,7 +9,7 @@ Discover Amsterdam gives the user four different features to work with. This all
 
 1. Selection of Marker Points: The model allows the user to select one or more items from the list of available items in the dropdown. Clicking on the Submit button, plots the markers onto the map. This gives a clear representation of where these objects are located in Amsterdam.
 2. Polygon Comparison: As part of the implementation, the project comes with a draw polygon and compare feature. The user is allowed to draw any number of polygons on the map using the Draw polygon tool. Clicking on the Compare Polygons button will give a detailed insight into the number of object present in the areas of the polygons. This allows the user to compare the different areas of Amsterdam.
-3.Neighbourhood Comparison: We also give a standard neighbourhood comparison feature. This allows the user to compare the predefined neighbourhoods of Amsterdam. The output is the comparison of objects between the neighbourhoods and this is more of a predefined feature.
+3. Neighbourhood Comparison: We also give a standard neighbourhood comparison feature. This allows the user to compare the predefined neighbourhoods of Amsterdam. The output is the comparison of objects between the neighbourhoods and this is more of a predefined feature.
 Clicking on the compare neighbourhoods button activates the feature.
 4. Panorama View: We have made two views available as part of the project. Clicking on the Switch to Panorama button, removes all the object markers from the map and replaces them with panorama markers. Clicking on a panorama marker, opens the panoramic view of that particular place.
 
