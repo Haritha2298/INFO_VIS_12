@@ -13,13 +13,6 @@ var map = new mapboxgl.Map({
   zoom: 12,   
 });
 
-// var draw = new MapboxDraw({ 
-//   displayControlsDefault: false,
-//   controls: {
-//     polygon: true,
-//     trash: true
-//   }
-// });
 
 //map.addControl(draw, 'top-right');
 
@@ -55,7 +48,8 @@ map.on('load', function() {
       'visibility': 'visible'
     },
     'paint': {
-      'fill-color': 'rgba(3, 157, 252, 0.2)',
+      // 'fill-color': 'rgba(3, 157, 252, 0.2)',
+      'fill-color': 'rgba(173,216,230, 0.4)',
       'fill-outline-color': 'rgba(0, 0, 0, 1)'
     }
   });
@@ -409,7 +403,7 @@ map.on('load', function() {
   map.addSource('panoramas', {
     'type': 'geojson',
     'data': 'static/data/panoramas.json',
-    'cluster': true,
+    'cluster': false,
     'clusterMaxZoom': 14,
     'clusterRadius': 50,
   });

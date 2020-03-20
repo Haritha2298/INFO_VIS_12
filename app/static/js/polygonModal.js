@@ -13,7 +13,7 @@ var polygonCollection_absolute = [];
 var polygonCollection_relative = [];
 
 function openPolygonPanel() {
-    document.getElementById("polygonPanel").style.width = "300px";
+    document.getElementById("polygonPanel").style.width = "350px";
     //close neighborhood Panel
     document.getElementById("neighborhoodPanel").style.width = "0";
     //polygonCounting();
@@ -120,7 +120,7 @@ function datasetButtons(num) {
 
 //datasetButtons(completeData[0].length);
 
-var margin_poly = {top: 60, right: 10, bottom: 60, left:20},
+var margin_poly = {top: 60, right: 10, bottom: 60, left:50},
     width_poly = 280 - margin_poly.left - margin_poly.right,
     height_poly = 300 - margin_poly.top - margin_poly.bottom;
 
@@ -213,7 +213,7 @@ function updateLollipopChart(data) {
 
 ///// Horizontal Bar Chart /////
 
-var margin2_poly = {top: 60, right: 10, bottom: 60, left:20},
+var margin2_poly = {top: 80, right: 10, bottom: 60, left:75},
     width2_poly = 280 - margin2_poly.left - margin2_poly.right,
     height2_poly = 300 - margin2_poly.top - margin2_poly.bottom;
 

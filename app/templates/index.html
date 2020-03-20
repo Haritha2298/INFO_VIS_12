@@ -86,7 +86,7 @@ body, html {height: 100%}
 
   </header>
   <section id="mapss" class="mapimg">
-<center>
+<!-- <center> -->
   <!-- Build your select: -->
   <select id='dropdown-menu' class='selectpicker' multiple data-live-search="true">
     <!-- <option value="bridge.json">Bridges</option>
@@ -125,7 +125,8 @@ body, html {height: 100%}
       loadData();">Finished Polygons</button> -->
     
   <!-- <input type="button" id="showHideMarkers" data-text-swap="Show Markers" value="Remove Markers"/> -->
-  <button id= "showHideMarkers" class="btn btn-demo" data-text-swap="Make Markers Visible">Switch to Panaroma</button>
+  <button id= "showHideMarkers" class="btn btn-demo" data-text-swap="Make Object Markers Visible" onclick="document.getElementById('polygonPanel').style.width = '0';
+  document.getElementById('neighborhoodPanel').style.width = '0';">Switch to Panaroma</button>
 
   <!-- Button to open Polygon Panel -->
   <button type="button" class="btn btn-demo" onclick="openPolygonPanel();">
@@ -136,7 +137,7 @@ body, html {height: 100%}
   <button type="button" class="btn btn-demo" onclick="openNeighborhoodPanel();">
     Compare Neighborhoods
   </button>
- </center>
+ <!-- </center> -->
   <!-- Initialize the plugin: -->
   <script type="text/javascript">
   $('select').selectpicker();

@@ -63,7 +63,7 @@
   z-index: 1; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   padding-bottom: 50px;
-  left: 0;
+  padding-left: 100px;
   top: 0;
   width: 80%; /* Full width */
   height: 80%; /* Full height */
@@ -87,6 +87,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+
 
 .polygonButtons {
   width : 50px;
@@ -120,3 +121,4 @@
   font-size: 36px;
   margin-left: 50px;
 }
+

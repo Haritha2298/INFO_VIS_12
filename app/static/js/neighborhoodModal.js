@@ -1,19 +1,4 @@
-// // Load files into variables
-// var tram_stop_data;
-// $.ajax({
-//   dataType: "geojson",
-//   url: "/static/data/tram_stop.json",
-//   async: false,
-//   success: function(data){console.log("load tram"); tram_stop_data = data;}
-// });
 
-// var tree_data;
-// $.ajax({
-//   dataType: "geojson",
-//   url: "/static/data/tree.json",
-//   async: false,
-//   success: function(data){console.log("load tree"); tree_data = data;}
-// });
 
 // object to map dropdown features to data
 const dataMapping = {
@@ -47,7 +32,7 @@ const absolute_counts = {
 }
 
 function openNeighborhoodPanel() {
-    document.getElementById("neighborhoodPanel").style.width = "300px";
+    document.getElementById("neighborhoodPanel").style.width = "350px";
     // close the polygon Panel
     document.getElementById("polygonPanel").style.width = "0";
 };
@@ -74,9 +59,6 @@ map.on('click', 'amsterdam-layer', function(e) {
         // add new name
         nameDiv.appendChild(title);
         
-        // popup.setLngLat(e.lngLat)
-        //     //.setHTML(description)
-        //     .addTo(map);
 
     
     //Collect the total amount of stuff inside the polygon
@@ -90,21 +72,6 @@ map.on('click', 'amsterdam-layer', function(e) {
         dataArray.push(dataMapping[listItem]);
         figLabels.push(labels[listItem]);
     });
-    // selectedDropdownFeatures.forEach(function(listItem, index){
-    //     console.log("In For Each");
-        
-    //     d3.json("/static/data/" + listItem + ".json").then(function(data){
-    //     // JSON.parse("/static/data/" + listItem + ".json", function(data) {
-
-        
-    //         var single_marker_count = {};
-    //         var neighborhoodPolygon = turf.polygon([clickCoordinates[0]]);
-    //         var markersInNeighborhood = turf.pointsWithinPolygon(data, neighborhoodPolygon);
-    //         single_marker_count['marker'] = listItem;
-    //         single_marker_count['count'] = markersInNeighborhood.features.length;
-            
-    //         counts_array.push(single_marker_count);
-    //       //counts_array[index] = single_marker_count;
         
     //     });
     var myFiles = ['/static/data/metro_stops.json', '/static/data/trash.json'];
@@ -145,15 +112,6 @@ map.on('click', 'amsterdam-layer', function(e) {
     console.log(proportion_total);
     updateLollipopChart2(counts_array);
     updateBarChart2(proportion_total);
-
-    // d3Action.then(function(counts_array){
-    //     console.log("Final_output");
-    //     console.log(counts_array);
-    //     console.log(counts_array[0]);
-    //     console.log(counts_array[1])
-    //     updateLollipopChart2(counts_array);
-    // });
-    
         
     });
     
@@ -169,7 +127,7 @@ var popup = new mapboxgl.Popup({
 }); 
 
 
-var margin = {top: 60, right: 10, bottom: 60, left:25},
+var margin = {top: 60, right: 10, bottom: 60, left:50},
     width = 280 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 
@@ -276,7 +234,7 @@ function updateLollipopChart2(data) {
 
 ///// Horizontal Bar Chart /////
 
-var margin2 = {top: 60, right: 10, bottom: 60, left:20},
+var margin2 = {top: 80, right: 10, bottom: 60, left:75},
     width2 = 280 - margin2.left - margin2.right,
     height2 = 300 - margin2.top - margin2.bottom;
 
@@ -287,7 +245,7 @@ var barSVG2 = d3.select("#barChart-hood").append("svg")
     .attr("height", height2 + margin2.top + margin2.bottom)
     .append("g")
     //.attr("transform", "translate(500, 30)")
-    .attr("transform", "translate(" + margin.right + "," + margin.top + ")");
+    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 
 // Initialize X Axis
 var barX = d3.scaleLinear()
@@ -302,7 +260,7 @@ var barXaxis = barSVG2.append("g")
 
 var barY = d3.scaleBand()
     .range([0, width2])
-    .padding(0.1);
+    .padding(1);
 
 var barYaxis = barSVG2.append("g")
     .attr("class", "myYaxis")
