@@ -26,9 +26,8 @@ Discover Amsterdam is a web application. The application is hosted on a local de
                  <pre>                         python run.py                                      </pre>
 3)After executing, type in the following line to start the development server
                  <pre>                         flask run                                      </pre>
-3)This will stop the Flask development server which will be running at http://127.0.0.1:5000/ . 
-
-4)Go to the link and experience - Discover Amsterdam.
+4)This will stop the Flask development server which will be running at http://127.0.0.1:5000/ . 
+5)Go to the link and experience - Discover Amsterdam.
 
 ## Contributors:
 1) Nils Lehmann
