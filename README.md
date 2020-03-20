@@ -23,10 +23,11 @@ Discover Amsterdam is a web application. The application is hosted on a local de
 ## How to run the Application?
 1) Download the repository.
 2) From a python command line interface, type in the following code
- <pre>                         python run.py                                      </pre>
+                 <pre>                         python run.py                                      </pre>
 3)After executing, type in the following line to start the development server
- <pre>                         flask run                                      </pre>
-3)This will stop the Flask development server which will be running at http://127.0.0.1:5000/.
+                 <pre>                         flask run                                      </pre>
+3)This will stop the Flask development server which will be running at http://127.0.0.1:5000/ . 
+
 4)Go to the link and experience - Discover Amsterdam.
 
 ## Contributors:
