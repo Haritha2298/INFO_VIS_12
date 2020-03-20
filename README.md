@@ -1,4 +1,4 @@
-#Information Visualization - Discover Amsterdam 
+# Information Visualization - Discover Amsterdam 
 
 ## Introduction:
 Discover Amsterdam is a visualization project done for the course Information Visualization at the University of Amsterdam. The project is aimed at providing a Visual representation of the important and essential places in Amsterdam like the Metro stops, Tram stops etc. and also objects like tree, trashcans. These objects and the places are plotted onto Amsterdam's Map. As part of the project, we do offer some features to enhance the information to the user.  
