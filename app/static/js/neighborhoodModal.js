@@ -24,10 +24,10 @@ const labels = {
 const absolute_counts = {
     "Tram Stops": 100,
     "Tree": 100,
-    "Trash Disposal": 12532,
+    "Trash Disposal": 100,
     "Sports Field": 100,
     "Metro Station": 58,
-    "Solar Panel": 12000 ,
+    "Solar Panel": 1200 ,
     "Playground": 100
 }
 
@@ -286,6 +286,13 @@ function updateBarChart2(barData) {
     // Update yaxis
     barY.domain(barData.map(function(d) { return d.marker; }));
     barYaxis.transition().duration(1000).call(d3.axisLeft(barY));
+
+    //
+    barXaxis.selectAll("text")
+        .style("text-anchor", "start")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-35)");
 
     // variable to update the lines
     var l2 = barSVG2.selectAll(".lines_hood")

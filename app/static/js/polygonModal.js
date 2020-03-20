@@ -65,7 +65,7 @@ function openPolygonPanel() {
             
             var single_marker_relative = {};
             single_marker_relative['marker'] = figLabelsPoly[k];
-            single_marker_relative['value'] = (polygonMarkers.features.length / absolute_counts[figLabelsPoly[k]]);
+            single_marker_relative['value'] = (polygonMarkers.features.length / absolute_counts[figLabelsPoly[k]]) * 100;
             singlePolyRelative.push(single_marker_relative);
             
 
@@ -120,7 +120,7 @@ function datasetButtons(num) {
 
 //datasetButtons(completeData[0].length);
 
-var margin_poly = {top: 60, right: 10, bottom: 60, left:50},
+var margin_poly = {top: 60, right: 10, bottom: 60, left:70},
     width_poly = 280 - margin_poly.left - margin_poly.right,
     height_poly = 300 - margin_poly.top - margin_poly.bottom;
 
@@ -154,7 +154,7 @@ var y_axis_poly = lolliSVG.append("g")
 // Add Title
 lolliSVG.append("text")
         .attr("x", (width_poly / 2))             
-        .attr("y", 0 - (margin_poly.top / 2))
+        .attr("y", 0 - (margin_poly.top / 2) -10)
         .attr("text-anchor", "middle")  
         .style("font-size", "16px")  
         .text("Absolute Count");
@@ -170,6 +170,13 @@ function updateLollipopChart(data) {
     // update Y axis
     y_poly.domain([0, d3.max(data, function(d) { return d.count + 2 ;})]);
     y_axis_poly.transition().duration(1000).call(d3.axisLeft(y_poly));
+
+    //
+    x_axis_poly.selectAll("text")
+    .style("text-anchor", "end")
+    .attr("dx", "-.8em")
+    .attr("dy", ".15em")
+    .attr("transform", "rotate(-15)");
 
     // variable j to update the lines
     var l = lolliSVG.selectAll(".myLine")
@@ -213,7 +220,7 @@ function updateLollipopChart(data) {
 
 ///// Horizontal Bar Chart /////
 
-var margin2_poly = {top: 80, right: 10, bottom: 60, left:75},
+var margin2_poly = {top: 100, right: 10, bottom: 60, left:75},
     width2_poly = 280 - margin2_poly.left - margin2_poly.right,
     height2_poly = 300 - margin2_poly.top - margin2_poly.bottom;
 
@@ -224,7 +231,7 @@ var barSVG_poly = d3.select("#barChart").append("svg")
     .attr("height", height2_poly + margin2_poly.top + margin2_poly.bottom)
     .append("g")
     //.attr("transform", "translate(500, 30)")
-    .attr("transform", "translate(" + margin_poly.right + "," + margin_poly.top + ")");
+    .attr("transform", "translate(" + margin_poly.left+ "," + margin_poly.top + ")");
 
 // Initialize X Axis
 var barX_poly = d3.scaleLinear()
@@ -237,14 +244,14 @@ var barXaxis_poly = barSVG_poly.append("g")
 
 var barY_poly = d3.scaleBand()
     .range([0, width2_poly])
-    .padding(0.1);
+    .padding(1);
 
 var barYaxis_poly = barSVG_poly.append("g")
     .attr("class", "myYaxis_poly")
 
 barSVG_poly.append("text")
     .attr("x", (width2_poly / 2))             
-    .attr("y", 0 - (margin2_poly.top / 2))
+    .attr("y", 0 - 40)
     .attr("text-anchor", "middle")  
     .style("font-size", "16px")  
     .text("Relative to Total");
@@ -264,6 +271,12 @@ function updateBarChart(barData) {
     barY_poly.domain(barData.map(function(d) { return d.marker; }));
     barYaxis_poly.transition().duration(1000).call(d3.axisLeft(barY_poly));
 
+
+    barXaxis_poly.selectAll("text")
+    .style("text-anchor", "start")
+    .attr("dx", "-.8em")
+    .attr("dy", ".15em")
+    .attr("transform", "rotate(-35)");
 
     // variable to update the lines
     var l2_poly = barSVG_poly.selectAll(".lines_poly")
