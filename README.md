@@ -14,7 +14,7 @@ Discover Amsterdam gives the user four different features to work with. This all
 Clicking on the compare neighbourhoods button activates the feature.
 4. Panorama View: We have made two views available as part of the project. Clicking on the Switch to Panorama button, removes all the object markers from the map and replaces them with panorama markers. Clicking on a panorama marker, opens the panoramic view of that particular place.
 
-## Who are the Target groups for this projects?
+## Who are the Target groups for this project?
 
 The project is aimed at reaching the general public. It can be used as a map by ordinary people to explore areas of Amsterdam. Using the map one can get to know the nearest stops for tram and metro, nearest playground and it also can help the city planning authorities and the municipal departments to understand how a particular area fares in comparison to the other as it allows for a grand overview. With the Panorama view, a person can experience the place before even actually going there. So the project is targetted at people with a variety of backgrounds or aims.
 
