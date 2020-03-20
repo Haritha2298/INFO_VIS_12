@@ -16,7 +16,6 @@ function openPolygonPanel() {
     document.getElementById("polygonPanel").style.width = "350px";
     //close neighborhood Panel
     document.getElementById("neighborhoodPanel").style.width = "0";
-    //polygonCounting();
     
     //Collect the total amount of stuff inside the polygon
     var dropdownMenu = document.getElementById('dropdown-menu');
@@ -30,9 +29,6 @@ function openPolygonPanel() {
         dataArrayPoly.push(dataMapping[listItem]);
         figLabelsPoly.push(labels[listItem]);
     });
-    
-
-    //var polygonCollection = [];
 
     var drawnPolygons = draw.getAll();
     
@@ -40,6 +36,7 @@ function openPolygonPanel() {
     polygonCollection_relative.length = 0;
     
 
+    // for each drawn polygon get its coordinates and use turf to count the points within
     for(m=0; m<drawnPolygons.features.length; m++){
         var polygonCoord = drawnPolygons.features[m].geometry.coordinates[0];
         var polygon = turf.polygon(
@@ -50,10 +47,8 @@ function openPolygonPanel() {
         // reset polygon count array
         var singlePolygonCount = [];
         var singlePolyRelative = [];
-        //singlePolygonCount.length = 0;
 
         for(k=0; k<dataArrayPoly.length ; k++){
-        //dataArrayPoly.forEach(function(listItem, index){
             
             var polygonMarkers = turf.pointsWithinPolygon(dataArrayPoly[k], polygon);
             var single_marker = {};
@@ -72,23 +67,17 @@ function openPolygonPanel() {
           
         };
 
-        console.log("Single Polygon Count");
-        console.log(singlePolygonCount); 
-
         polygonCollection_absolute.push(singlePolygonCount);
-        console.log("Final Polygon Collection");
-        console.log(polygonCollection_absolute);
 
         polygonCollection_relative.push(singlePolyRelative);
-        //polygonCollection.push(singlePolygonCount);
 
     };
+    // set buttons and update charts
     datasetButtons(polygonCollection_absolute.length);
     updateLollipopChart(polygonCollection_absolute[0]);
     updateBarChart(polygonCollection_relative[0]);
 };
-  
-  /* Set the width of the sidebar to 0 (hide it) */
+
 function closePolygonPanel() {
     document.getElementById("polygonPanel").style.width = "0";
 }
@@ -96,6 +85,7 @@ function closePolygonPanel() {
 
 // function to dynamically create buttons for each dataset
 function datasetButtons(num) { 
+    
     // remove previous buttons
     var buttonNode = document.getElementById("button-polygon");
     while (buttonNode.firstChild) {
@@ -118,8 +108,7 @@ function datasetButtons(num) {
     }
 };
 
-//datasetButtons(completeData[0].length);
-
+///// Lolli Chart /////
 var margin_poly = {top: 60, right: 10, bottom: 60, left:70},
     width_poly = 280 - margin_poly.left - margin_poly.right,
     height_poly = 300 - margin_poly.top - margin_poly.bottom;
@@ -132,9 +121,6 @@ var lolliSVG = d3.select("#lollipopChart")
         .append("g")
         .attr("transform",
                 "translate(" + margin_poly.left + "," + margin_poly.top + ")");
-
-
-// Lollipop chart with update
 
 // Initialize X axis
 var x_poly = d3.scaleBand()
@@ -178,7 +164,7 @@ function updateLollipopChart(data) {
     .attr("dy", ".15em")
     .attr("transform", "rotate(-15)");
 
-    // variable j to update the lines
+    // variable l to update the lines
     var l = lolliSVG.selectAll(".myLine")
         .data(data)
 
@@ -196,7 +182,7 @@ function updateLollipopChart(data) {
     
     l.exit().remove();
 
-    // variabl u to update the circles
+    // variabl c to update the circles
     var c = lolliSVG.selectAll("circle")
         .data(data)
 
@@ -214,11 +200,8 @@ function updateLollipopChart(data) {
 
 };
 
-// initialize plot
-//updateLollipopChart(completeData[0], 0);
 
-
-///// Horizontal Bar Chart /////
+///// Horizontal Lolli Chart /////
 
 var margin2_poly = {top: 100, right: 10, bottom: 60, left:75},
     width2_poly = 280 - margin2_poly.left - margin2_poly.right,
@@ -285,7 +268,6 @@ function updateBarChart(barData) {
     l2_poly.enter()
         .append("line")
         .attr("class", "lines_poly")
-        //.attr("transform", "translate(" + margin2.left + "," + margin2.top + ")")
         .merge(l2_poly)
         .transition()
         .duration(1000)
@@ -303,7 +285,6 @@ function updateBarChart(barData) {
 
     c2_poly.enter()
         .append("circle")
-        //.attr("transform", "translate(" + margin2.left + "," + margin2.top + ")")
         .merge(c2_poly)
         .transition()
         .duration(1000)
@@ -315,12 +296,6 @@ function updateBarChart(barData) {
     c2_poly.exit().remove();
 
 };
-
-//Initally display first bar chart
-//updateBarChart(completeData, 0);
-
-// Initialize both charts 
-//updateCharts(completeData, 2);
 
 // function to update all charts
 function updateCharts(completeData) {

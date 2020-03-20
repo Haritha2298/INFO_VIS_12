@@ -1,6 +1,3 @@
-
-
-
 //MAPBOX TOKEN
 mapboxgl.accessToken = 'pk.eyJ1Ijoibmlsc2xlaCIsImEiOiJjazczNHVscGwwOG12M3BqdDZieHJhMW82In0.c-i1H2T6u3vjmj4WY_D2mA'
     
@@ -12,9 +9,6 @@ var map = new mapboxgl.Map({
     //-0.1,51.5119112],
   zoom: 12,   
 });
-
-
-//map.addControl(draw, 'top-right');
 
 // function to add all the markers images
 function loadIcons() {
@@ -48,7 +42,6 @@ map.on('load', function() {
       'visibility': 'visible'
     },
     'paint': {
-      // 'fill-color': 'rgba(3, 157, 252, 0.2)',
       'fill-color': 'rgba(173,216,230, 0.4)',
       'fill-outline-color': 'rgba(0, 0, 0, 1)'
     }
@@ -465,12 +458,6 @@ map.on('load', function() {
 
 });
 
-
-// add zooming controls
-// map.addControl(new mapboxgl.NavigationControl());
-// map.doubleClickZoom.disable();
-// map.scrollZoom.disable();
-
 // change cursor when hovering over amsterdam neighborhoods
 map.on('mouseenter', 'amsterdam-layer', function() {
   map.getCanvas().style.cursor = 'pointer';
@@ -480,14 +467,6 @@ map.on('mouseenter', 'amsterdam-layer', function() {
 map.on('mouseleave', 'amsterdam-layer', function() {
   map.getCanvas().style.cursor = '';
 }) ;
-
-// Display coordinates with mouse hover
-// map.on('mousemove', function(e) {
-//   document.getElementById('cordInfo').innerHTML =
-//     JSON.stringify(e.point) + 
-//     '<br />' +
-//     JSON.stringify(e.lngLat.wrap());
-// });
 
 var complete_polygon_data = [];
 // when dropdown selection is made, this function creates an object which contains counts per selection from dropdown
@@ -531,14 +510,9 @@ function countFeatures(polygon, selectedFeatures) {
   selectedFeatures.forEach(function(listItem){
     d3.json("/static/data/" + listItem + ".json").then(function(data) {
       var markerWithin = turf.pointsWithinPolygon(data, polygon);
-      //var item = {};
       var single_marker_count = {};
       single_marker_count['marker'] = listItem;
       single_marker_count['count'] = markerWithin.features.length;
-      //single_marker_count.push(listItem);
-      //single_marker_count.push(markerWithin.features.length);
-      //counts_object[listItem] = markerWithin.features.length;
-      //counts_array.push(markerWithin.features.length);
       counts_array.push(single_marker_count);  
     });
   });
@@ -572,7 +546,6 @@ function displayLayers (datasetList){
   for (var n=0; n < datasetList.length; n++)
   {
     selected_visible = datasetList[n];
-    //var visibility = map.getLayoutProperty(selected_visible, 'visibility');
 
     // set the markers themselves to visible
     console.log(selected_visible);
@@ -630,6 +603,7 @@ showHideButton.addEventListener('click', function() {
   }
 }, false);
 
+// make marker layers visible or invisible
 function showHideLayers (datasetList, addOrRemove){
 
   if (addOrRemove === true){
@@ -641,7 +615,6 @@ function showHideLayers (datasetList, addOrRemove){
   for (var n=0; n < datasetList.length; n++)
   {
     selected_visible = datasetList[n];
-    //var visibility = map.getLayoutProperty(selected_visible, 'visibility');
 
     // set the markers themselves to visible
     map.setLayoutProperty(selected_visible, 'visibility', visibility);
@@ -658,15 +631,12 @@ function showHideLayers (datasetList, addOrRemove){
 
 }
 
+// open up panorama picture on clicking the camera icon
 map.on('click', 'panoramas', function(e) {
   var panoCoords = e.features[0].geometry.coordinates.slice();
   var panoURL = e.features[0].properties['img_url'];
   var panoDescription = e.features[0].properties['neighbourhood'];
 
-  // new mapboxgl.Popup()
-  //   .setLngLat(panoCoords)
-  //   .setHTML(panoDescription)
-  //   .addTo(map);
   var panoModal = document.getElementById("panoModal");
   var span = document.getElementById("panoClose");
 

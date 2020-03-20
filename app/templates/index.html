@@ -89,18 +89,6 @@ body, html {height: 100%}
 <!-- <center> -->
   <!-- Build your select: -->
   <select id='dropdown-menu' class='selectpicker' multiple data-live-search="true">
-    <!-- <option value="bridge.json">Bridges</option>
-    <option value="building.json">Buildings</option>
-    <option value="high_voltage_pylon.json">High Voltage Pylons</option>
-    <option value="lamp_post.json">Lamp Posts</option>
-    <option value="metro_stop.json">Metro Stops</option>
-    <option value="park.json">Parks</option>
-    <option value="toilets.json">Toilets</option>
-    <option value="trafic_light.json">Traffic Lights</option>
-    <option value="train_stations.json">Train Stations</option>
-    <option value="trash.json">Trash</option>
-    <option value="bus_stop">Bus Stops</option>
-    <option value="wind_turbine.json">Wind Turbines</option> -->
     <option value="playground">Playgrounds</option>
     <option value="tram_stop">Tram Stops</option>
     <option value="tree">Trees</option>
@@ -110,19 +98,10 @@ body, html {height: 100%}
     <option value="solarPanels">Solar Panels</option>
   </select>
   
-  <!-- <input type="button" id='submit' value="Submit" onclick="getSelectValues()"/> -->
-  <!-- <button value="Submit" onclick="
-      var el = document.getElementByTagName('select')[0];
-      console.log(getSelectValues(el))";>
-  </button> -->
   <button type="button" class="btn btn-demo" onclick="
       var el = document.getElementById('dropdown-menu');
       var datasets = getSelectValues(el);
       displayLayers(datasets);">Submit</button>
-
-  <!-- <button type="button" class="btn btn-demo" onclick="
-      openPolygonModal();
-      loadData();">Finished Polygons</button> -->
     
   <!-- <input type="button" id="showHideMarkers" data-text-swap="Show Markers" value="Remove Markers"/> -->
   <button id= "showHideMarkers" class="btn btn-demo" data-text-swap="Make Object Markers Visible" onclick="document.getElementById('polygonPanel').style.width = '0';
@@ -153,8 +132,6 @@ body, html {height: 100%}
       <img id="panoUrl" alt="Panorama Picture" class="center" width="750" height="600">
     </div>
   </div>
-
-  <!-- <pre id='cordInfo'></pre> -->
 
 
   <div class="container" id='map-container'>

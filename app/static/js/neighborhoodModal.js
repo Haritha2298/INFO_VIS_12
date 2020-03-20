@@ -1,5 +1,3 @@
-
-
 // object to map dropdown features to data
 const dataMapping = {
     "tram_stop": tram_stop_data,
@@ -37,7 +35,6 @@ function openNeighborhoodPanel() {
     document.getElementById("polygonPanel").style.width = "0";
 };
 
-/* Set the width of the sidebar to 0 (hide it) */
   function closeNeighborhoodPanel() {
     document.getElementById("neighborhoodPanel").style.width = "0";
 }
@@ -73,23 +70,14 @@ map.on('click', 'amsterdam-layer', function(e) {
         figLabels.push(labels[listItem]);
     });
         
-    //     });
-    var myFiles = ['/static/data/metro_stops.json', '/static/data/trash.json'];
 
 
     var myData = [tram_stop_data, metro_stops_data, tree_data, trash_data, sports_field_data];
-    console.log("My Data");
-    console.log(myData[0]);
-    console.log(myData[1]);
     var counts_array = [];
     var proportion_total = [];
     
-    //var d3Action = new Promise(function(resolve, reject){
-        //selectedDropdownFeatures.forEach(function(listItem){
         dataArray.forEach(function(listItem, index){
 
-    
-            //d3.json("static/data/" + listItem + ".json").then(function(data) {
                 var neighborhoodMarkers = turf.pointsWithinPolygon(listItem, neighborhoodPolygon);
                 var single_marker_count = {};
                 var proportional_count = {};
@@ -100,16 +88,7 @@ map.on('click', 'amsterdam-layer', function(e) {
                 proportional_count['marker'] = figLabels[index];
                 proportional_count['value'] = (neighborhoodMarkers.features.length / absolute_counts[figLabels[index]]) * 100;
                 proportion_total.push(proportional_count);
-                //resolve(counts_array);
-                //console.log("promise kept");
-            //});
         });
-
-    //});
-    console.log("Counts for loaded data")
-    console.log(counts_array);
-    console.log("Bar Chart data");
-    console.log(proportion_total);
     updateLollipopChart2(counts_array);
     updateBarChart2(proportion_total);
         
@@ -228,11 +207,8 @@ function updateLollipopChart2(data) {
     u.exit().remove();
 };
 
-// initialize plot
-//updateLollipopChart2(dataset1);
 
-
-///// Horizontal Bar Chart /////
+///// Horizontal Lolli Chart /////
 
 var margin2 = {top: 80, right: 10, bottom: 60, left:75},
     width2 = 280 - margin2.left - margin2.right,
@@ -253,8 +229,6 @@ var barX = d3.scaleLinear()
 
 var barXaxis = barSVG2.append("g")
     .attr("class", "myXaxis");
-    //.call(d3.axisTop(barX));
-    //.attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
 
 // initialize Y axis
 
@@ -301,7 +275,6 @@ function updateBarChart2(barData) {
     l2.enter()
         .append("line")
         .attr("class", "lines_hood")
-        //.attr("transform", "translate(" + margin2.left + "," + margin2.top + ")")
         .merge(l2)
         .transition()
         .duration(1000)
@@ -318,7 +291,6 @@ function updateBarChart2(barData) {
 
     c2.enter()
         .append("circle")
-        //.attr("transform", "translate(" + margin2.left + "," + margin2.top + ")")
         .merge(c2)
         .transition()
         .duration(1000)
@@ -332,6 +304,3 @@ function updateBarChart2(barData) {
 };
 
 
-
-//Initally display first bar chart
-//updateBarChart2(barData1);
